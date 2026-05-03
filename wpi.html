@@ -595,43 +595,74 @@ async function loadRoute(){
     const route = await r.json();
     const date = route.date;
     const today = new Date().toISOString().slice(0,10);
-    const stale = (date !== today) ? '<span style="color:var(--amber);font-weight:600"> ⚠ this route is dated '+date+', today is '+today+'</span>' : '';
-    lede.innerHTML = `<strong>${route.dateLabel}</strong> · ${route.city} · ${route.targetStops} stops · start ${route.startTime}${stale}<br><span style="font-size:13px;color:var(--text-m)">${route.note||''}</span>`;
+    const stale = (date !== today) ? '<span style="color:var(--amber);font-weight:600"> ⚠ this list is dated '+date+', today is '+today+'</span>' : '';
+    const isWarmup = route.mode === 'warmup';
+    const modeBadge = isWarmup
+      ? '<span style="display:inline-block;background:#0d3b66;color:#fff;font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 10px;border-radius:6px;margin-left:8px">📞 WARMUP MODE — calls + emails</span>'
+      : '<span style="display:inline-block;background:var(--gold);color:var(--navy);font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.04em;padding:5px 10px;border-radius:6px;margin-left:8px">📍 IN-PERSON MODE</span>';
+    lede.innerHTML = `<strong>${route.dateLabel}</strong>${modeBadge}<br>${route.city} · ${route.targetStops} ${isWarmup?'leads to warm':'stops'} · start ${route.startTime}${stale}<br><span style="font-size:13px;color:var(--text-m)">${route.note||''}</span>`;
     stopsEl.innerHTML = route.stops.map(s=>{
       const star = s.priority9x12 ? '<span style="color:var(--gold-d);font-weight:800" title="9x12 priority category">★</span> ' : '';
       const bandColor = BAND_COLOR[s.sizeBand] || '#162B44';
       const closersHtml = (s.topClosers||[]).map(c=>`<span style="display:inline-block;background:var(--gold-pale);color:var(--gold-d);font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;margin:2px 4px 2px 0">💎 ${c.label}</span>`).join('');
       const cat9x12 = s.category9x12 ? `<span style="background:var(--navy-pale);color:var(--navy);font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;margin-left:6px">9x12: ${s.category9x12}</span>` : '';
-      return `<div class="card" id="stop-${s.n}" style="border-left:4px solid ${bandColor};padding:18px 20px;margin-bottom:12px;position:relative">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px">
-          <div style="flex:1;min-width:0">
-            <div style="font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-l);margin-bottom:4px">Stop ${s.n} · ${s.time||'flexible'} · <span style="color:${bandColor}">${BAND_LABEL[s.sizeBand]||'Unknown size'}</span></div>
-            <div style="font-family:var(--ff);font-size:22px;font-weight:600;color:var(--navy);line-height:1.2">${star}${s.name}</div>
-            <div style="font-size:13px;color:var(--text-m);margin-top:4px">${s.industry}${cat9x12}</div>
-          </div>
-          <div class="stop-status-badge" style="font-size:11px;text-align:right"></div>
+      const headerLeft = isWarmup
+        ? `<div style="font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-l);margin-bottom:4px">Lead ${s.n} · <span style="color:${bandColor}">${BAND_LABEL[s.sizeBand]||'Unknown size'}</span></div>`
+        : `<div style="font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-l);margin-bottom:4px">Stop ${s.n} · ${s.time||'flexible'} · <span style="color:${bandColor}">${BAND_LABEL[s.sizeBand]||'Unknown size'}</span></div>`;
+      const actionRow = isWarmup ? `
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+          ${s.phone?`<a href="${s.phoneDial}" style="background:var(--gold);color:var(--navy);text-decoration:none;font-size:13px;font-weight:700;padding:9px 14px;border-radius:6px">📞 Call ${s.phone}</a>`:''}
+          ${s.emailUrl?`<a href="${s.emailUrl}" target="_blank" rel="noopener" style="background:var(--navy);color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:9px 14px;border-radius:6px">✉ Email (Gmail draft)</a>`:''}
+          ${s.website?`<a href="https://${s.website.replace(/^https?:\\/\\//,'')}" target="_blank" rel="noopener" style="background:#fff;border:1px solid var(--border);color:var(--navy);text-decoration:none;font-size:12px;padding:9px 12px;border-radius:6px">🌐 site</a>`:''}
+          ${s.rating?`<span style="background:var(--cream);color:var(--text-m);font-size:11px;padding:9px 10px;border-radius:6px">★ ${s.rating} (${s.reviews})</span>`:''}
         </div>
+        <details style="margin:8px 0;font-size:12px"><summary style="cursor:pointer;color:var(--navy);font-weight:600">📍 Address (for Tuesday's visit)</summary><div style="padding:8px 0;color:var(--text-m)"><a href="${s.mapsUrl}" target="_blank" rel="noopener" style="color:var(--navy)">${s.address}</a></div></details>` : `
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
           <a href="${s.mapsUrl}" target="_blank" rel="noopener" style="background:var(--navy);color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:6px">📍 ${s.address}</a>
           ${s.phone?`<a href="${s.phoneDial}" style="background:var(--gold);color:var(--navy);text-decoration:none;font-size:12px;font-weight:700;padding:7px 12px;border-radius:6px">📞 ${s.phone}</a>`:''}
           ${s.website?`<a href="https://${s.website.replace(/^https?:\\/\\//,'')}" target="_blank" rel="noopener" style="background:#fff;border:1px solid var(--border);color:var(--navy);text-decoration:none;font-size:12px;padding:7px 12px;border-radius:6px">🌐 site</a>`:''}
           ${s.rating?`<span style="background:var(--cream);color:var(--text-m);font-size:11px;padding:7px 10px;border-radius:6px">★ ${s.rating} (${s.reviews})</span>`:''}
-        </div>
+        </div>`;
+      const scriptBlock = isWarmup && s.phoneScript ? `
+        <div style="background:var(--cream);border-left:3px solid var(--gold);padding:10px 14px;margin:10px 0;border-radius:0 6px 6px 0">
+          <div style="font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:4px">📞 Phone Script</div>
+          <div style="font-family:var(--ff);font-size:14px;font-style:italic;color:var(--text);line-height:1.55">"${s.phoneScript}"</div>
+        </div>` : `
         <div style="background:var(--cream);border-left:3px solid var(--gold);padding:10px 14px;margin:10px 0;border-radius:0 6px 6px 0">
           <div style="font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:4px">Lead-In #${s.leadInIdx}</div>
           <div style="font-family:var(--ff);font-size:14px;font-style:italic;color:var(--text);line-height:1.55">"${s.leadInText}"</div>
-        </div>
-        <div style="margin:10px 0">
-          <div style="font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-l);margin-bottom:6px">Closer carrots if they hesitate:</div>
-          ${closersHtml}
-        </div>
-        <textarea class="notes-box" data-stop="${s.n}" style="width:100%;font-family:var(--fb);font-size:13px;padding:10px;border:1px dashed var(--border);border-radius:6px;background:#fff;min-height:50px;margin-top:8px;color:var(--text)" placeholder="Notes from the visit…">${getStopNotes(date,s.n)}</textarea>
+        </div>`;
+      const statusBtns = isWarmup ? `
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+          <button onclick="setStopStatus('${date}',${s.n},'done')" style="flex:1;background:var(--green);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">✓ Talked / Emailed</button>
+          <button onclick="setStopStatus('${date}',${s.n},'callback')" style="flex:1;background:var(--amber);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">📞 Voicemail / Try Again</button>
+          <button onclick="setStopStatus('${date}',${s.n},'skip')" style="flex:1;background:var(--text-l);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">↷ Skip</button>
+          <button onclick="setStopStatus('${date}',${s.n},'clear')" style="background:transparent;border:1px solid var(--border);color:var(--text-m);padding:8px 12px;border-radius:6px;font-size:11px;cursor:pointer">↺</button>
+        </div>` : `
         <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
           <button onclick="setStopStatus('${date}',${s.n},'done')" style="flex:1;background:var(--green);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">✓ Done</button>
           <button onclick="setStopStatus('${date}',${s.n},'callback')" style="flex:1;background:var(--amber);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">📞 Callback</button>
           <button onclick="setStopStatus('${date}',${s.n},'skip')" style="flex:1;background:var(--text-l);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">↷ Skip</button>
           <button onclick="setStopStatus('${date}',${s.n},'clear')" style="background:transparent;border:1px solid var(--border);color:var(--text-m);padding:8px 12px;border-radius:6px;font-size:11px;cursor:pointer">↺</button>
+        </div>`;
+      const notesPlaceholder = isWarmup ? 'Outcome of call/email — voicemail, talked, scheduled visit, etc.' : 'Notes from the visit…';
+      return `<div class="card" id="stop-${s.n}" style="border-left:4px solid ${bandColor};padding:18px 20px;margin-bottom:12px;position:relative">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px">
+          <div style="flex:1;min-width:0">
+            ${headerLeft}
+            <div style="font-family:var(--ff);font-size:22px;font-weight:600;color:var(--navy);line-height:1.2">${star}${s.name}</div>
+            <div style="font-size:13px;color:var(--text-m);margin-top:4px">${s.industry}${cat9x12}</div>
+          </div>
+          <div class="stop-status-badge" style="font-size:11px;text-align:right"></div>
         </div>
+        ${actionRow}
+        ${scriptBlock}
+        <div style="margin:10px 0">
+          <div style="font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-l);margin-bottom:6px">${isWarmup?'Closer carrots ready for Tuesday\'s visit:':'Closer carrots if they hesitate:'}</div>
+          ${closersHtml}
+        </div>
+        <textarea class="notes-box" data-stop="${s.n}" style="width:100%;font-family:var(--fb);font-size:13px;padding:10px;border:1px dashed var(--border);border-radius:6px;background:#fff;min-height:50px;margin-top:8px;color:var(--text)" placeholder="${notesPlaceholder}">${getStopNotes(date,s.n)}</textarea>
+        ${statusBtns}
       </div>`;
     }).join('');
     // wire notes

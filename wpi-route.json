@@ -1,15 +1,15 @@
 {
   "date": "2026-05-04",
-  "dateLabel": "Monday \u00b7 May 4, 2026",
+  "dateLabel": "Monday \u00b7 May 4, 2026 \u2014 Phone & Email Warmup",
   "city": "North Port, FL",
   "targetStops": 20,
-  "startTime": "10:00 AM Eastern",
+  "startTime": "9:00 AM Eastern (calls)",
   "generatedAt": "2026-05-03 evening",
-  "note": "First batch \u2014 North Port priority 9x12 categories. ZIP-clustered. Dual-pitch each: WPI Rewards primary, 9x12 card slot as the closer carrot.",
+  "note": "Warmup day \u2014 call and email each lead today so Tuesday in-person stops can open with \"I am following up on my call/email.\" Tonight at 7pm the next batch (Tuesday in-person) generates automatically.",
   "stops": [
     {
       "n": 1,
-      "time": "10:00",
+      "time": "",
       "name": "Complete Roofing Solutions of Florida LLC",
       "industry": "Roofing Companies",
       "category9x12": "Roofing Company",
@@ -33,11 +33,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Quick question on processing for Complete Roofing Solutions of Florida LLC",
+      "emailBody": "Hi there,\n\nLocal owner reaching out. I work with Wholesale Payments \u2014 we run a rewards program for roofing companies businesses where every dollar you process earns points toward travel, electronics, and other perks. No extra cost if you are at the qualifying rate.\n\nMost roofing companies owners are paying way more in processing fees than they realize. I would like to drop by this week to introduce myself and run a quick rate check \u2014 no charge, no presentation, no commitment. Just a side-by-side of what your real cost looks like.\n\nWhat is the best time to swing by?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Quick%20question%20on%20processing%20for%20Complete%20Roofing%20Solutions%20of%20Florida%20LLC&body=Hi%20there%2C%0A%0ALocal%20owner%20reaching%20out.%20I%20work%20with%20Wholesale%20Payments%20%E2%80%94%20we%20run%20a%20rewards%20program%20for%20roofing%20companies%20businesses%20where%20every%20dollar%20you%20process%20earns%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks.%20No%20extra%20cost%20if%20you%20are%20at%20the%20qualifying%20rate.%0A%0AMost%20roofing%20companies%20owners%20are%20paying%20way%20more%20in%20processing%20fees%20than%20they%20realize.%20I%20would%20like%20to%20drop%20by%20this%20week%20to%20introduce%20myself%20and%20run%20a%20quick%20rate%20check%20%E2%80%94%20no%20charge%2C%20no%20presentation%2C%20no%20commitment.%20Just%20a%20side-by-side%20of%20what%20your%20real%20cost%20looks%20like.%0A%0AWhat%20is%20the%20best%20time%20to%20swing%20by%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery \u2014 local sales partner with Wholesale Payments. I work with roofing companies owners on cutting card-processing costs. We have a rewards program where every dollar you process earns points \u2014 free at the qualifying rate. Could I swing by this week for 5 minutes to run a quick rate comparison?"
     },
     {
       "n": 2,
-      "time": "10:20",
+      "time": "",
       "name": "Garage Door Murdock",
       "industry": "Garage Door Installation and Repair Services",
       "category9x12": "Garage Doors",
@@ -61,11 +65,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": false
+      "priority9x12": false,
+      "emailSubject": "Your processing should be earning you something",
+      "emailBody": "Hi there,\n\nLocal sales partner with Wholesale Payments. Quick note \u2014 we have a rewards program where merchants at our qualifying rate earn points toward travel, electronics, and other perks on every transaction. For garage door installation and repair services businesses, the math usually works out to more in rewards than the platform fee.\n\nPlanning to be in the area this week and would like to swing by for 5 minutes to introduce myself and pull a quick rate comparison against what you are paying now. Free, no presentation, no commitment.\n\nBest time to catch you?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Your%20processing%20should%20be%20earning%20you%20something&body=Hi%20there%2C%0A%0ALocal%20sales%20partner%20with%20Wholesale%20Payments.%20Quick%20note%20%E2%80%94%20we%20have%20a%20rewards%20program%20where%20merchants%20at%20our%20qualifying%20rate%20earn%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks%20on%20every%20transaction.%20For%20garage%20door%20installation%20and%20repair%20services%20businesses%2C%20the%20math%20usually%20works%20out%20to%20more%20in%20rewards%20than%20the%20platform%20fee.%0A%0APlanning%20to%20be%20in%20the%20area%20this%20week%20and%20would%20like%20to%20swing%20by%20for%205%20minutes%20to%20introduce%20myself%20and%20pull%20a%20quick%20rate%20comparison%20against%20what%20you%20are%20paying%20now.%20Free%2C%20no%20presentation%2C%20no%20commitment.%0A%0ABest%20time%20to%20catch%20you%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery with Wholesale Payments. Quick call \u2014 we have a rewards program where garage door installation and repair services businesses earn perks on every transaction at no extra cost. Most owners cover the platform fee in rewards alone. Can I swing by this week to do a quick rate comparison? It is free, takes 5 minutes."
     },
     {
       "n": 3,
-      "time": "10:40",
+      "time": "",
       "name": "J C Little Plumbing Inc",
       "industry": "Plumbing Services",
       "category9x12": "Plumbing Company",
@@ -89,11 +97,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Quick question on processing for J C Little Plumbing Inc",
+      "emailBody": "Hi there,\n\nLocal owner reaching out. I work with Wholesale Payments \u2014 we run a rewards program for plumbing services businesses where every dollar you process earns points toward travel, electronics, and other perks. No extra cost if you are at the qualifying rate.\n\nMost plumbing services owners are paying way more in processing fees than they realize. I would like to drop by this week to introduce myself and run a quick rate check \u2014 no charge, no presentation, no commitment. Just a side-by-side of what your real cost looks like.\n\nWhat is the best time to swing by?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Quick%20question%20on%20processing%20for%20J%20C%20Little%20Plumbing%20Inc&body=Hi%20there%2C%0A%0ALocal%20owner%20reaching%20out.%20I%20work%20with%20Wholesale%20Payments%20%E2%80%94%20we%20run%20a%20rewards%20program%20for%20plumbing%20services%20businesses%20where%20every%20dollar%20you%20process%20earns%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks.%20No%20extra%20cost%20if%20you%20are%20at%20the%20qualifying%20rate.%0A%0AMost%20plumbing%20services%20owners%20are%20paying%20way%20more%20in%20processing%20fees%20than%20they%20realize.%20I%20would%20like%20to%20drop%20by%20this%20week%20to%20introduce%20myself%20and%20run%20a%20quick%20rate%20check%20%E2%80%94%20no%20charge%2C%20no%20presentation%2C%20no%20commitment.%20Just%20a%20side-by-side%20of%20what%20your%20real%20cost%20looks%20like.%0A%0AWhat%20is%20the%20best%20time%20to%20swing%20by%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery \u2014 local sales partner with Wholesale Payments. I work with plumbing services owners on cutting card-processing costs. We have a rewards program where every dollar you process earns points \u2014 free at the qualifying rate. Could I swing by this week for 5 minutes to run a quick rate comparison?"
     },
     {
       "n": 4,
-      "time": "11:00",
+      "time": "",
       "name": "K & M Tile Services",
       "industry": "Flooring Installers",
       "category9x12": "Flooring",
@@ -117,11 +129,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": false
+      "priority9x12": false,
+      "emailSubject": "Earning rewards on every transaction at K & M Tile Services",
+      "emailBody": "Hi there,\n\nReaching out from Wholesale Payments. We have a rewards program designed for established flooring installers businesses like yours \u2014 every dollar you process accumulates points toward premium rewards (travel, electronics, business essentials), free for merchants at the qualifying rate.\n\nI would love to stop by this week to introduce myself and walk through what your processing could look like \u2014 both the rewards angle and the cash-discount option that eliminates 2 to 3 percent of your processing cost overnight. No presentation, no pressure, just a real-numbers conversation.\n\nWhen works for a quick visit?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Earning%20rewards%20on%20every%20transaction%20at%20K%20%26%20M%20Tile%20Services&body=Hi%20there%2C%0A%0AReaching%20out%20from%20Wholesale%20Payments.%20We%20have%20a%20rewards%20program%20designed%20for%20established%20flooring%20installers%20businesses%20like%20yours%20%E2%80%94%20every%20dollar%20you%20process%20accumulates%20points%20toward%20premium%20rewards%20%28travel%2C%20electronics%2C%20business%20essentials%29%2C%20free%20for%20merchants%20at%20the%20qualifying%20rate.%0A%0AI%20would%20love%20to%20stop%20by%20this%20week%20to%20introduce%20myself%20and%20walk%20through%20what%20your%20processing%20could%20look%20like%20%E2%80%94%20both%20the%20rewards%20angle%20and%20the%20cash-discount%20option%20that%20eliminates%202%20to%203%20percent%20of%20your%20processing%20cost%20overnight.%20No%20presentation%2C%20no%20pressure%2C%20just%20a%20real-numbers%20conversation.%0A%0AWhen%20works%20for%20a%20quick%20visit%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, Dave Ivery from Wholesale Payments. Reaching out because we have a rewards program for flooring installers businesses \u2014 earn points on every dollar processed for travel, electronics, the works. Free to join at the qualifying rate. Would love to stop by this week and walk you through it. What time works?"
     },
     {
       "n": 5,
-      "time": "11:20",
+      "time": "",
       "name": "North Port Irrigation",
       "industry": "Landscaping and Lawn Care Services",
       "category9x12": "Landscaping / Lawn Care",
@@ -145,11 +161,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Your processing should be earning you something",
+      "emailBody": "Hi there,\n\nLocal sales partner with Wholesale Payments. Quick note \u2014 we have a rewards program where merchants at our qualifying rate earn points toward travel, electronics, and other perks on every transaction. For landscaping and lawn care services businesses, the math usually works out to more in rewards than the platform fee.\n\nPlanning to be in the area this week and would like to swing by for 5 minutes to introduce myself and pull a quick rate comparison against what you are paying now. Free, no presentation, no commitment.\n\nBest time to catch you?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Your%20processing%20should%20be%20earning%20you%20something&body=Hi%20there%2C%0A%0ALocal%20sales%20partner%20with%20Wholesale%20Payments.%20Quick%20note%20%E2%80%94%20we%20have%20a%20rewards%20program%20where%20merchants%20at%20our%20qualifying%20rate%20earn%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks%20on%20every%20transaction.%20For%20landscaping%20and%20lawn%20care%20services%20businesses%2C%20the%20math%20usually%20works%20out%20to%20more%20in%20rewards%20than%20the%20platform%20fee.%0A%0APlanning%20to%20be%20in%20the%20area%20this%20week%20and%20would%20like%20to%20swing%20by%20for%205%20minutes%20to%20introduce%20myself%20and%20pull%20a%20quick%20rate%20comparison%20against%20what%20you%20are%20paying%20now.%20Free%2C%20no%20presentation%2C%20no%20commitment.%0A%0ABest%20time%20to%20catch%20you%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery with Wholesale Payments. Quick call \u2014 we have a rewards program where landscaping and lawn care services businesses earn perks on every transaction at no extra cost. Most owners cover the platform fee in rewards alone. Can I swing by this week to do a quick rate comparison? It is free, takes 5 minutes."
     },
     {
       "n": 6,
-      "time": "11:40",
+      "time": "",
       "name": "O'Brien Contracting",
       "industry": "Roofing Companies",
       "category9x12": "Roofing Company",
@@ -173,11 +193,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Quick question on processing for O'Brien Contracting",
+      "emailBody": "Hi there,\n\nLocal owner reaching out. I work with Wholesale Payments \u2014 we run a rewards program for roofing companies businesses where every dollar you process earns points toward travel, electronics, and other perks. No extra cost if you are at the qualifying rate.\n\nMost roofing companies owners are paying way more in processing fees than they realize. I would like to drop by this week to introduce myself and run a quick rate check \u2014 no charge, no presentation, no commitment. Just a side-by-side of what your real cost looks like.\n\nWhat is the best time to swing by?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Quick%20question%20on%20processing%20for%20O%27Brien%20Contracting&body=Hi%20there%2C%0A%0ALocal%20owner%20reaching%20out.%20I%20work%20with%20Wholesale%20Payments%20%E2%80%94%20we%20run%20a%20rewards%20program%20for%20roofing%20companies%20businesses%20where%20every%20dollar%20you%20process%20earns%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks.%20No%20extra%20cost%20if%20you%20are%20at%20the%20qualifying%20rate.%0A%0AMost%20roofing%20companies%20owners%20are%20paying%20way%20more%20in%20processing%20fees%20than%20they%20realize.%20I%20would%20like%20to%20drop%20by%20this%20week%20to%20introduce%20myself%20and%20run%20a%20quick%20rate%20check%20%E2%80%94%20no%20charge%2C%20no%20presentation%2C%20no%20commitment.%20Just%20a%20side-by-side%20of%20what%20your%20real%20cost%20looks%20like.%0A%0AWhat%20is%20the%20best%20time%20to%20swing%20by%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery \u2014 local sales partner with Wholesale Payments. I work with roofing companies owners on cutting card-processing costs. We have a rewards program where every dollar you process earns points \u2014 free at the qualifying rate. Could I swing by this week for 5 minutes to run a quick rate comparison?"
     },
     {
       "n": 7,
-      "time": "12:00",
+      "time": "",
       "name": "West Coast Screening & Window",
       "industry": "Window Replacement & Repair",
       "category9x12": "Window Replacement / Impact Windows",
@@ -201,11 +225,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Earning rewards on every transaction at West Coast Screening & Window",
+      "emailBody": "Hi there,\n\nReaching out from Wholesale Payments. We have a rewards program designed for established window replacement & repair businesses like yours \u2014 every dollar you process accumulates points toward premium rewards (travel, electronics, business essentials), free for merchants at the qualifying rate.\n\nI would love to stop by this week to introduce myself and walk through what your processing could look like \u2014 both the rewards angle and the cash-discount option that eliminates 2 to 3 percent of your processing cost overnight. No presentation, no pressure, just a real-numbers conversation.\n\nWhen works for a quick visit?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Earning%20rewards%20on%20every%20transaction%20at%20West%20Coast%20Screening%20%26%20Window&body=Hi%20there%2C%0A%0AReaching%20out%20from%20Wholesale%20Payments.%20We%20have%20a%20rewards%20program%20designed%20for%20established%20window%20replacement%20%26%20repair%20businesses%20like%20yours%20%E2%80%94%20every%20dollar%20you%20process%20accumulates%20points%20toward%20premium%20rewards%20%28travel%2C%20electronics%2C%20business%20essentials%29%2C%20free%20for%20merchants%20at%20the%20qualifying%20rate.%0A%0AI%20would%20love%20to%20stop%20by%20this%20week%20to%20introduce%20myself%20and%20walk%20through%20what%20your%20processing%20could%20look%20like%20%E2%80%94%20both%20the%20rewards%20angle%20and%20the%20cash-discount%20option%20that%20eliminates%202%20to%203%20percent%20of%20your%20processing%20cost%20overnight.%20No%20presentation%2C%20no%20pressure%2C%20just%20a%20real-numbers%20conversation.%0A%0AWhen%20works%20for%20a%20quick%20visit%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, Dave Ivery from Wholesale Payments. Reaching out because we have a rewards program for window replacement & repair businesses \u2014 earn points on every dollar processed for travel, electronics, the works. Free to join at the qualifying rate. Would love to stop by this week and walk you through it. What time works?"
     },
     {
       "n": 8,
-      "time": "12:20",
+      "time": "",
       "name": "A Star Auto Glass, LLC",
       "industry": "Window Replacement & Repair",
       "category9x12": "Window Replacement / Impact Windows",
@@ -229,11 +257,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Earning rewards on every transaction at A Star Auto Glass, LLC",
+      "emailBody": "Hi there,\n\nReaching out from Wholesale Payments. We have a rewards program designed for established window replacement & repair businesses like yours \u2014 every dollar you process accumulates points toward premium rewards (travel, electronics, business essentials), free for merchants at the qualifying rate.\n\nI would love to stop by this week to introduce myself and walk through what your processing could look like \u2014 both the rewards angle and the cash-discount option that eliminates 2 to 3 percent of your processing cost overnight. No presentation, no pressure, just a real-numbers conversation.\n\nWhen works for a quick visit?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Earning%20rewards%20on%20every%20transaction%20at%20A%20Star%20Auto%20Glass%2C%20LLC&body=Hi%20there%2C%0A%0AReaching%20out%20from%20Wholesale%20Payments.%20We%20have%20a%20rewards%20program%20designed%20for%20established%20window%20replacement%20%26%20repair%20businesses%20like%20yours%20%E2%80%94%20every%20dollar%20you%20process%20accumulates%20points%20toward%20premium%20rewards%20%28travel%2C%20electronics%2C%20business%20essentials%29%2C%20free%20for%20merchants%20at%20the%20qualifying%20rate.%0A%0AI%20would%20love%20to%20stop%20by%20this%20week%20to%20introduce%20myself%20and%20walk%20through%20what%20your%20processing%20could%20look%20like%20%E2%80%94%20both%20the%20rewards%20angle%20and%20the%20cash-discount%20option%20that%20eliminates%202%20to%203%20percent%20of%20your%20processing%20cost%20overnight.%20No%20presentation%2C%20no%20pressure%2C%20just%20a%20real-numbers%20conversation.%0A%0AWhen%20works%20for%20a%20quick%20visit%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, Dave Ivery from Wholesale Payments. Reaching out because we have a rewards program for window replacement & repair businesses \u2014 earn points on every dollar processed for travel, electronics, the works. Free to join at the qualifying rate. Would love to stop by this week and walk you through it. What time works?"
     },
     {
       "n": 9,
-      "time": "12:40",
+      "time": "",
       "name": "Ace Pest Managment",
       "industry": "Pest Control Services",
       "category9x12": "Pest Control",
@@ -257,11 +289,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": false
+      "priority9x12": false,
+      "emailSubject": "Your processing should be earning you something",
+      "emailBody": "Hi there,\n\nLocal sales partner with Wholesale Payments. Quick note \u2014 we have a rewards program where merchants at our qualifying rate earn points toward travel, electronics, and other perks on every transaction. For pest control services businesses, the math usually works out to more in rewards than the platform fee.\n\nPlanning to be in the area this week and would like to swing by for 5 minutes to introduce myself and pull a quick rate comparison against what you are paying now. Free, no presentation, no commitment.\n\nBest time to catch you?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Your%20processing%20should%20be%20earning%20you%20something&body=Hi%20there%2C%0A%0ALocal%20sales%20partner%20with%20Wholesale%20Payments.%20Quick%20note%20%E2%80%94%20we%20have%20a%20rewards%20program%20where%20merchants%20at%20our%20qualifying%20rate%20earn%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks%20on%20every%20transaction.%20For%20pest%20control%20services%20businesses%2C%20the%20math%20usually%20works%20out%20to%20more%20in%20rewards%20than%20the%20platform%20fee.%0A%0APlanning%20to%20be%20in%20the%20area%20this%20week%20and%20would%20like%20to%20swing%20by%20for%205%20minutes%20to%20introduce%20myself%20and%20pull%20a%20quick%20rate%20comparison%20against%20what%20you%20are%20paying%20now.%20Free%2C%20no%20presentation%2C%20no%20commitment.%0A%0ABest%20time%20to%20catch%20you%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery with Wholesale Payments. Quick call \u2014 we have a rewards program where pest control services businesses earn perks on every transaction at no extra cost. Most owners cover the platform fee in rewards alone. Can I swing by this week to do a quick rate comparison? It is free, takes 5 minutes."
     },
     {
       "n": 10,
-      "time": "1:00",
+      "time": "",
       "name": "Aspen Dental",
       "industry": "Dentists",
       "category9x12": "Dentist / Orthodontist",
@@ -285,11 +321,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Earning rewards on every transaction at Aspen Dental",
+      "emailBody": "Hi there,\n\nReaching out from Wholesale Payments. We have a rewards program designed for established dentists businesses like yours \u2014 every dollar you process accumulates points toward premium rewards (travel, electronics, business essentials), free for merchants at the qualifying rate.\n\nI would love to stop by this week to introduce myself and walk through what your processing could look like \u2014 both the rewards angle and the cash-discount option that eliminates 2 to 3 percent of your processing cost overnight. No presentation, no pressure, just a real-numbers conversation.\n\nWhen works for a quick visit?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Earning%20rewards%20on%20every%20transaction%20at%20Aspen%20Dental&body=Hi%20there%2C%0A%0AReaching%20out%20from%20Wholesale%20Payments.%20We%20have%20a%20rewards%20program%20designed%20for%20established%20dentists%20businesses%20like%20yours%20%E2%80%94%20every%20dollar%20you%20process%20accumulates%20points%20toward%20premium%20rewards%20%28travel%2C%20electronics%2C%20business%20essentials%29%2C%20free%20for%20merchants%20at%20the%20qualifying%20rate.%0A%0AI%20would%20love%20to%20stop%20by%20this%20week%20to%20introduce%20myself%20and%20walk%20through%20what%20your%20processing%20could%20look%20like%20%E2%80%94%20both%20the%20rewards%20angle%20and%20the%20cash-discount%20option%20that%20eliminates%202%20to%203%20percent%20of%20your%20processing%20cost%20overnight.%20No%20presentation%2C%20no%20pressure%2C%20just%20a%20real-numbers%20conversation.%0A%0AWhen%20works%20for%20a%20quick%20visit%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, Dave Ivery from Wholesale Payments. Reaching out because we have a rewards program for dentists businesses \u2014 earn points on every dollar processed for travel, electronics, the works. Free to join at the qualifying rate. Would love to stop by this week and walk you through it. What time works?"
     },
     {
       "n": 11,
-      "time": "1:20",
+      "time": "",
       "name": "Debbie K Jones Cleaning Service",
       "industry": "House Cleaning Services",
       "category9x12": "House Cleaning",
@@ -313,11 +353,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": false
+      "priority9x12": false,
+      "emailSubject": "Your processing should be earning you something",
+      "emailBody": "Hi there,\n\nLocal sales partner with Wholesale Payments. Quick note \u2014 we have a rewards program where merchants at our qualifying rate earn points toward travel, electronics, and other perks on every transaction. For house cleaning services businesses, the math usually works out to more in rewards than the platform fee.\n\nPlanning to be in the area this week and would like to swing by for 5 minutes to introduce myself and pull a quick rate comparison against what you are paying now. Free, no presentation, no commitment.\n\nBest time to catch you?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Your%20processing%20should%20be%20earning%20you%20something&body=Hi%20there%2C%0A%0ALocal%20sales%20partner%20with%20Wholesale%20Payments.%20Quick%20note%20%E2%80%94%20we%20have%20a%20rewards%20program%20where%20merchants%20at%20our%20qualifying%20rate%20earn%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks%20on%20every%20transaction.%20For%20house%20cleaning%20services%20businesses%2C%20the%20math%20usually%20works%20out%20to%20more%20in%20rewards%20than%20the%20platform%20fee.%0A%0APlanning%20to%20be%20in%20the%20area%20this%20week%20and%20would%20like%20to%20swing%20by%20for%205%20minutes%20to%20introduce%20myself%20and%20pull%20a%20quick%20rate%20comparison%20against%20what%20you%20are%20paying%20now.%20Free%2C%20no%20presentation%2C%20no%20commitment.%0A%0ABest%20time%20to%20catch%20you%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery with Wholesale Payments. Quick call \u2014 we have a rewards program where house cleaning services businesses earn perks on every transaction at no extra cost. Most owners cover the platform fee in rewards alone. Can I swing by this week to do a quick rate comparison? It is free, takes 5 minutes."
     },
     {
       "n": 12,
-      "time": "1:40",
+      "time": "",
       "name": "Garage Door Repair Ai",
       "industry": "Garage Door Installation and Repair Services",
       "category9x12": "Garage Doors",
@@ -341,11 +385,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": false
+      "priority9x12": false,
+      "emailSubject": "Your processing should be earning you something",
+      "emailBody": "Hi there,\n\nLocal sales partner with Wholesale Payments. Quick note \u2014 we have a rewards program where merchants at our qualifying rate earn points toward travel, electronics, and other perks on every transaction. For garage door installation and repair services businesses, the math usually works out to more in rewards than the platform fee.\n\nPlanning to be in the area this week and would like to swing by for 5 minutes to introduce myself and pull a quick rate comparison against what you are paying now. Free, no presentation, no commitment.\n\nBest time to catch you?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Your%20processing%20should%20be%20earning%20you%20something&body=Hi%20there%2C%0A%0ALocal%20sales%20partner%20with%20Wholesale%20Payments.%20Quick%20note%20%E2%80%94%20we%20have%20a%20rewards%20program%20where%20merchants%20at%20our%20qualifying%20rate%20earn%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks%20on%20every%20transaction.%20For%20garage%20door%20installation%20and%20repair%20services%20businesses%2C%20the%20math%20usually%20works%20out%20to%20more%20in%20rewards%20than%20the%20platform%20fee.%0A%0APlanning%20to%20be%20in%20the%20area%20this%20week%20and%20would%20like%20to%20swing%20by%20for%205%20minutes%20to%20introduce%20myself%20and%20pull%20a%20quick%20rate%20comparison%20against%20what%20you%20are%20paying%20now.%20Free%2C%20no%20presentation%2C%20no%20commitment.%0A%0ABest%20time%20to%20catch%20you%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery with Wholesale Payments. Quick call \u2014 we have a rewards program where garage door installation and repair services businesses earn perks on every transaction at no extra cost. Most owners cover the platform fee in rewards alone. Can I swing by this week to do a quick rate comparison? It is free, takes 5 minutes."
     },
     {
       "n": 13,
-      "time": "2:00",
+      "time": "",
       "name": "Joanne's Cleaning and Multi Services",
       "industry": "Handyman Services",
       "category9x12": "Handyman",
@@ -369,11 +417,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": false
+      "priority9x12": false,
+      "emailSubject": "Your processing should be earning you something",
+      "emailBody": "Hi there,\n\nLocal sales partner with Wholesale Payments. Quick note \u2014 we have a rewards program where merchants at our qualifying rate earn points toward travel, electronics, and other perks on every transaction. For handyman services businesses, the math usually works out to more in rewards than the platform fee.\n\nPlanning to be in the area this week and would like to swing by for 5 minutes to introduce myself and pull a quick rate comparison against what you are paying now. Free, no presentation, no commitment.\n\nBest time to catch you?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Your%20processing%20should%20be%20earning%20you%20something&body=Hi%20there%2C%0A%0ALocal%20sales%20partner%20with%20Wholesale%20Payments.%20Quick%20note%20%E2%80%94%20we%20have%20a%20rewards%20program%20where%20merchants%20at%20our%20qualifying%20rate%20earn%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks%20on%20every%20transaction.%20For%20handyman%20services%20businesses%2C%20the%20math%20usually%20works%20out%20to%20more%20in%20rewards%20than%20the%20platform%20fee.%0A%0APlanning%20to%20be%20in%20the%20area%20this%20week%20and%20would%20like%20to%20swing%20by%20for%205%20minutes%20to%20introduce%20myself%20and%20pull%20a%20quick%20rate%20comparison%20against%20what%20you%20are%20paying%20now.%20Free%2C%20no%20presentation%2C%20no%20commitment.%0A%0ABest%20time%20to%20catch%20you%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery with Wholesale Payments. Quick call \u2014 we have a rewards program where handyman services businesses earn perks on every transaction at no extra cost. Most owners cover the platform fee in rewards alone. Can I swing by this week to do a quick rate comparison? It is free, takes 5 minutes."
     },
     {
       "n": 14,
-      "time": "2:20",
+      "time": "",
       "name": "K B Plumbing",
       "industry": "Plumbing Services",
       "category9x12": "Plumbing Company",
@@ -397,11 +449,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Quick question on processing for K B Plumbing",
+      "emailBody": "Hi there,\n\nLocal owner reaching out. I work with Wholesale Payments \u2014 we run a rewards program for plumbing services businesses where every dollar you process earns points toward travel, electronics, and other perks. No extra cost if you are at the qualifying rate.\n\nMost plumbing services owners are paying way more in processing fees than they realize. I would like to drop by this week to introduce myself and run a quick rate check \u2014 no charge, no presentation, no commitment. Just a side-by-side of what your real cost looks like.\n\nWhat is the best time to swing by?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Quick%20question%20on%20processing%20for%20K%20B%20Plumbing&body=Hi%20there%2C%0A%0ALocal%20owner%20reaching%20out.%20I%20work%20with%20Wholesale%20Payments%20%E2%80%94%20we%20run%20a%20rewards%20program%20for%20plumbing%20services%20businesses%20where%20every%20dollar%20you%20process%20earns%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks.%20No%20extra%20cost%20if%20you%20are%20at%20the%20qualifying%20rate.%0A%0AMost%20plumbing%20services%20owners%20are%20paying%20way%20more%20in%20processing%20fees%20than%20they%20realize.%20I%20would%20like%20to%20drop%20by%20this%20week%20to%20introduce%20myself%20and%20run%20a%20quick%20rate%20check%20%E2%80%94%20no%20charge%2C%20no%20presentation%2C%20no%20commitment.%20Just%20a%20side-by-side%20of%20what%20your%20real%20cost%20looks%20like.%0A%0AWhat%20is%20the%20best%20time%20to%20swing%20by%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery \u2014 local sales partner with Wholesale Payments. I work with plumbing services owners on cutting card-processing costs. We have a rewards program where every dollar you process earns points \u2014 free at the qualifying rate. Could I swing by this week for 5 minutes to run a quick rate comparison?"
     },
     {
       "n": 15,
-      "time": "2:40",
+      "time": "",
       "name": "Kory Black Pressure Washing",
       "industry": "Pressure Washing Services",
       "category9x12": "Pressure Washing",
@@ -425,11 +481,15 @@
           "label": "3 mo free WealthPath ($891)"
         }
       ],
-      "priority9x12": false
+      "priority9x12": false,
+      "emailSubject": "Your processing should be earning you something",
+      "emailBody": "Hi there,\n\nLocal sales partner with Wholesale Payments. Quick note \u2014 we have a rewards program where merchants at our qualifying rate earn points toward travel, electronics, and other perks on every transaction. For pressure washing services businesses, the math usually works out to more in rewards than the platform fee.\n\nPlanning to be in the area this week and would like to swing by for 5 minutes to introduce myself and pull a quick rate comparison against what you are paying now. Free, no presentation, no commitment.\n\nBest time to catch you?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Your%20processing%20should%20be%20earning%20you%20something&body=Hi%20there%2C%0A%0ALocal%20sales%20partner%20with%20Wholesale%20Payments.%20Quick%20note%20%E2%80%94%20we%20have%20a%20rewards%20program%20where%20merchants%20at%20our%20qualifying%20rate%20earn%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks%20on%20every%20transaction.%20For%20pressure%20washing%20services%20businesses%2C%20the%20math%20usually%20works%20out%20to%20more%20in%20rewards%20than%20the%20platform%20fee.%0A%0APlanning%20to%20be%20in%20the%20area%20this%20week%20and%20would%20like%20to%20swing%20by%20for%205%20minutes%20to%20introduce%20myself%20and%20pull%20a%20quick%20rate%20comparison%20against%20what%20you%20are%20paying%20now.%20Free%2C%20no%20presentation%2C%20no%20commitment.%0A%0ABest%20time%20to%20catch%20you%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery with Wholesale Payments. Quick call \u2014 we have a rewards program where pressure washing services businesses earn perks on every transaction at no extra cost. Most owners cover the platform fee in rewards alone. Can I swing by this week to do a quick rate comparison? It is free, takes 5 minutes."
     },
     {
       "n": 16,
-      "time": "3:00",
+      "time": "",
       "name": "North Port Glass & Mirror",
       "industry": "Window Replacement & Repair",
       "category9x12": "Window Replacement / Impact Windows",
@@ -453,11 +513,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Earning rewards on every transaction at North Port Glass & Mirror",
+      "emailBody": "Hi there,\n\nReaching out from Wholesale Payments. We have a rewards program designed for established window replacement & repair businesses like yours \u2014 every dollar you process accumulates points toward premium rewards (travel, electronics, business essentials), free for merchants at the qualifying rate.\n\nI would love to stop by this week to introduce myself and walk through what your processing could look like \u2014 both the rewards angle and the cash-discount option that eliminates 2 to 3 percent of your processing cost overnight. No presentation, no pressure, just a real-numbers conversation.\n\nWhen works for a quick visit?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Earning%20rewards%20on%20every%20transaction%20at%20North%20Port%20Glass%20%26%20Mirror&body=Hi%20there%2C%0A%0AReaching%20out%20from%20Wholesale%20Payments.%20We%20have%20a%20rewards%20program%20designed%20for%20established%20window%20replacement%20%26%20repair%20businesses%20like%20yours%20%E2%80%94%20every%20dollar%20you%20process%20accumulates%20points%20toward%20premium%20rewards%20%28travel%2C%20electronics%2C%20business%20essentials%29%2C%20free%20for%20merchants%20at%20the%20qualifying%20rate.%0A%0AI%20would%20love%20to%20stop%20by%20this%20week%20to%20introduce%20myself%20and%20walk%20through%20what%20your%20processing%20could%20look%20like%20%E2%80%94%20both%20the%20rewards%20angle%20and%20the%20cash-discount%20option%20that%20eliminates%202%20to%203%20percent%20of%20your%20processing%20cost%20overnight.%20No%20presentation%2C%20no%20pressure%2C%20just%20a%20real-numbers%20conversation.%0A%0AWhen%20works%20for%20a%20quick%20visit%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, Dave Ivery from Wholesale Payments. Reaching out because we have a rewards program for window replacement & repair businesses \u2014 earn points on every dollar processed for travel, electronics, the works. Free to join at the qualifying rate. Would love to stop by this week and walk you through it. What time works?"
     },
     {
       "n": 17,
-      "time": "3:20",
+      "time": "",
       "name": "Sears Home Services",
       "industry": "HVAC Companies",
       "category9x12": "HVAC Company",
@@ -481,11 +545,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Quick question on processing for Sears Home Services",
+      "emailBody": "Hi there,\n\nLocal owner reaching out. I work with Wholesale Payments \u2014 we run a rewards program for hvac companies businesses where every dollar you process earns points toward travel, electronics, and other perks. No extra cost if you are at the qualifying rate.\n\nMost hvac companies owners are paying way more in processing fees than they realize. I would like to drop by this week to introduce myself and run a quick rate check \u2014 no charge, no presentation, no commitment. Just a side-by-side of what your real cost looks like.\n\nWhat is the best time to swing by?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Quick%20question%20on%20processing%20for%20Sears%20Home%20Services&body=Hi%20there%2C%0A%0ALocal%20owner%20reaching%20out.%20I%20work%20with%20Wholesale%20Payments%20%E2%80%94%20we%20run%20a%20rewards%20program%20for%20hvac%20companies%20businesses%20where%20every%20dollar%20you%20process%20earns%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks.%20No%20extra%20cost%20if%20you%20are%20at%20the%20qualifying%20rate.%0A%0AMost%20hvac%20companies%20owners%20are%20paying%20way%20more%20in%20processing%20fees%20than%20they%20realize.%20I%20would%20like%20to%20drop%20by%20this%20week%20to%20introduce%20myself%20and%20run%20a%20quick%20rate%20check%20%E2%80%94%20no%20charge%2C%20no%20presentation%2C%20no%20commitment.%20Just%20a%20side-by-side%20of%20what%20your%20real%20cost%20looks%20like.%0A%0AWhat%20is%20the%20best%20time%20to%20swing%20by%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery \u2014 local sales partner with Wholesale Payments. I work with hvac companies owners on cutting card-processing costs. We have a rewards program where every dollar you process earns points \u2014 free at the qualifying rate. Could I swing by this week for 5 minutes to run a quick rate comparison?"
     },
     {
       "n": 18,
-      "time": "3:40",
+      "time": "",
       "name": "Siesta Smiles North Port",
       "industry": "Dentists",
       "category9x12": "Dentist / Orthodontist",
@@ -509,11 +577,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Earning rewards on every transaction at Siesta Smiles North Port",
+      "emailBody": "Hi there,\n\nReaching out from Wholesale Payments. We have a rewards program designed for established dentists businesses like yours \u2014 every dollar you process accumulates points toward premium rewards (travel, electronics, business essentials), free for merchants at the qualifying rate.\n\nI would love to stop by this week to introduce myself and walk through what your processing could look like \u2014 both the rewards angle and the cash-discount option that eliminates 2 to 3 percent of your processing cost overnight. No presentation, no pressure, just a real-numbers conversation.\n\nWhen works for a quick visit?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Earning%20rewards%20on%20every%20transaction%20at%20Siesta%20Smiles%20North%20Port&body=Hi%20there%2C%0A%0AReaching%20out%20from%20Wholesale%20Payments.%20We%20have%20a%20rewards%20program%20designed%20for%20established%20dentists%20businesses%20like%20yours%20%E2%80%94%20every%20dollar%20you%20process%20accumulates%20points%20toward%20premium%20rewards%20%28travel%2C%20electronics%2C%20business%20essentials%29%2C%20free%20for%20merchants%20at%20the%20qualifying%20rate.%0A%0AI%20would%20love%20to%20stop%20by%20this%20week%20to%20introduce%20myself%20and%20walk%20through%20what%20your%20processing%20could%20look%20like%20%E2%80%94%20both%20the%20rewards%20angle%20and%20the%20cash-discount%20option%20that%20eliminates%202%20to%203%20percent%20of%20your%20processing%20cost%20overnight.%20No%20presentation%2C%20no%20pressure%2C%20just%20a%20real-numbers%20conversation.%0A%0AWhen%20works%20for%20a%20quick%20visit%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, Dave Ivery from Wholesale Payments. Reaching out because we have a rewards program for dentists businesses \u2014 earn points on every dollar processed for travel, electronics, the works. Free to join at the qualifying rate. Would love to stop by this week and walk you through it. What time works?"
     },
     {
       "n": 19,
-      "time": "4:00",
+      "time": "",
       "name": "Sunshine Lawn Care",
       "industry": "Landscaping and Lawn Care Services",
       "category9x12": "Landscaping / Lawn Care",
@@ -537,11 +609,15 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Your processing should be earning you something",
+      "emailBody": "Hi there,\n\nLocal sales partner with Wholesale Payments. Quick note \u2014 we have a rewards program where merchants at our qualifying rate earn points toward travel, electronics, and other perks on every transaction. For landscaping and lawn care services businesses, the math usually works out to more in rewards than the platform fee.\n\nPlanning to be in the area this week and would like to swing by for 5 minutes to introduce myself and pull a quick rate comparison against what you are paying now. Free, no presentation, no commitment.\n\nBest time to catch you?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Your%20processing%20should%20be%20earning%20you%20something&body=Hi%20there%2C%0A%0ALocal%20sales%20partner%20with%20Wholesale%20Payments.%20Quick%20note%20%E2%80%94%20we%20have%20a%20rewards%20program%20where%20merchants%20at%20our%20qualifying%20rate%20earn%20points%20toward%20travel%2C%20electronics%2C%20and%20other%20perks%20on%20every%20transaction.%20For%20landscaping%20and%20lawn%20care%20services%20businesses%2C%20the%20math%20usually%20works%20out%20to%20more%20in%20rewards%20than%20the%20platform%20fee.%0A%0APlanning%20to%20be%20in%20the%20area%20this%20week%20and%20would%20like%20to%20swing%20by%20for%205%20minutes%20to%20introduce%20myself%20and%20pull%20a%20quick%20rate%20comparison%20against%20what%20you%20are%20paying%20now.%20Free%2C%20no%20presentation%2C%20no%20commitment.%0A%0ABest%20time%20to%20catch%20you%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, this is Dave Ivery with Wholesale Payments. Quick call \u2014 we have a rewards program where landscaping and lawn care services businesses earn perks on every transaction at no extra cost. Most owners cover the platform fee in rewards alone. Can I swing by this week to do a quick rate comparison? It is free, takes 5 minutes."
     },
     {
       "n": 20,
-      "time": "4:20",
+      "time": "",
       "name": "Tyler M. Blackenburg, DMD",
       "industry": "Dentists",
       "category9x12": "Dentist / Orthodontist",
@@ -565,7 +641,11 @@
           "label": "50% off Perks first year ($1,182)"
         }
       ],
-      "priority9x12": true
+      "priority9x12": true,
+      "emailSubject": "Earning rewards on every transaction at Tyler M. Blackenburg, DMD",
+      "emailBody": "Hi there,\n\nReaching out from Wholesale Payments. We have a rewards program designed for established dentists businesses like yours \u2014 every dollar you process accumulates points toward premium rewards (travel, electronics, business essentials), free for merchants at the qualifying rate.\n\nI would love to stop by this week to introduce myself and walk through what your processing could look like \u2014 both the rewards angle and the cash-discount option that eliminates 2 to 3 percent of your processing cost overnight. No presentation, no pressure, just a real-numbers conversation.\n\nWhen works for a quick visit?\n\nDave Ivery\nIndependent Sales Partner \u2014 Wholesale Payments Inc.\n941-277-9876\nadmin@ownly1nce.com\nthe-ownly-breakthrough.vercel.app/",
+      "emailUrl": "https://mail.google.com/mail/?view=cm&fs=1&su=Earning%20rewards%20on%20every%20transaction%20at%20Tyler%20M.%20Blackenburg%2C%20DMD&body=Hi%20there%2C%0A%0AReaching%20out%20from%20Wholesale%20Payments.%20We%20have%20a%20rewards%20program%20designed%20for%20established%20dentists%20businesses%20like%20yours%20%E2%80%94%20every%20dollar%20you%20process%20accumulates%20points%20toward%20premium%20rewards%20%28travel%2C%20electronics%2C%20business%20essentials%29%2C%20free%20for%20merchants%20at%20the%20qualifying%20rate.%0A%0AI%20would%20love%20to%20stop%20by%20this%20week%20to%20introduce%20myself%20and%20walk%20through%20what%20your%20processing%20could%20look%20like%20%E2%80%94%20both%20the%20rewards%20angle%20and%20the%20cash-discount%20option%20that%20eliminates%202%20to%203%20percent%20of%20your%20processing%20cost%20overnight.%20No%20presentation%2C%20no%20pressure%2C%20just%20a%20real-numbers%20conversation.%0A%0AWhen%20works%20for%20a%20quick%20visit%3F%0A%0ADave%20Ivery%0AIndependent%20Sales%20Partner%20%E2%80%94%20Wholesale%20Payments%20Inc.%0A941-277-9876%0Aadmin%40ownly1nce.com%0Athe-ownly-breakthrough.vercel.app/",
+      "phoneScript": "Hi, Dave Ivery from Wholesale Payments. Reaching out because we have a rewards program for dentists businesses \u2014 earn points on every dollar processed for travel, electronics, the works. Free to join at the qualifying rate. Would love to stop by this week and walk you through it. What time works?"
     }
   ],
   "backupStops": [
@@ -599,5 +679,7 @@
       "address": "PO Box 7685, North Port, FL 34290",
       "phone": "(941) 426-4571"
     }
-  ]
+  ],
+  "mode": "warmup",
+  "nextDayInPerson": "2026-05-05"
 }
