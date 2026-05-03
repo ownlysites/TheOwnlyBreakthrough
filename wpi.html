@@ -125,7 +125,8 @@ td strong{color:var(--navy)}
 
 <nav class="tabs">
   <div class="wrap">
-    <button class="tab on" data-t="flow">Call Flow</button>
+    <button class="tab on" data-t="route">★ Today's Route</button>
+    <button class="tab" data-t="flow">Call Flow</button>
     <button class="tab" data-t="leadins">Lead-Ins</button>
     <button class="tab" data-t="rebuttals">Rebuttals</button>
     <button class="tab" data-t="size">Upsell by Size</button>
@@ -137,8 +138,16 @@ td strong{color:var(--navy)}
 
 <main>
 
+<!-- ═══════════════ TODAY'S ROUTE (dynamic) ═══════════════ -->
+<section id="route" class="on">
+  <h1>★ Today's <em>Route</em>.</h1>
+  <p class="lede" id="route-lede">Loading today's stops…</p>
+  <div id="route-stops"></div>
+  <div id="route-backups" style="margin-top:32px"></div>
+</section>
+
 <!-- ═══════════════ CALL FLOW ═══════════════ -->
-<section id="flow" class="on">
+<section id="flow">
   <h1>The <em>Call Flow</em>.</h1>
   <p class="lede">WPI hands you a warm intro. Close the merchant deal first. Then ask 3 questions that fork the upsell.</p>
 
@@ -538,6 +547,108 @@ function clearAll(){
     if(b) b.innerText=v;
   });
 }
+
+// ─── Today's Route loader ───
+const BAND_COLOR = {micro:'#6b9bd1', small:'#3d8a52', mid:'#a86a16', large:'#162B44'};
+const BAND_LABEL = {micro:'Micro · 1–9 emp', small:'Small · 10–49 emp', mid:'Mid · 50–249 emp', large:'Large · 250+ emp'};
+
+function stopStatusKey(date, n){ return 'wpi_route_'+date+'_'+n; }
+
+function setStopStatus(date, n, status){
+  if(status==='clear') localStorage.removeItem(stopStatusKey(date,n));
+  else localStorage.setItem(stopStatusKey(date,n), status);
+  renderStop(date, n);
+}
+
+function setStopNotes(date, n, txt){
+  if(!txt) localStorage.removeItem(stopStatusKey(date,n)+'_notes');
+  else localStorage.setItem(stopStatusKey(date,n)+'_notes', txt);
+}
+
+function getStopStatus(date, n){ return localStorage.getItem(stopStatusKey(date,n)) || ''; }
+function getStopNotes(date, n){ return localStorage.getItem(stopStatusKey(date,n)+'_notes') || ''; }
+
+function renderStop(date, n){
+  const card = document.getElementById('stop-'+n);
+  if(!card) return;
+  const status = getStopStatus(date, n);
+  card.dataset.status = status;
+  if(status==='done') card.style.opacity='.55';
+  else if(status==='skip') card.style.opacity='.45';
+  else card.style.opacity='1';
+  const badge = card.querySelector('.stop-status-badge');
+  if(badge){
+    if(status==='done') badge.innerHTML='<span style="color:var(--green);font-weight:700">✓ DONE</span>';
+    else if(status==='skip') badge.innerHTML='<span style="color:var(--text-l);font-weight:700">↷ SKIPPED</span>';
+    else if(status==='callback') badge.innerHTML='<span style="color:var(--amber);font-weight:700">📞 CALLBACK</span>';
+    else badge.innerHTML='';
+  }
+}
+
+async function loadRoute(){
+  const lede = document.getElementById('route-lede');
+  const stopsEl = document.getElementById('route-stops');
+  const backupsEl = document.getElementById('route-backups');
+  try{
+    const r = await fetch('wpi-route.json?t='+Date.now());
+    if(!r.ok) throw new Error('No route file');
+    const route = await r.json();
+    const date = route.date;
+    const today = new Date().toISOString().slice(0,10);
+    const stale = (date !== today) ? '<span style="color:var(--amber);font-weight:600"> ⚠ this route is dated '+date+', today is '+today+'</span>' : '';
+    lede.innerHTML = `<strong>${route.dateLabel}</strong> · ${route.city} · ${route.targetStops} stops · start ${route.startTime}${stale}<br><span style="font-size:13px;color:var(--text-m)">${route.note||''}</span>`;
+    stopsEl.innerHTML = route.stops.map(s=>{
+      const star = s.priority9x12 ? '<span style="color:var(--gold-d);font-weight:800" title="9x12 priority category">★</span> ' : '';
+      const bandColor = BAND_COLOR[s.sizeBand] || '#162B44';
+      const closersHtml = (s.topClosers||[]).map(c=>`<span style="display:inline-block;background:var(--gold-pale);color:var(--gold-d);font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;margin:2px 4px 2px 0">💎 ${c.label}</span>`).join('');
+      const cat9x12 = s.category9x12 ? `<span style="background:var(--navy-pale);color:var(--navy);font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;margin-left:6px">9x12: ${s.category9x12}</span>` : '';
+      return `<div class="card" id="stop-${s.n}" style="border-left:4px solid ${bandColor};padding:18px 20px;margin-bottom:12px;position:relative">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px">
+          <div style="flex:1;min-width:0">
+            <div style="font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-l);margin-bottom:4px">Stop ${s.n} · ${s.time||'flexible'} · <span style="color:${bandColor}">${BAND_LABEL[s.sizeBand]||'Unknown size'}</span></div>
+            <div style="font-family:var(--ff);font-size:22px;font-weight:600;color:var(--navy);line-height:1.2">${star}${s.name}</div>
+            <div style="font-size:13px;color:var(--text-m);margin-top:4px">${s.industry}${cat9x12}</div>
+          </div>
+          <div class="stop-status-badge" style="font-size:11px;text-align:right"></div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+          <a href="${s.mapsUrl}" target="_blank" rel="noopener" style="background:var(--navy);color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:6px">📍 ${s.address}</a>
+          ${s.phone?`<a href="${s.phoneDial}" style="background:var(--gold);color:var(--navy);text-decoration:none;font-size:12px;font-weight:700;padding:7px 12px;border-radius:6px">📞 ${s.phone}</a>`:''}
+          ${s.website?`<a href="https://${s.website.replace(/^https?:\\/\\//,'')}" target="_blank" rel="noopener" style="background:#fff;border:1px solid var(--border);color:var(--navy);text-decoration:none;font-size:12px;padding:7px 12px;border-radius:6px">🌐 site</a>`:''}
+          ${s.rating?`<span style="background:var(--cream);color:var(--text-m);font-size:11px;padding:7px 10px;border-radius:6px">★ ${s.rating} (${s.reviews})</span>`:''}
+        </div>
+        <div style="background:var(--cream);border-left:3px solid var(--gold);padding:10px 14px;margin:10px 0;border-radius:0 6px 6px 0">
+          <div style="font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:4px">Lead-In #${s.leadInIdx}</div>
+          <div style="font-family:var(--ff);font-size:14px;font-style:italic;color:var(--text);line-height:1.55">"${s.leadInText}"</div>
+        </div>
+        <div style="margin:10px 0">
+          <div style="font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-l);margin-bottom:6px">Closer carrots if they hesitate:</div>
+          ${closersHtml}
+        </div>
+        <textarea class="notes-box" data-stop="${s.n}" style="width:100%;font-family:var(--fb);font-size:13px;padding:10px;border:1px dashed var(--border);border-radius:6px;background:#fff;min-height:50px;margin-top:8px;color:var(--text)" placeholder="Notes from the visit…">${getStopNotes(date,s.n)}</textarea>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+          <button onclick="setStopStatus('${date}',${s.n},'done')" style="flex:1;background:var(--green);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">✓ Done</button>
+          <button onclick="setStopStatus('${date}',${s.n},'callback')" style="flex:1;background:var(--amber);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">📞 Callback</button>
+          <button onclick="setStopStatus('${date}',${s.n},'skip')" style="flex:1;background:var(--text-l);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">↷ Skip</button>
+          <button onclick="setStopStatus('${date}',${s.n},'clear')" style="background:transparent;border:1px solid var(--border);color:var(--text-m);padding:8px 12px;border-radius:6px;font-size:11px;cursor:pointer">↺</button>
+        </div>
+      </div>`;
+    }).join('');
+    // wire notes
+    stopsEl.querySelectorAll('textarea[data-stop]').forEach(t=>{
+      t.addEventListener('input', e=>setStopNotes(date, parseInt(t.dataset.stop,10), t.value));
+    });
+    // initial status render
+    route.stops.forEach(s=>renderStop(date, s.n));
+    // backups
+    if(route.backupStops && route.backupStops.length){
+      backupsEl.innerHTML = `<h2>Backup stops <em>if you finish early</em></h2><div class="grid2" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">${route.backupStops.map(b=>`<div class="card" style="padding:12px 14px"><div style="font-family:var(--ff);font-size:16px;font-weight:600;color:var(--navy)">${b.name}</div><div style="font-size:12px;color:var(--text-m);margin:3px 0">${b.industry}</div><div style="font-size:11px;color:var(--text-m)">${b.address}${b.phone?' · '+b.phone:''}</div></div>`).join('')}</div>`;
+    }
+  }catch(e){
+    lede.innerHTML = `<span style="color:var(--amber)">⚠ No route file loaded yet. Tonight's prep will populate this. ${e.message}</span>`;
+  }
+}
+loadRoute();
 </script>
 
 </body>
