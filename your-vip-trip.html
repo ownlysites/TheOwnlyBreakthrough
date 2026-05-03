@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-x:hidden;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Complimentary Trip · A Thank You from Ownly ONCE</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A personal thank-you from Dave Ivery and the Ownly ONCE team. Choose the complimentary getaway you'd like to enjoy — it's on us.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#162B44; --navy-d:#0d1d2e; --navy-m:#1f3a57; --navy-l:#2e5480;
+  --gold:#C9A84C; --gold-l:#e0c070; --gold-d:#9a7830; --gold-pale:#fdf6e3;
+  --cream:#f9f6f0; --white:#ffffff; --navy-pale:#eef4fb;
+  --text:#162B44; --text-m:#4a6580; --text-l:#8aa0b4;
+  --border:rgba(22,43,68,.1); --border-g:rgba(201,168,76,.25);
+  --r:12px; --rs:8px; --rl:16px;
+  --ff:'Cormorant Garamond',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;
+  --shadow:0 4px 24px rgba(22,43,68,.10);
+  --shadow-s:0 2px 8px rgba(22,43,68,.07);
+}
+html,body{width:100%;overflow-x:hidden}
+body{font-family:var(--fb);color:var(--text);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Header */
+.head{background:var(--navy);color:#fff;padding:14px 0;border-bottom:3px solid var(--gold)}
+.head .wrap{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--ff);font-weight:600;color:var(--navy);font-size:18px}
+.brand-text{font-family:var(--ff);font-size:18px;font-weight:500;letter-spacing:.02em}
+.brand-text em{color:var(--gold-l);font-style:normal;font-weight:600}
+.head-eyebrow{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-l)}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,var(--cream) 0%,#fff 100%);padding:64px 24px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero .wrap{max-width:780px;margin:0 auto}
+.hero .ribbon{display:inline-block;background:var(--gold-pale);color:var(--gold-d);font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:24px;border:1px solid var(--border-g)}
+.hero h1{font-family:var(--ff);font-size:clamp(48px,8vw,86px);font-weight:500;color:var(--navy);line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--gold-d);font-weight:500}
+.hero .lede{font-family:var(--ff);font-size:clamp(18px,2.4vw,22px);color:var(--text-m);line-height:1.55;font-weight:400;font-style:italic;max-width:600px;margin:0 auto 14px}
+.hero .signed{font-family:var(--fb);font-size:13px;color:var(--text-m);letter-spacing:.04em;margin-top:18px}
+.hero .signed strong{color:var(--navy);font-weight:600}
+
+/* Instructions row */
+.howto{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:22px 24px;text-align:center}
+.howto-text{font-family:var(--fb);font-size:13px;color:var(--text-m);max-width:780px;margin:0 auto;line-height:1.7}
+.howto-text strong{color:var(--navy);font-weight:600}
+
+/* Cards */
+.trips{padding:48px 24px 40px;max-width:1100px;margin:0 auto}
+.trips-h{text-align:center;margin-bottom:40px}
+.trips-h .ey{font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px}
+.trips-h h2{font-family:var(--ff);font-size:clamp(30px,4.5vw,40px);font-weight:500;color:var(--navy);line-height:1.15}
+.trips-h h2 em{color:var(--gold-d);font-style:italic}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;box-shadow:var(--shadow-s)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--gold)}
+.card-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--fb);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px}
+.card-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.card h3{font-family:var(--ff);font-size:24px;font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:8px;letter-spacing:-.01em}
+.card .sub{font-family:var(--fb);font-size:13px;color:var(--text-m);line-height:1.6;margin-bottom:14px;min-height:40px}
+.value{display:inline-block;background:var(--navy-pale);color:var(--navy);font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.06em;padding:6px 10px;border-radius:6px;margin-bottom:14px}
+.value strong{color:var(--gold-d);font-weight:800}
+.perks{list-style:none;padding:0;margin:0 0 18px;border-top:1px dashed var(--border);padding-top:14px}
+.perks li{font-family:var(--fb);font-size:12px;color:var(--text-m);line-height:1.6;padding:4px 0 4px 18px;position:relative}
+.perks li::before{content:'✓';position:absolute;left:0;top:4px;color:var(--gold-d);font-weight:700;font-size:11px}
+.cta{margin-top:auto;background:var(--navy);color:#fff;border:none;border-radius:var(--rs);padding:13px 18px;font-family:var(--fb);font-size:13px;font-weight:600;letter-spacing:.02em;cursor:pointer;text-decoration:none;display:block;text-align:center;transition:background .2s ease}
+.cta:hover{background:var(--navy-d)}
+.cta.gold{background:var(--gold);color:var(--navy);font-weight:700}
+.cta.gold:hover{background:var(--gold-l)}
+
+/* Featured ribbon (cruise) */
+.card.featured{border:2px solid var(--gold);position:relative;background:linear-gradient(180deg,#fff 0%,var(--gold-pale) 100%)}
+.card.featured::before{content:'★ MOST POPULAR';position:absolute;top:-12px;right:18px;background:var(--gold);color:var(--navy);font-family:var(--fb);font-size:10px;font-weight:800;letter-spacing:.14em;padding:5px 10px;border-radius:6px}
+
+/* How it works */
+.howit{background:var(--navy);color:#fff;padding:48px 24px}
+.howit .wrap{max-width:980px;margin:0 auto}
+.howit h3{font-family:var(--ff);font-size:28px;font-weight:500;color:#fff;text-align:center;margin-bottom:32px}
+.howit h3 em{color:var(--gold-l);font-style:italic}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+.step{text-align:center;padding:18px}
+.step-n{width:40px;height:40px;margin:0 auto 12px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--fb);font-weight:800;font-size:16px}
+.step h4{font-family:var(--ff);font-size:18px;font-weight:500;color:var(--gold-l);margin-bottom:6px}
+.step p{font-family:var(--fb);font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.6}
+
+/* Fine print */
+.fine{padding:32px 24px;background:var(--cream);border-top:1px solid var(--border)}
+.fine .wrap{max-width:780px;margin:0 auto;text-align:center}
+.fine p{font-family:var(--fb);font-size:11px;color:var(--text-l);line-height:1.7}
+.fine p+p{margin-top:8px}
+
+/* Footer */
+.foot{background:var(--navy-d);color:rgba(255,255,255,.65);padding:28px 24px;text-align:center}
+.foot .sig{font-family:var(--ff);font-size:18px;color:#fff;margin-bottom:6px}
+.foot .sig em{color:var(--gold-l);font-style:italic}
+.foot .small{font-family:var(--fb);font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.04em}
+
+@media (max-width:640px){
+  .hero{padding:48px 20px 32px}
+  .head .wrap{flex-direction:column;gap:8px;text-align:center}
+  .trips{padding:36px 20px 28px}
+  .grid{gap:16px}
+  .card{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark">O</div>
+      <div class="brand-text">Ownly <em>ONCE</em></div>
+    </div>
+    <div class="head-eyebrow">A Personal Thank You</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="ribbon">★  Compliments of Dave Ivery  ★</div>
+    <h1>Thank <em>You</em>.</h1>
+    <p class="lede">We promised we'd take care of you — and we always keep our promises. Here's our way of saying it: pick the getaway below that lights you up. It's on us.</p>
+    <p class="signed">With gratitude, <strong>Dave Ivery</strong> · Ownly ONCE</p>
+  </div>
+</section>
+
+<div class="howto">
+  <p class="howto-text"><strong>How to claim:</strong> choose the trip that excites you, click <em>"Choose This Trip"</em>, and you'll be taken to a quick activation page. Each certificate is good for <strong>24 months</strong> — you don't have to travel right away.</p>
+</div>
+
+<section class="trips">
+  <div class="trips-h">
+    <div class="ey">★ Your VIP Trip Selection</div>
+    <h2>Five Ways To <em>Get Away</em>.</h2>
+  </div>
+
+  <div class="grid">
+
+    <!-- Trip 1: Mexico Family -->
+    <div class="card">
+      <div class="card-tag"><span class="dot"></span>Mexico · Family-Friendly</div>
+      <h3>Four-Night Mexico Resort Getaway</h3>
+      <p class="sub">Four nights in Mazatlan, Acapulco, Puerto Vallarta, Nuevo Vallarta, or Cancun (Mayan Riviera).</p>
+      <div class="value">Retail Value <strong>up to $699</strong></div>
+      <ul class="perks">
+        <li>Two adults plus up to two children (11 &amp; under)</li>
+        <li>Choice of five legendary Mexico resort cities</li>
+        <li>Just pay taxes &amp; fees ($38 per night)</li>
+        <li>24 months to travel · 30-day advance booking</li>
+      </ul>
+      <a class="cta" href="https://www.rewardsandincentives.com/?bcode=28f6b07b4f379ec1aca3e1e0ccae5699" target="_blank" rel="noopener">Choose This Trip →</a>
+    </div>
+
+    <!-- Trip 2: All-Inclusive -->
+    <div class="card">
+      <div class="card-tag"><span class="dot"></span>All-Inclusive · Mexico or DR</div>
+      <h3>Two-Night All-Inclusive Resort</h3>
+      <p class="sub">Sunscape resorts in Cozumel, Puerto Vallarta, Punta Cana, or Puerto Plata. Meals &amp; drinks included.</p>
+      <div class="value">Retail Value <strong>up to $2,394</strong></div>
+      <ul class="perks">
+        <li>Two adults · all-inclusive food &amp; beverage</li>
+        <li>Five Sunscape properties to choose from</li>
+        <li>Just pay taxes &amp; fees ($30 per person, per night)</li>
+        <li>24 months to travel · 30-day advance booking</li>
+      </ul>
+      <a class="cta" href="https://www.rewardsandincentives.com/?bcode=8c76cb6ba579300f858febc2d795d501" target="_blank" rel="noopener">Choose This Trip →</a>
+    </div>
+
+    <!-- Trip 3: Fly + Stay USA -->
+    <div class="card">
+      <div class="card-tag"><span class="dot"></span>Fly &amp; Stay · USA</div>
+      <h3>Airfare + 2 Nights Hotel for Two</h3>
+      <p class="sub">Roundtrip flights for two plus two nights' hotel in 23 of America's most popular destinations.</p>
+      <div class="value">Retail Value <strong>up to $999</strong></div>
+      <ul class="perks">
+        <li>Vegas, Orlando, Miami, NOLA, Nashville, Denver and more</li>
+        <li>Departures from 80+ U.S. airports</li>
+        <li>Just pay taxes &amp; fees · book by phone with a live agent</li>
+        <li>24 months to travel · no sales presentations</li>
+      </ul>
+      <a class="cta" href="https://www.rewardsandincentives.com/?bcode=d870cec6b0237414cb1bf7e6412d4248" target="_blank" rel="noopener">Choose This Trip →</a>
+    </div>
+
+    <!-- Trip 4: 7-night worldwide -->
+    <div class="card">
+      <div class="card-tag"><span class="dot"></span>Worldwide Resort · 7 Nights</div>
+      <h3>Seven Nights Luxury Resort</h3>
+      <p class="sub">A full week of luxury resort accommodations across more than 3,500 properties worldwide.</p>
+      <div class="value">Retail Value <strong>up to $1,249</strong></div>
+      <ul class="perks">
+        <li>Full week — your destination, your dates</li>
+        <li>3,500+ luxury resort locations</li>
+        <li>Based on $178.42 per night value</li>
+        <li>24 months to travel · live travel-agent booking</li>
+      </ul>
+      <a class="cta" href="https://www.rewardsandincentives.com/?bcode=c434bf6e4ee355f93f156e4d3e88f653" target="_blank" rel="noopener">Choose This Trip →</a>
+    </div>
+
+    <!-- Trip 5: Cruise (FEATURED) -->
+    <div class="card featured">
+      <div class="card-tag"><span class="dot"></span>Cruise · 5 Days / 4 Nights</div>
+      <h3>5-Day / 4-Night Caribbean Cruise</h3>
+      <p class="sub">Carnival, Royal Caribbean, Norwegian, or Princess. Three itineraries to choose from.</p>
+      <div class="value">Retail Value <strong>up to $899</strong></div>
+      <ul class="perks">
+        <li>Two adults · unlimited buffets &amp; entertainment</li>
+        <li>Miami → Cozumel · Port Canaveral → Nassau · LA → Ensenada</li>
+        <li>Just pay taxes &amp; port fees</li>
+        <li>24 months to travel · live booking support</li>
+      </ul>
+      <a class="cta gold" href="https://www.rewardsandincentives.com/?bcode=524b9529934779379dac68fc962905a7" target="_blank" rel="noopener">Choose This Trip →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="howit">
+  <div class="wrap">
+    <h3>How It <em>Works</em></h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h4>Activate</h4>
+        <p>Click your trip above, fill in a quick form, and your certificate is yours.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h4>Plan</h4>
+        <p>Choose dates and accommodations with a real, live travel agent.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h4>Confirm</h4>
+        <p>Receive your booking confirmation directly from the travel team.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <h4>Enjoy</h4>
+        <p>Pack your bags. We hope you make memories that last a lifetime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fine">
+  <div class="wrap">
+    <p>Travel offers fulfilled by Rewards &amp; Incentives. Each certificate must be activated to lock in the 24-month travel window. Recipient is responsible for taxes, government fees, port fees, and any per-night surcharges noted on the certificate. Limited promotional inventory; alternative comparable property may be substituted. No timeshare presentation required.</p>
+    <p>This page is a private gift link from Dave Ivery and Ownly ONCE. Please do not share publicly.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="sig">With gratitude, <em>Dave Ivery</em></div>
+  <div class="small">Ownly ONCE · A personal thank-you · © 2026</div>
+</footer>
+
+</body>
+</html>
