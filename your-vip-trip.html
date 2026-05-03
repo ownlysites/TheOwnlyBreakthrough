@@ -91,6 +91,20 @@ body{font-family:var(--fb);color:var(--text);background:var(--cream);line-height
 .step h4{font-family:var(--ff);font-size:18px;font-weight:500;color:var(--gold-l);margin-bottom:6px}
 .step p{font-family:var(--fb);font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.6}
 
+/* Loyalty bonus callout */
+.loyalty{padding:48px 24px;background:linear-gradient(180deg,var(--cream) 0%,var(--gold-pale) 100%);border-top:1px solid var(--border)}
+.loyalty .wrap{max-width:780px;margin:0 auto;background:#fff;border:2px solid var(--gold);border-radius:var(--rl);padding:32px;text-align:center;box-shadow:var(--shadow)}
+.loyalty .ribbon{display:inline-block;background:var(--gold);color:var(--navy);font-family:var(--fb);font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border-radius:6px;margin-bottom:14px}
+.loyalty h3{font-family:var(--ff);font-size:clamp(24px,3.5vw,32px);font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:12px}
+.loyalty h3 em{font-style:italic;color:var(--gold-d)}
+.loyalty p{font-family:var(--fb);font-size:13.5px;color:var(--text-m);line-height:1.7;margin-bottom:14px;max-width:600px;margin-left:auto;margin-right:auto}
+.loyalty p strong{color:var(--navy)}
+.loyalty .num{font-family:var(--ff);font-size:42px;color:var(--gold-d);font-weight:500;display:block;line-height:1;margin:8px 0 4px}
+.loyalty .num-sub{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-m);margin-bottom:18px;display:block}
+.loyalty .lk{font-family:var(--fb);font-size:11px;color:var(--text-m);letter-spacing:.04em;margin-top:6px}
+.loyalty .lk a{color:var(--navy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold)}
+.loyalty .lk a:hover{color:var(--gold-d)}
+
 /* Fine print */
 .fine{padding:32px 24px;background:var(--cream);border-top:1px solid var(--border)}
 .fine .wrap{max-width:780px;margin:0 auto;text-align:center}
@@ -129,7 +143,7 @@ body{font-family:var(--fb);color:var(--text);background:var(--cream);line-height
     <div class="ribbon">★  Compliments of Dave Ivery  ★</div>
     <h1>Thank <em>You</em>.</h1>
     <p class="lede">We promised we'd take care of you — and we always keep our promises. Here's our way of saying it: pick the getaway below that lights you up. It's on us.</p>
-    <p class="signed">With gratitude, <strong>Dave Ivery</strong> · Ownly ONCE</p>
+    <p class="signed">With gratitude, <strong>Dave Ivery</strong> · Ownly ONCE · Agent, Global Travel</p>
   </div>
 </section>
 
@@ -270,6 +284,18 @@ body{font-family:var(--fb);color:var(--text);background:var(--cream);line-height
   </div>
 </section>
 
+<section class="loyalty">
+  <div class="wrap">
+    <div class="ribbon">★ Bonus Included With Every Gift</div>
+    <h3>You're Also Joining the <em>Ownly ONCE Loyalty Club</em>.</h3>
+    <span class="num">1,000,000+</span>
+    <span class="num-sub">ongoing discounts on travel, lifestyle &amp; everyday spending</span>
+    <p>Redeeming any of the gifts above <strong>automatically enrolls you — at no cost — in the Ownly ONCE Loyalty Club</strong>: our private discount portal with over a million ongoing offers across hotels, dining, entertainment, retail, and more. It's our way of staying useful long after the trip is over.</p>
+    <p>Did this link reach you through a friend? Welcome — <strong>you'll be enrolled automatically the moment you redeem</strong>. Watch your inbox for your welcome email and login.</p>
+    <div class="lk">Loyalty portal · <a href="https://ownly1nce.corporateplusclub.com/" target="_blank" rel="noopener">ownly1nce.corporateplusclub.com</a></div>
+  </div>
+</section>
+
 <section class="fine">
   <div class="wrap">
     <p>Travel offers fulfilled by Rewards &amp; Incentives. Each certificate must be activated to lock in the 24-month travel window. Recipient is responsible for taxes, government fees, port fees, and any per-night surcharges noted on the certificate. Limited promotional inventory; alternative comparable property may be substituted. No timeshare presentation required.</p>
@@ -279,7 +305,7 @@ body{font-family:var(--fb);color:var(--text);background:var(--cream);line-height
 
 <footer class="foot">
   <div class="sig">With gratitude, <em>Dave Ivery</em></div>
-  <div class="small">Ownly ONCE · A personal thank-you · © 2026</div>
+  <div class="small">Ownly ONCE · Agent, Global Travel · A personal thank-you · © 2026</div>
 </footer>
 
 </body>
