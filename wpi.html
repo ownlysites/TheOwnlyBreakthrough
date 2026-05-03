@@ -613,14 +613,14 @@ async function loadRoute(){
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
           ${s.phone?`<a href="${s.phoneDial}" style="background:var(--gold);color:var(--navy);text-decoration:none;font-size:13px;font-weight:700;padding:9px 14px;border-radius:6px">📞 Call ${s.phone}</a>`:''}
           ${s.emailUrl?`<a href="${s.emailUrl}" target="_blank" rel="noopener" style="background:var(--navy);color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:9px 14px;border-radius:6px">✉ Email (Gmail draft)</a>`:''}
-          ${s.website?`<a href="https://${s.website.replace(/^https?:\\/\\//,'')}" target="_blank" rel="noopener" style="background:#fff;border:1px solid var(--border);color:var(--navy);text-decoration:none;font-size:12px;padding:9px 12px;border-radius:6px">🌐 site</a>`:''}
+          ${s.website?`<a href="https://${s.website.replace(/^https?:\/\//,'')}" target="_blank" rel="noopener" style="background:#fff;border:1px solid var(--border);color:var(--navy);text-decoration:none;font-size:12px;padding:9px 12px;border-radius:6px">🌐 site</a>`:''}
           ${s.rating?`<span style="background:var(--cream);color:var(--text-m);font-size:11px;padding:9px 10px;border-radius:6px">★ ${s.rating} (${s.reviews})</span>`:''}
         </div>
         <details style="margin:8px 0;font-size:12px"><summary style="cursor:pointer;color:var(--navy);font-weight:600">📍 Address (for Tuesday's visit)</summary><div style="padding:8px 0;color:var(--text-m)"><a href="${s.mapsUrl}" target="_blank" rel="noopener" style="color:var(--navy)">${s.address}</a></div></details>` : `
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
           <a href="${s.mapsUrl}" target="_blank" rel="noopener" style="background:var(--navy);color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:7px 12px;border-radius:6px">📍 ${s.address}</a>
           ${s.phone?`<a href="${s.phoneDial}" style="background:var(--gold);color:var(--navy);text-decoration:none;font-size:12px;font-weight:700;padding:7px 12px;border-radius:6px">📞 ${s.phone}</a>`:''}
-          ${s.website?`<a href="https://${s.website.replace(/^https?:\\/\\//,'')}" target="_blank" rel="noopener" style="background:#fff;border:1px solid var(--border);color:var(--navy);text-decoration:none;font-size:12px;padding:7px 12px;border-radius:6px">🌐 site</a>`:''}
+          ${s.website?`<a href="https://${s.website.replace(/^https?:\/\//,'')}" target="_blank" rel="noopener" style="background:#fff;border:1px solid var(--border);color:var(--navy);text-decoration:none;font-size:12px;padding:7px 12px;border-radius:6px">🌐 site</a>`:''}
           ${s.rating?`<span style="background:var(--cream);color:var(--text-m);font-size:11px;padding:7px 10px;border-radius:6px">★ ${s.rating} (${s.reviews})</span>`:''}
         </div>`;
       const scriptBlock = isWarmup && s.phoneScript ? `
