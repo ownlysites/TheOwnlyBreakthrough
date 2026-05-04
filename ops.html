@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overwatch · Ownly ONCE</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+:root{
+  --navy:#162B44;--navy-d:#0d1d2e;--navy-l:#2e5480;
+  --gold:#C9A84C;--gold-l:#e0c070;--gold-d:#9a7830;--gold-pale:#fdf6e3;
+  --cream:#f9f6f0;--white:#fff;--navy-pale:#eef4fb;
+  --text:#162B44;--text-m:#4a6580;--text-l:#8aa0b4;
+  --border:rgba(22,43,68,.12);--border-g:rgba(201,168,76,.3);
+  --green:#0f7a3a;--green-pale:rgba(15,122,58,.10);
+  --red:#a83434;--red-pale:rgba(168,52,52,.10);
+  --amber:#a86a16;--amber-pale:rgba(168,106,22,.10);
+  --r:12px;--rs:8px;--rl:16px;
+  --ff:'Cormorant Garamond',Georgia,serif;
+  --fb:'DM Sans',system-ui,-apple-system,sans-serif;
+  --shadow:0 4px 24px rgba(22,43,68,.10);
+  --shadow-s:0 2px 8px rgba(22,43,68,.07);
+}
+html,body{width:100%;background:var(--cream);font-family:var(--fb);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
+.head{background:var(--navy);color:#fff;padding:14px 18px;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+.head .wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-mark{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--ff);font-weight:600;color:var(--navy);font-size:18px;flex-shrink:0}
+.brand-text{font-family:var(--ff);font-size:18px;font-weight:500;line-height:1.1}
+.brand-text em{color:var(--gold-l);font-style:normal;font-weight:600}
+.head-eyebrow{font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);display:block;margin-bottom:2px}
+.date-pill{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-l);background:rgba(201,168,76,.12);padding:5px 10px;border-radius:99px;border:1px solid rgba(201,168,76,.3);white-space:nowrap}
+main{max-width:1100px;margin:0 auto;padding:18px 14px 80px}
+@media(min-width:720px){main{padding:24px 20px 80px}}
+h1{font-family:var(--ff);font-size:32px;font-weight:500;color:var(--navy);margin:0 0 4px;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--gold-d)}
+.hero-sub{font-family:var(--ff);font-size:16px;color:var(--text-m);font-style:italic;margin:0 0 22px;max-width:720px}
+section{margin-bottom:28px}
+h2{font-family:var(--ff);font-size:22px;font-weight:600;color:var(--navy);margin:0 0 12px;letter-spacing:-.005em;display:flex;align-items:center;gap:10px}
+h2 .count{background:var(--gold);color:var(--navy);font-family:var(--fb);font-size:13px;font-weight:700;padding:3px 10px;border-radius:99px;letter-spacing:0;text-transform:none}
+h2 em{font-style:italic;color:var(--gold-d)}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;box-shadow:var(--shadow-s)}
+.card-row{display:flex;align-items:flex-start;gap:12px}
+
+/* Daily 5 checklist */
+.daily5{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:560px){.daily5{grid-template-columns:1fr 1fr}}
+.d5-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);cursor:pointer;transition:all .15s ease;user-select:none}
+.d5-item:hover{border-color:var(--gold);background:var(--gold-pale)}
+.d5-item.done{background:var(--green-pale);border-color:var(--green);text-decoration:line-through;color:var(--text-m)}
+.d5-cb{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;font-size:14px;color:transparent}
+.d5-item.done .d5-cb{background:var(--green);border-color:var(--green);color:#fff}
+.d5-label{font-size:14px;font-weight:600;color:var(--text)}
+.d5-item.done .d5-label{color:var(--text-m);font-weight:500}
+
+/* Stop card (collapsed) */
+.stop{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--rs);padding:0;margin-bottom:10px;overflow:hidden;transition:all .15s ease}
+.stop.priority{border-left-color:var(--green)}
+.stop.done{border-left-color:var(--text-l);opacity:.6}
+.stop-head{display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer;user-select:none}
+.stop-head:hover{background:var(--cream)}
+.stop-num{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stop.priority .stop-num{background:var(--green)}
+.stop-info{flex:1;min-width:0}
+.stop-time{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-l);margin-bottom:2px}
+.stop-name{font-size:15px;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:3px;word-wrap:break-word}
+.stop-meta{font-size:12px;color:var(--text-m);font-weight:500}
+.stop-toggle{font-size:18px;color:var(--text-l);flex-shrink:0;transition:transform .2s ease}
+.stop.open .stop-toggle{transform:rotate(180deg)}
+.stop-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border);background:var(--cream)}
+.stop.open .stop-body{display:block}
+.brief-section{margin-top:14px}
+.brief-section h4{font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-d);margin-bottom:6px;border-bottom:1px solid var(--border-g);padding-bottom:5px}
+.brief-section p,.brief-section .script-line{font-size:14px;line-height:1.55;color:var(--text);font-family:var(--ff);font-style:italic}
+.script-line{background:#fff;border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 var(--rs) var(--rs) 0;margin:4px 0}
+.actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:6px;font-family:var(--fb);font-size:12px;font-weight:600;text-decoration:none;border:1px solid var(--border);background:#fff;color:var(--navy);cursor:pointer;transition:all .15s ease;letter-spacing:.02em}
+.btn:hover{border-color:var(--gold);background:var(--gold-pale)}
+.btn.primary{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn.primary:hover{background:var(--gold-l)}
+.btn.navy{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn.navy:hover{background:var(--navy-l)}
+.btn.ghost-green{background:var(--green-pale);color:var(--green);border-color:var(--green)}
+.btn.ghost-green.on{background:var(--green);color:#fff}
+.tag{display:inline-block;background:var(--gold-pale);color:var(--gold-d);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 7px;border-radius:5px;margin-right:4px}
+.tag.green{background:var(--green-pale);color:var(--green)}
+.tag.amber{background:var(--amber-pale);color:var(--amber)}
+.outcome-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)}
+.outcome-row .lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-l);width:100%;margin-bottom:4px}
+.note-box{width:100%;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:10px 12px;font-family:var(--fb);font-size:13px;color:var(--text);margin-top:8px;min-height:60px;resize:vertical}
+.note-box:focus{outline:none;border-color:var(--gold)}
+
+/* Pipeline */
+.pipeline{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:560px){.pipeline{grid-template-columns:repeat(4,1fr)}}
+.pipe-card{background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:14px;text-align:center;cursor:pointer;transition:all .15s ease;user-select:none}
+.pipe-card:hover{border-color:var(--gold)}
+.pipe-card.gold{border-color:var(--gold);background:linear-gradient(180deg,#fff 0%,var(--gold-pale) 100%)}
+.pipe-num{font-family:var(--ff);font-size:32px;font-weight:600;color:var(--navy);line-height:1}
+.pipe-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-m);margin-top:4px}
+.pipe-row{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:6px}
+.pipe-row button{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;font-weight:700;font-size:12px;color:var(--navy);transition:all .1s}
+.pipe-row button:hover{border-color:var(--gold);background:var(--gold-pale)}
+
+/* Quick tools */
+.tools{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:560px){.tools{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:900px){.tools{grid-template-columns:repeat(8,1fr)}}
+.tool{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);text-decoration:none;color:var(--navy);transition:all .15s ease;text-align:center}
+.tool:hover{border-color:var(--gold);background:var(--gold-pale);transform:translateY(-1px)}
+.tool-ico{font-size:22px;line-height:1}
+.tool-lbl{font-size:11px;font-weight:600}
+
+/* Empty / loading state */
+.skel{background:#fff;border:1px dashed var(--border);border-radius:var(--rs);padding:18px;color:var(--text-m);text-align:center;font-size:13px;font-style:italic}
+
+/* Fact teaser callout in brief */
+.callout{background:linear-gradient(180deg,var(--navy-pale) 0%,#fff 100%);border:1px solid var(--border-g);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 var(--rs) var(--rs) 0;font-size:13px;color:var(--text);margin:8px 0}
+.callout strong{color:var(--gold-d)}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark">O</div>
+      <div>
+        <span class="head-eyebrow">Ownly ONCE · Overwatch</span>
+        <div class="brand-text"><em>Overwatch</em> · The Sit Down Engine</div>
+      </div>
+    </div>
+    <div class="date-pill" id="dateLabel">Loading…</div>
+  </div>
+</header>
+
+<main>
+
+<h1>Today's <em>Run</em></h1>
+<p class="hero-sub" id="todaySub">Loading today's plan…</p>
+
+<!-- Daily 5 -->
+<section>
+  <h2>Daily 5 <span class="count" id="d5Count">0/6</span></h2>
+  <div class="daily5" id="daily5">
+    <div class="d5-item" data-key="scan60"><div class="d5-cb">✓</div><div class="d5-label">60-Second Scan run</div></div>
+    <div class="d5-item" data-key="scanDreams"><div class="d5-cb">✓</div><div class="d5-label">DREAMS scan run</div></div>
+    <div class="d5-item" data-key="scanMPP"><div class="d5-cb">✓</div><div class="d5-label">mPlannerPro scan run</div></div>
+    <div class="d5-item" data-key="reAgent"><div class="d5-cb">✓</div><div class="d5-label">1 RE agent contacted (diff market)</div></div>
+    <div class="d5-item" data-key="spotioLoaded"><div class="d5-cb">✓</div><div class="d5-label">Spotio loaded for tomorrow</div></div>
+    <div class="d5-item" data-key="reachClaimed"><div class="d5-cb">✓</div><div class="d5-label">REACH 10/day claimed</div></div>
+  </div>
+</section>
+
+<!-- Pipeline counters -->
+<section>
+  <h2>Pipeline <em>this&nbsp;week</em></h2>
+  <div class="pipeline" id="pipeline">
+    <div class="pipe-card gold" data-key="sitdowns"><div class="pipe-num">0</div><div class="pipe-label">Sit-Downs Booked</div><div class="pipe-row"><button data-d="-1">−</button><button data-d="1">+</button></div></div>
+    <div class="pipe-card" data-key="discovery"><div class="pipe-num">0</div><div class="pipe-label">Discovery Calls</div><div class="pipe-row"><button data-d="-1">−</button><button data-d="1">+</button></div></div>
+    <div class="pipe-card" data-key="proposals"><div class="pipe-num">0</div><div class="pipe-label">Proposals Out</div><div class="pipe-row"><button data-d="-1">−</button><button data-d="1">+</button></div></div>
+    <div class="pipe-card" data-key="closed"><div class="pipe-num">0</div><div class="pipe-label">Closed / Won</div><div class="pipe-row"><button data-d="-1">−</button><button data-d="1">+</button></div></div>
+  </div>
+</section>
+
+<!-- Field Stops Today -->
+<section>
+  <h2>Field Day <span class="count" id="stopCount">…</span></h2>
+  <div id="stopList"><div class="skel">Loading today's route…</div></div>
+</section>
+
+<!-- Quick Tools -->
+<section>
+  <h2>Quick <em>Tools</em></h2>
+  <div class="tools">
+    <a class="tool" href="https://app.spotio.com/" target="_blank"><div class="tool-ico">🗺️</div><div class="tool-lbl">Spotio</div></a>
+    <a class="tool" href="https://ownlycommand.netlify.app/" target="_blank"><div class="tool-ico">🎯</div><div class="tool-lbl">Command Center</div></a>
+    <a class="tool" href="https://calendly.com/daveivery" target="_blank"><div class="tool-ico">📅</div><div class="tool-lbl">Calendly</div></a>
+    <a class="tool" href="https://mail.google.com/mail/u/0/#drafts" target="_blank"><div class="tool-ico">✉️</div><div class="tool-lbl">Gmail Drafts</div></a>
+    <a class="tool" href="https://reachsolar.com/" target="_blank"><div class="tool-ico">☀️</div><div class="tool-lbl">REACH Solar</div></a>
+    <a class="tool" href="https://mplannerpro.com/" target="_blank"><div class="tool-ico">📊</div><div class="tool-lbl">mPlannerPro</div></a>
+    <a class="tool" href="https://dreamsscores.com/?refid=AA3946" target="_blank"><div class="tool-ico">💎</div><div class="tool-lbl">DREAMS</div></a>
+    <a class="tool" href="./wpi.html" target="_blank"><div class="tool-ico">📘</div><div class="tool-lbl">Overwatch Playbook</div></a>
+  </div>
+</section>
+
+</main>
+
+<script>
+const STORE = 'ownly-ops-v1';
+const today = new Date().toISOString().slice(0,10);
+let store = (()=>{
+  try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return{}}
+})();
+function save(){localStorage.setItem(STORE,JSON.stringify(store))}
+function dayState(){if(!store[today])store[today]={d5:{},pipeline:{sitdowns:0,discovery:0,proposals:0,closed:0},stops:{}};return store[today]}
+
+// Date label
+const D = new Date();
+const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+document.getElementById('dateLabel').textContent = days[D.getDay()]+' · '+months[D.getMonth()]+' '+D.getDate()+', '+D.getFullYear();
+
+// Daily 5
+function renderD5(){
+  const s = dayState();
+  const items = document.querySelectorAll('.d5-item');
+  let done=0;
+  items.forEach(el=>{
+    const k = el.dataset.key;
+    if(s.d5[k]){el.classList.add('done');done++}else el.classList.remove('done');
+  });
+  document.getElementById('d5Count').textContent = done+'/6';
+}
+document.querySelectorAll('.d5-item').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const s = dayState();
+    const k = el.dataset.key;
+    s.d5[k] = !s.d5[k]; save(); renderD5();
+  });
+});
+renderD5();
+
+// Pipeline
+function renderPipe(){
+  const s = dayState();
+  document.querySelectorAll('.pipe-card').forEach(card=>{
+    const k = card.dataset.key;
+    card.querySelector('.pipe-num').textContent = s.pipeline[k]||0;
+  });
+}
+document.querySelectorAll('.pipe-card .pipe-row button').forEach(btn=>{
+  btn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    const card = btn.closest('.pipe-card');
+    const k = card.dataset.key;
+    const d = parseInt(btn.dataset.d);
+    const s = dayState();
+    s.pipeline[k] = Math.max(0,(s.pipeline[k]||0)+d); save(); renderPipe();
+  });
+});
+renderPipe();
+
+// Stops fetch + render
+async function loadStops(){
+  let route = null;
+  try{
+    const r = await fetch('./wpi-route.json',{cache:'no-store'});
+    if(r.ok) route = await r.json();
+  }catch(e){}
+  const list = document.getElementById('stopList');
+  if(!route || !route.stops || !route.stops.length){
+    list.innerHTML = '<div class="skel">No field stops scheduled today. <a href="./wpi.html" style="color:var(--gold-d)">Open WPI playbook →</a></div>';
+    document.getElementById('stopCount').textContent = '0';
+    document.getElementById('todaySub').textContent = 'Phone & email day. No in-person stops scheduled.';
+    return;
+  }
+  document.getElementById('stopCount').textContent = route.stops.length+' stops';
+  document.getElementById('todaySub').textContent = (route.dateLabel||'')+' · '+(route.city||'')+' · start '+(route.startTime||'10:00 AM')+'.';
+  list.innerHTML = '';
+  const s = dayState();
+  route.stops.forEach((stop,idx)=>{
+    const stopId = 'stop_'+(stop.n||idx);
+    const stopState = s.stops[stopId]||{};
+    const el = document.createElement('div');
+    el.className = 'stop'+(stop.priority9x12?' priority':'')+(stopState.outcome?' done':'');
+    el.innerHTML = `
+      <div class="stop-head">
+        <div class="stop-num">${stop.n||(idx+1)}</div>
+        <div class="stop-info">
+          <div class="stop-time">${stop.time||''} · ${stop.industry||''}${stop.priority9x12?' <span class="tag green">9×12 priority</span>':''}</div>
+          <div class="stop-name">${stop.name||'(name missing)'}</div>
+          <div class="stop-meta">${stop.address||''} · ${stop.phone||''} · <em>${stop.sizeBand||''}</em></div>
+        </div>
+        <div class="stop-toggle">⌄</div>
+      </div>
+      <div class="stop-body">
+        <div class="brief-section">
+          <h4>Opener — Lead with Sit Down</h4>
+          <div class="script-line">${esc(stop.opener||'')}</div>
+        </div>
+        <div class="brief-section">
+          <h4>Pivot if engaged (FACT teaser)</h4>
+          <div class="script-line">${esc(stop.pivotIfEngaged||stop.factTeaser||'')}</div>
+        </div>
+        <div class="brief-section">
+          <h4>Drop-by (if owner unavailable)</h4>
+          <div class="script-line">${esc(stop.dropBy||'')}</div>
+        </div>
+        ${stop.leadInText?`<div class="brief-section"><h4>WPI Rewards angle</h4><p>${esc(stop.leadInText)}</p></div>`:''}
+        ${stop.topClosers&&stop.topClosers.length?`<div class="brief-section"><h4>Top closers (size band: ${stop.sizeBand||'—'})</h4>${stop.topClosers.map(c=>`<div class="script-line" style="font-style:normal;font-size:13px;font-family:var(--fb)">${esc(c.label)}</div>`).join('')}</div>`:''}
+        <div class="callout">
+          <strong>If they mention cash flow or growth:</strong> ARF Financial line of credit — $5K to $1.5M, no collateral, fast approval. Loan Stars partner program pays Dave on referrals. Drop the 1-pager link.
+        </div>
+        <div class="callout">
+          <strong>If they're profitable + paying full income tax:</strong> DREAMS B2B — R&D credits most CPAs miss, Section 125 plan, Bank Breezy fee recovery. Pivots cleanly off the FACT teaser.
+        </div>
+        <div class="actions">
+          ${stop.phoneDial?`<a class="btn" href="${stop.phoneDial}">📞 Call</a>`:''}
+          ${stop.mapsUrl?`<a class="btn" href="${stop.mapsUrl}" target="_blank">🗺️ Maps</a>`:''}
+          ${stop.website?`<a class="btn" href="${stop.website.startsWith('http')?stop.website:'https://'+stop.website}" target="_blank">🌐 Site</a>`:''}
+          ${stop.gmailDraftId?`<a class="btn" href="https://mail.google.com/mail/u/0/#drafts" target="_blank">✉️ Open Draft</a>`:''}
+          <a class="btn primary" href="https://calendly.com/daveivery" target="_blank">📅 Book Sit Down</a>
+        </div>
+        <div class="outcome-row">
+          <div class="lbl">Log outcome</div>
+          <button class="btn ghost-green ${stopState.outcome==='booked'?'on':''}" data-out="booked">✓ Sit Down booked</button>
+          <button class="btn ${stopState.outcome==='card'?'on':''}" data-out="card">📇 Card dropped</button>
+          <button class="btn ${stopState.outcome==='callback'?'on':''}" data-out="callback">📞 Call back later</button>
+          <button class="btn ${stopState.outcome==='declined'?'on':''}" data-out="declined">✕ Declined</button>
+        </div>
+        <textarea class="note-box" placeholder="Quick notes from the stop…">${esc(stopState.notes||'')}</textarea>
+      </div>
+    `;
+    list.appendChild(el);
+
+    // Toggle expand
+    const head = el.querySelector('.stop-head');
+    head.addEventListener('click',()=>el.classList.toggle('open'));
+
+    // Outcome buttons
+    el.querySelectorAll('[data-out]').forEach(b=>{
+      b.addEventListener('click',(e)=>{
+        e.stopPropagation();
+        const ds = dayState();
+        if(!ds.stops[stopId]) ds.stops[stopId]={};
+        const out = b.dataset.out;
+        ds.stops[stopId].outcome = ds.stops[stopId].outcome===out?null:out;
+        save();
+        // re-render outcome state
+        el.querySelectorAll('[data-out]').forEach(bb=>{
+          bb.classList.toggle('on',bb.dataset.out===ds.stops[stopId].outcome);
+        });
+        el.classList.toggle('done', !!ds.stops[stopId].outcome && ds.stops[stopId].outcome!=='callback');
+        // If "booked" → bump pipeline sit-downs
+        if(out==='booked' && ds.stops[stopId].outcome==='booked'){
+          ds.pipeline.sitdowns = (ds.pipeline.sitdowns||0)+1;
+          save(); renderPipe();
+        }
+      });
+    });
+
+    // Notes auto-save
+    const ta = el.querySelector('.note-box');
+    ta.addEventListener('input',()=>{
+      const ds = dayState();
+      if(!ds.stops[stopId]) ds.stops[stopId]={};
+      ds.stops[stopId].notes = ta.value;
+      save();
+    });
+  });
+}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+loadStops();
+</script>
+
+</body>
+</html>
