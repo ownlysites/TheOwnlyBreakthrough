@@ -78,22 +78,8 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
 /* Eyebrow text — reused for every section/card label */
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
 
-/* ── HOME / HERO (with integrated video) ──
-   CSS Grid layout: text + video side-by-side at desktop, stacked at mobile.
-   Grid template areas let us reorder visually without DOM changes — mobile
-   shows text → video → CTAs (video proves the value before the click);
-   desktop shows text-left + ctas-bottom-left + video-right.
-
-   Aspect-ratio note: the inner padding-top:56.25% hack needs a definite-width
-   parent. Grid columns provide that automatically — no flex-stretch issue. */
+/* ── HOME / HERO ── (video block removed 2026-05-05) */
 .hero{
-  display:grid;
-  grid-template-columns:1fr;
-  grid-template-areas:
-    "text"
-    "video"
-    "ctas";
-  gap:20px;
   background:linear-gradient(135deg,var(--navy-d),var(--navy-m));
   border-radius:var(--rl);
   padding:32px 28px;
@@ -103,36 +89,21 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
   overflow:hidden;
 }
 .hero::after{content:'♛';position:absolute;right:-10px;top:-10px;font-size:160px;opacity:.05;color:var(--gold);pointer-events:none;z-index:0;}
-.hero-text{grid-area:text;position:relative;z-index:1;}
-.hero-video{grid-area:video;position:relative;z-index:1;}
-.hero-ctas{grid-area:ctas;display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1;}
+.hero-text{position:relative;z-index:1;margin-bottom:20px;}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1;}
 
 .hero-eyebrow{font-size:11px;font-weight:500;color:var(--gold-l);text-transform:uppercase;letter-spacing:.13em;margin-bottom:10px;}
 .hero-title{font-family:var(--ff);font-size:42px;font-weight:500;color:#fff;line-height:1.15;margin-bottom:14px;}
 .hero-title em{color:var(--gold-l);font-style:italic;}
 .hero-sub{font-size:15px;color:rgba(255,255,255,.78);line-height:1.85;font-weight:300;margin:0;}
 
-.hero-video-aspect{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;border:1px solid rgba(201,168,76,.25);box-shadow:0 8px 28px rgba(0,0,0,.35);}
-.hero-video-aspect iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
-
 .btn-primary{background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);}
 .btn-primary:hover{background:var(--gold-l);}
 .btn-ghost{background:transparent;border:1px solid rgba(201,168,76,.4);border-radius:var(--rs);padding:13px 22px;font-size:13px;cursor:pointer;font-family:var(--fb);color:var(--gold-l);}
 .btn-ghost:hover{background:rgba(201,168,76,.1);}
 
-/* Desktop: text-left (with CTAs underneath) + video-right */
 @media(min-width:900px){
-  .hero{
-    grid-template-columns:minmax(0,1fr) minmax(360px,440px);
-    grid-template-areas:
-      "text  video"
-      "ctas  video";
-    gap:24px 36px;
-    padding:40px 36px;
-    align-items:start;
-  }
-  .hero-video{align-self:center;}
-  .hero-text{align-self:end;}
+  .hero{padding:40px 36px;}
   .hero-title{font-size:44px;}
 }
 
@@ -342,17 +313,12 @@ window.addEventListener('unhandledrejection', function(ev){
 
   <!-- ═══════ PANE 1 — HOME / LANDING ═══════ -->
   <div class="pane active" id="p-home">
-    <!-- ═══════ HERO with integrated Business Breakthroughs intro video (Vimeo, S11) ═══════ -->
+    <!-- ═══════ HERO ═══════ -->
     <div class="hero">
       <div class="hero-text">
         <div class="hero-eyebrow">⭐ Free DREAMS Score · Business Breakthroughs Playbook on Amazon</div>
         <h1 class="hero-title">Find <em>$50K to $500K</em> in hidden money inside your business — in 15 minutes.</h1>
         <p class="hero-sub">No login. No email gate. No paywall. Run a free DREAMS Score to surface hidden funding, credits, and savings across six categories — then read the Business Breakthroughs playbook on what to do next. The vetted partners on this site are the specialists who actually go get the money.</p>
-      </div>
-      <div class="hero-video">
-        <div class="hero-video-aspect">
-          <iframe src="https://player.vimeo.com/video/1187910196?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Business Breakthroughs"></iframe>
-        </div>
       </div>
       <div class="hero-ctas">
         <button class="btn-primary" onclick="dreamsScore()">💰 Find My Breakthrough</button>
@@ -1352,7 +1318,6 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
   }
 })();
 </script>
-<script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
 
