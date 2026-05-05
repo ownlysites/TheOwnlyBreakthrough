@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPI · Wealth Prosperity Index — Daily Workstation</title>
+<meta name="description" content="Dave Ivery's daily operating dashboard. Wealth Prosperity Index — track scans, services, pipeline, and the day's success metrics across the Ownly ONCE Ecosystem.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-d:#062B3D; --navy-m:#0F3F58; --navy-l:#1B5777;
+    --gold:#C9A84C;  --gold-l:#E0C36F;  --gold-d:#A8893E;
+    --cream:#FAF7F0; --white:#ffffff;
+    --green:#3FB57D; --green-d:#2E8F60;
+    --coral:#FF6B35;
+    --r:14px; --rl:18px; --rs:8px;
+    --ff:'Cormorant Garamond', Georgia, serif;
+    --fb:'DM Sans', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:var(--fb);
+    background:linear-gradient(180deg,var(--navy-d) 0%,var(--navy-m) 100%);
+    color:#fff;
+    min-height:100vh;
+    line-height:1.55;
+  }
+  a{color:var(--gold-l);text-decoration:none;}
+  a:hover{color:#fff;}
+
+  /* ── HEADER ── */
+  .topbar{
+    background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));
+    color:var(--navy-d);
+    text-align:center;
+    padding:8px 14px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  header.hero{
+    padding:32px 24px 28px;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .brand-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .brand-mark{
+    font-family:var(--ff);
+    font-size:62px;
+    font-weight:600;
+    color:var(--gold-l);
+    letter-spacing:-.02em;
+    line-height:1;
+  }
+  .brand-sub{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    color:rgba(255,255,255,.65);
+    font-weight:600;
+  }
+  .date-line{
+    color:rgba(255,255,255,.50);
+    font-size:13px;
+    margin-top:4px;
+    letter-spacing:.04em;
+  }
+
+  /* ── WPI SCORE ── */
+  .score-card{
+    max-width:600px;
+    margin:24px auto 0;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(201,168,76,.30);
+    border-radius:var(--rl);
+    padding:22px 28px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:22px;
+    align-items:center;
+  }
+  .score-num{
+    font-family:var(--ff);
+    font-size:72px;
+    font-weight:600;
+    color:var(--gold-l);
+    line-height:.9;
+    letter-spacing:-.02em;
+    min-width:130px;
+    text-align:center;
+  }
+  .score-meta{font-size:13px;color:rgba(255,255,255,.78);}
+  .score-meta strong{color:var(--gold-l);font-weight:600;}
+  .score-bar{
+    height:6px;background:rgba(255,255,255,.08);border-radius:99px;margin-top:10px;overflow:hidden;
+  }
+  .score-bar-fill{
+    height:100%;background:linear-gradient(90deg,var(--gold-d),var(--gold-l));border-radius:99px;
+  }
+
+  /* ── SECTION TITLES ── */
+  section{padding:36px 24px 12px;max-width:1200px;margin:0 auto;}
+  .sec-title{
+    font-family:var(--ff);
+    font-size:30px;
+    font-weight:500;
+    color:#fff;
+    margin:0 0 4px;
+    letter-spacing:-.01em;
+  }
+  .sec-sub{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    color:var(--gold-l);
+    font-weight:700;
+    margin-bottom:16px;
+  }
+
+  /* ── DAILY SUCCESS METRICS ── */
+  .metrics{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+  }
+  .metric{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(201,168,76,.25);
+    border-radius:var(--r);
+    padding:18px 18px 16px;
+    cursor:pointer;
+    transition:background .15s ease, border-color .15s ease;
+    user-select:none;
+  }
+  .metric:hover{background:rgba(255,255,255,.08);border-color:var(--gold);}
+  .metric-head{
+    display:flex;align-items:center;gap:10px;margin-bottom:6px;
+  }
+  .metric-check{
+    width:22px;height:22px;border-radius:50%;
+    border:2px solid rgba(201,168,76,.4);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;color:transparent;
+    flex-shrink:0;transition:all .2s ease;
+  }
+  .metric.done .metric-check{
+    border-color:var(--green);background:var(--green);color:#fff;
+  }
+  .metric-num{
+    font-family:var(--ff);
+    font-size:36px;color:var(--gold-l);font-weight:600;line-height:1;letter-spacing:-.01em;
+  }
+  .metric.done .metric-num{color:var(--green);text-decoration:line-through;text-decoration-thickness:2px;}
+  .metric-label{font-size:13px;color:rgba(255,255,255,.78);font-weight:500;line-height:1.4;margin-top:6px;}
+  .metric-tag{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--gold);
+    font-weight:700;
+    margin-top:8px;
+  }
+
+  /* ── SERVICE TILES ── */
+  .tiles{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+  }
+  .tile{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(201,168,76,.25);
+    border-radius:var(--r);
+    padding:18px 16px 16px;
+    color:#fff;
+    text-decoration:none;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    display:flex;
+    flex-direction:column;
+    min-height:130px;
+  }
+  .tile:hover{
+    transform:translateY(-2px);
+    border-color:var(--gold);
+    background:rgba(201,168,76,.06);
+  }
+  .tile-icon{font-size:28px;line-height:1;margin-bottom:10px;}
+  .tile-name{
+    font-family:var(--ff);
+    font-size:18px;color:#fff;font-weight:600;line-height:1.15;margin-bottom:4px;
+  }
+  .tile-desc{
+    font-size:11.5px;color:rgba(255,255,255,.65);line-height:1.45;flex:1;
+  }
+  .tile-tag{
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    color:var(--gold-l);
+    font-weight:700;
+    margin-top:10px;
+  }
+  .tile.primary{
+    background:linear-gradient(135deg,rgba(201,168,76,.25),rgba(201,168,76,.10));
+    border-color:var(--gold);
+  }
+
+  /* ── QUICK TOOLS ROW ── */
+  .toolbar{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-top:12px;
+  }
+  .tool{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:var(--r);
+    padding:14px 12px;
+    text-align:center;
+    color:#fff;
+    text-decoration:none;
+    transition:background .15s ease,border-color .15s ease;
+  }
+  .tool:hover{background:rgba(201,168,76,.08);border-color:var(--gold);}
+  .tool-icon{font-size:22px;display:block;margin-bottom:6px;}
+  .tool-label{font-size:11px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.85);}
+
+  /* ── FOOTER ── */
+  footer{
+    margin-top:48px;
+    padding:30px 24px 36px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.06);
+    font-size:11px;
+    color:rgba(255,255,255,.45);
+    letter-spacing:.10em;
+    line-height:1.7;
+  }
+  footer strong{color:var(--gold-l);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  footer .fact{
+    display:inline-block;margin-bottom:10px;font-size:13px;color:#fff;letter-spacing:.04em;
+  }
+  footer .fact em{color:var(--gold-l);font-style:italic;}
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:980px){
+    .tiles{grid-template-columns:repeat(2,1fr);}
+    .toolbar{grid-template-columns:repeat(3,1fr);}
+    .brand-mark{font-size:50px;}
+  }
+  @media (max-width:640px){
+    .metrics{grid-template-columns:1fr;}
+    .tiles{grid-template-columns:repeat(2,1fr);}
+    section{padding:28px 16px 8px;}
+    .score-card{grid-template-columns:1fr;text-align:center;padding:20px;}
+    .score-num{font-size:60px;}
+    .brand-mark{font-size:42px;}
+    .brand-sub{font-size:10px;letter-spacing:.16em;}
+    .sec-title{font-size:24px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">★ Ownly ONCE · Internal Operating Dashboard · Private</div>
+
+  <header class="hero">
+    <div class="brand-row">
+      <div class="brand-mark">WPI</div>
+      <div>
+        <div class="brand-sub">Wealth Prosperity Index</div>
+        <div class="date-line" id="todayDate"></div>
+      </div>
+    </div>
+
+    <div class="score-card">
+      <div class="score-num" id="wpiScore">—</div>
+      <div class="score-meta">
+        <strong>Today's Wealth Prosperity Index</strong> — composite of: scans run · sit downs booked · partners activated · revenue events.
+        <div class="score-bar"><div class="score-bar-fill" id="scoreFill" style="width:0%;"></div></div>
+        <div style="margin-top:8px;font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.10em;">
+          Track your daily progress · Goal 100/day
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────── DAILY SUCCESS METRICS ─────────── -->
+  <section>
+    <div class="sec-sub">Today's Floor</div>
+    <h2 class="sec-title">Daily Success Metrics</h2>
+    <div class="metrics">
+      <div class="metric" data-key="m_scans" onclick="toggleMetric(this)">
+        <div class="metric-head">
+          <div class="metric-check">✓</div>
+          <div class="metric-num">5</div>
+        </div>
+        <div class="metric-label">Diagnostic scans run<br>(60-Sec Credit · DREAMS · mPlannerPro · AI Audit)</div>
+        <div class="metric-tag">Surfaces F.A.C.T. opportunities</div>
+      </div>
+      <div class="metric" data-key="m_agent" onclick="toggleMetric(this)">
+        <div class="metric-head">
+          <div class="metric-check">✓</div>
+          <div class="metric-num">1</div>
+        </div>
+        <div class="metric-label">RE agent in a different market<br>looking at 5yearplans.com For Agents pane</div>
+        <div class="metric-tag">Outside SW FL footprint</div>
+      </div>
+      <div class="metric" data-key="m_reach" onclick="toggleMetric(this)">
+        <div class="metric-head">
+          <div class="metric-check">✓</div>
+          <div class="metric-num">10</div>
+        </div>
+        <div class="metric-label">REACH Solar Frisco SFR addresses<br>auto-pulled + claimed in Personal Campaigns</div>
+        <div class="metric-tag">Pre-deployed each morning</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── SERVICE LAUNCH TILES ─────────── -->
+  <section>
+    <div class="sec-sub">Service Stack · F.A.C.T. Aligned</div>
+    <h2 class="sec-title">Quick-Launch Services</h2>
+    <div class="tiles">
+
+      <a class="tile primary" href="https://gb-ownlyagency.multiscreensite.com/#Features" target="_blank">
+        <div class="tile-icon">🤖</div>
+        <div class="tile-name">Growbotiks AI Agency</div>
+        <div class="tile-desc">12-month growth plan — chat/voice AI agents, websites, Map Pack, GEO. White-label delivered.</div>
+        <div class="tile-tag">Add · Create · Track</div>
+      </a>
+
+      <a class="tile" href="https://breakthrough.dreamsscores.com/?refid=AA3946" target="_blank">
+        <div class="tile-icon">💎</div>
+        <div class="tile-name">DREAMS Score</div>
+        <div class="tile-desc">R&amp;D credits, Section 125, Bank Breezy fee recovery. Typical find: $30K–$200K per business.</div>
+        <div class="tile-tag">Find</div>
+      </a>
+
+      <a class="tile" href="https://www.taxhive.com" target="_blank">
+        <div class="tile-icon">🏛️</div>
+        <div class="tile-name">Tax Hive</div>
+        <div class="tile-desc">$10,000 tax-savings guarantee for high-income professionals. They find it or pay the difference.</div>
+        <div class="tile-tag">Track</div>
+      </a>
+
+      <a class="tile" href="https://www.arffinancial.com/loan-stars-form/" target="_blank">
+        <div class="tile-icon">💼</div>
+        <div class="tile-name">ARF Working Capital</div>
+        <div class="tile-desc">$5K–$1.5M revolving line, 24–48 hr funding. No equity, no real estate lien.</div>
+        <div class="tile-tag">Add</div>
+      </a>
+
+      <a class="tile" href="https://homesolarvalue.us/affiliate/personal-campaigns" target="_blank">
+        <div class="tile-icon">☀️</div>
+        <div class="tile-name">REACH Solar</div>
+        <div class="tile-desc">Personal Campaigns dashboard. Daily auto-pull of 10 Frisco SFR owner-occupied homes.</div>
+        <div class="tile-tag">Create</div>
+      </a>
+
+      <a class="tile" href="https://itsownlymoney.vercel.app/#agents" target="_blank">
+        <div class="tile-icon">🏡</div>
+        <div class="tile-name">Income Snowball + UFF</div>
+        <div class="tile-desc">U.S.-patented Income Snowball + REACH + UFF residual sphere — for real estate professionals.</div>
+        <div class="tile-tag">Create · Track</div>
+      </a>
+
+      <a class="tile" href="https://itsownlymoney.com" target="_blank">
+        <div class="tile-icon">🌳</div>
+        <div class="tile-name">WealthPath / Freedom Score</div>
+        <div class="tile-desc">5-Year Plan, Freedom Score, Family Legacy. Triple-tax promise. Cross-device synced.</div>
+        <div class="tile-tag">Find · Track</div>
+      </a>
+
+      <a class="tile" href="https://ownlymarketing.com" target="_blank">
+        <div class="tile-icon">📬</div>
+        <div class="tile-name">9×12 Local Spotlight</div>
+        <div class="tile-desc">5 cities × 16 categories × $500. North Port print + digital co-op. First come, first served.</div>
+        <div class="tile-tag">Add</div>
+      </a>
+
+      <a class="tile" href="https://the-ownly-breakthrough.vercel.app/your-vip-trip.html" target="_blank">
+        <div class="tile-icon">✈️</div>
+        <div class="tile-name">VIP Trip (Every Client)</div>
+        <div class="tile-desc">6 complimentary trip options — every Ownly engagement includes one. Cruise, all-inclusive, flex card.</div>
+        <div class="tile-tag">Bonus</div>
+      </a>
+
+      <a class="tile" href="https://calendly.com/daveivery" target="_blank">
+        <div class="tile-icon">📅</div>
+        <div class="tile-name">6 Figure Sit Down</div>
+        <div class="tile-desc">Calendly — 15-min Zoom. Book the call, find the number, put it in writing.</div>
+        <div class="tile-tag">Front Door</div>
+      </a>
+
+      <a class="tile" href="https://itsownlymoney.com" target="_blank">
+        <div class="tile-icon">🚪</div>
+        <div class="tile-name">Ecosystem Splash</div>
+        <div class="tile-desc">itsownlymoney.com — 3-audience hub (Business · Agent · Individual). Routes prospects.</div>
+        <div class="tile-tag">Front Door</div>
+      </a>
+
+      <a class="tile" href="https://the-ownly-breakthrough.vercel.app/" target="_blank">
+        <div class="tile-icon">🏢</div>
+        <div class="tile-name">Breakthrough (B2B)</div>
+        <div class="tile-desc">For business owners — DREAMS Score front door, AI 12-Month Plan, member perks, books.</div>
+        <div class="tile-tag">B2B Site</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ─────────── QUICK TOOLS ─────────── -->
+  <section>
+    <div class="sec-sub">Daily Ops</div>
+    <h2 class="sec-title">Quick Tools</h2>
+    <div class="toolbar">
+      <a class="tool" href="https://ownlycommand.netlify.app/" target="_blank">
+        <span class="tool-icon">🛡️</span>
+        <span class="tool-label">Command Center</span>
+      </a>
+      <a class="tool" href="https://mail.google.com/mail/u/1/#drafts" target="_blank">
+        <span class="tool-icon">✉️</span>
+        <span class="tool-label">Gmail Drafts</span>
+      </a>
+      <a class="tool" href="https://www.linkedin.com/in/daveivery/" target="_blank">
+        <span class="tool-icon">💼</span>
+        <span class="tool-label">LinkedIn</span>
+      </a>
+      <a class="tool" href="https://studio.d-id.com/agents" target="_blank">
+        <span class="tool-icon">🎙️</span>
+        <span class="tool-label">DJ (D-ID)</span>
+      </a>
+      <a class="tool" href="https://notebooklm.google.com/" target="_blank">
+        <span class="tool-icon">📚</span>
+        <span class="tool-label">NotebookLM</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fact">F.A.C.T. — <em>Find · Add · Create · Track</em> the money your business is missing.</div>
+    <div><strong>Ownly ONCE</strong> · Dave Ivery, CFEI / PFSA · 941-277-9876 · itsownlymoney.com</div>
+  </footer>
+
+  <script>
+    // Today's date
+    var d = new Date();
+    var fmt = d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    document.getElementById('todayDate').textContent = fmt;
+
+    // WPI score — local-storage backed (per-day)
+    var KEY = 'wpi_state_' + d.toISOString().slice(0,10);
+    var state = JSON.parse(localStorage.getItem(KEY) || '{}');
+    var WEIGHT = { m_scans: 35, m_agent: 30, m_reach: 35 };
+
+    function recompute(){
+      var total = 0;
+      Object.keys(WEIGHT).forEach(function(k){
+        if (state[k]) total += WEIGHT[k];
+      });
+      document.getElementById('wpiScore').textContent = total;
+      document.getElementById('scoreFill').style.width = Math.min(100, total) + '%';
+    }
+    function applyDoneStyles(){
+      document.querySelectorAll('.metric').forEach(function(el){
+        var k = el.getAttribute('data-key');
+        if (state[k]) el.classList.add('done'); else el.classList.remove('done');
+      });
+    }
+    function toggleMetric(el){
+      var k = el.getAttribute('data-key');
+      state[k] = !state[k];
+      localStorage.setItem(KEY, JSON.stringify(state));
+      applyDoneStyles();
+      recompute();
+    }
+    applyDoneStyles();
+    recompute();
+  </script>
+</body>
+</html>
