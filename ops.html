@@ -181,7 +181,6 @@ h2 em{font-style:italic;color:var(--gold-d)}
     <a class="tool" href="https://mail.google.com/mail/u/0/#drafts" target="_blank"><div class="tool-ico">✉️</div><div class="tool-lbl">Gmail Drafts</div></a>
     <a class="tool" href="https://reachsolar.com/" target="_blank"><div class="tool-ico">☀️</div><div class="tool-lbl">REACH Solar</div></a>
     <a class="tool" href="https://dreamsscores.com/?refid=AA3946" target="_blank"><div class="tool-ico">💎</div><div class="tool-lbl">DREAMS</div></a>
-    <a class="tool" href="./wpi.html" target="_blank"><div class="tool-ico">📘</div><div class="tool-lbl">Overwatch Playbook</div></a>
   </div>
 </section>
 
@@ -243,15 +242,13 @@ document.querySelectorAll('.pipe-card .pipe-row button').forEach(btn=>{
 renderPipe();
 
 // Stops fetch + render
+// NOTE: WPI route loading deprecated 2026-05-05 — pivoted to Zoom-only Sit Downs
 async function loadStops(){
   let route = null;
-  try{
-    const r = await fetch('./wpi-route.json',{cache:'no-store'});
-    if(r.ok) route = await r.json();
-  }catch(e){}
+  // Route file loading removed per pivot to Zoom-only model
   const list = document.getElementById('stopList');
   if(!route || !route.stops || !route.stops.length){
-    list.innerHTML = '<div class="skel">No field stops scheduled today. <a href="./wpi.html" style="color:var(--gold-d)">Open WPI playbook →</a></div>';
+    list.innerHTML = '<div class="skel">Zoom-only Sit Down model. No in-person field route scheduled.</div>';
     document.getElementById('stopCount').textContent = '0';
     document.getElementById('todaySub').textContent = 'Phone & email day. No in-person stops scheduled.';
     return;
@@ -288,7 +285,6 @@ async function loadStops(){
           <h4>Drop-by (if owner unavailable)</h4>
           <div class="script-line">${esc(stop.dropBy||'')}</div>
         </div>
-        ${stop.leadInText?`<div class="brief-section"><h4>WPI Rewards angle</h4><p>${esc(stop.leadInText)}</p></div>`:''}
         ${stop.topClosers&&stop.topClosers.length?`<div class="brief-section"><h4>Top closers (size band: ${stop.sizeBand||'—'})</h4>${stop.topClosers.map(c=>`<div class="script-line" style="font-style:normal;font-size:13px;font-family:var(--fb)">${esc(c.label)}</div>`).join('')}</div>`:''}
         <div class="callout">
           <strong>If they mention cash flow or growth:</strong> ARF Financial line of credit — $5K to $1.5M, no collateral, fast approval. Loan Stars partner program pays Dave on referrals. Drop the 1-pager link.

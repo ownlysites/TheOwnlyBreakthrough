@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Ownly Breakthrough — F.A.C.T. · Find. Add. Create. Track. 6 Figures in 15 Minutes.</title>
-<meta name="description" content="The Ownly Breakthrough is the F.A.C.T. play — Find, Add, Create, or Track at least 6 figures of value for your business in a 15-minute virtual sit-down. Proof in writing before we hang up.">
+<title>The Ownly Breakthrough — Find $50K to $500K in Hidden Money · Ownly Once Press</title>
+<meta name="description" content="Find $50K to $500K in hidden money inside your business in 15 minutes. The Ownly Breakthrough pairs a free DREAMS Score diagnostic with the Business Breakthroughs playbook and the vetted partners who actually go get the money.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -91,6 +91,7 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
   grid-template-columns:1fr;
   grid-template-areas:
     "text"
+    "video"
     "ctas";
   gap:20px;
   background:linear-gradient(135deg,var(--navy-d),var(--navy-m));
@@ -103,6 +104,7 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
 }
 .hero::after{content:'♛';position:absolute;right:-10px;top:-10px;font-size:160px;opacity:.05;color:var(--gold);pointer-events:none;z-index:0;}
 .hero-text{grid-area:text;position:relative;z-index:1;}
+.hero-video{grid-area:video;position:relative;z-index:1;}
 .hero-ctas{grid-area:ctas;display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1;}
 
 .hero-eyebrow{font-size:11px;font-weight:500;color:var(--gold-l);text-transform:uppercase;letter-spacing:.13em;margin-bottom:10px;}
@@ -121,10 +123,10 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
 /* Desktop: text-left (with CTAs underneath) + video-right */
 @media(min-width:900px){
   .hero{
-    grid-template-columns:1fr;
+    grid-template-columns:minmax(0,1fr) minmax(360px,440px);
     grid-template-areas:
-      "text"
-      "ctas";
+      "text  video"
+      "ctas  video";
     gap:24px 36px;
     padding:40px 36px;
     align-items:start;
@@ -329,7 +331,6 @@ window.addEventListener('unhandledrejection', function(ev){
     <button class="tnav-item" id="nav-funding" onclick="switchPane('funding')"><span class="ni">💼</span>Credit &amp; Funding</button>
     <button class="tnav-item" id="nav-tax" onclick="switchPane('tax')"><span class="ni">📊</span>Tax Strategy</button>
     <button class="tnav-item" id="nav-marketing" onclick="switchPane('marketing')"><span class="ni">📣</span>Marketing</button>
-    <button class="tnav-item" id="nav-payments" onclick="switchPane('payments')"><span class="ni">💳</span>Payments</button>
     <button class="tnav-item" id="nav-perks" onclick="switchPane('perks')"><span class="ni">⭐</span>Member Perks</button>
     <button class="tnav-item" id="nav-books" onclick="switchPane('books')"><span class="ni">📚</span>Books</button>
     <button class="tnav-item" id="nav-about" onclick="switchPane('about')"><span class="ni">👤</span>About</button>
@@ -344,13 +345,18 @@ window.addEventListener('unhandledrejection', function(ev){
     <!-- ═══════ HERO with integrated Business Breakthroughs intro video (Vimeo, S11) ═══════ -->
     <div class="hero">
       <div class="hero-text">
-        <div class="hero-eyebrow">⭐ The 6 Figure Sit Down · F.A.C.T. — Find. Add. Create. Track.</div>
-        <h1 class="hero-title">In 15 minutes I will <em>Find, Add, Create, or Track</em> 6 figures for your business — and put it in writing before we hang up.</h1>
-        <p class="hero-sub">Most advisors take 6 months to give you a recommendation. The 6 Figure Sit Down is a 15-minute virtual call where you walk away with at least $100,000 of identified value — in writing. Use the free DREAMS Score below to start the fact-finding mission, or book the call directly. If we don't hit 6 figures together, we don't hit 6 figures together — no obligation either way.</p>
+        <div class="hero-eyebrow">⭐ Free DREAMS Score · Business Breakthroughs Playbook on Amazon</div>
+        <h1 class="hero-title">Find <em>$50K to $500K</em> in hidden money inside your business — in 15 minutes.</h1>
+        <p class="hero-sub">No login. No email gate. No paywall. Run a free DREAMS Score to surface hidden funding, credits, and savings across six categories — then read the Business Breakthroughs playbook on what to do next. The vetted partners on this site are the specialists who actually go get the money.</p>
+      </div>
+      <div class="hero-video">
+        <div class="hero-video-aspect">
+          <iframe src="https://player.vimeo.com/video/1187910196?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Business Breakthroughs"></iframe>
+        </div>
       </div>
       <div class="hero-ctas">
-        <button class="btn-primary" onclick="openLink('https://calendly.com/daveivery')">📅 Book My 6 Figure Sit Down</button>
-        <button class="btn-primary" style="background:#fff;color:var(--navy-d);" onclick="dreamsScore()">💰 Run My DREAMS Score First</button>
+        <button class="btn-primary" onclick="dreamsScore()">💰 Find My Breakthrough</button>
+        <button class="btn-primary" style="background:#fff;color:var(--navy-d);" onclick="openLink('https://www.amazon.com/dp/B0GZ6QP1WH')">📕 Get the Playbook</button>
       </div>
     </div>
 
@@ -360,7 +366,7 @@ window.addEventListener('unhandledrejection', function(ev){
       <h2 class="precision-title">Pick your revenue target. <em>We'll show you exactly how to hit it</em> — in 12 months or less.</h2>
       <p class="precision-sub">Five-minute questionnaire. You tell us the revenue increase you want — we map the precise moves, partners, and milestones to get you there inside a year. Custom to your business, your numbers, and your starting point. No generic advice. No guesswork.</p>
       <div class="precision-cta-row">
-        <button class="precision-cta-btn" onclick="openLink('https://app.mplannerpro.com/abce1ffefc/chat?pg=69539a14a3')">🎯 Build My 12-Month Plan →</button>
+        <button class="precision-cta-btn" onclick="openLink('https://gb-ownlyagency.multiscreensite.com/#Features')">🎯 Build My 12-Month Plan →</button>
         <span class="precision-meta">⏱️ 5 minutes · No credit card · Tailored to your goal</span>
       </div>
     </div>
@@ -836,98 +842,6 @@ window.addEventListener('unhandledrejection', function(ev){
     </div>
   </div>
   <!-- /pane 6 -->
-
-  <!-- ═══════ PANE 8 — PAYMENTS (WPI MERCHANT SERVICES) ═══════ -->
-  <div class="pane" id="p-payments">
-    <div class="pane-header">
-      <div class="pane-title">💳 Payments</div>
-      <div class="pane-sub">Merchant services that pay you back — through Dave's partnership with Wholesale Payments Inc. (WPI)</div>
-    </div>
-    <div class="pane-body">
-
-      <!-- Hero — WPI Rewards primary -->
-      <div class="dark-card navy" style="padding:28px;">
-        <div class="eyebrow" style="color:var(--gold-l);margin-bottom:8px;">★ MERCHANT SERVICES · IN PARTNERSHIP WITH WHOLESALE PAYMENTS INC.</div>
-        <div style="font-family:var(--ff);font-size:26px;font-weight:500;color:#fff;line-height:1.25;margin-bottom:12px;">Your processing should pay <em style="color:var(--gold-l);font-style:italic;">you</em> back.</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.85;margin-bottom:18px;max-width:680px;">
-          Most owners treat credit card processing as a fixed expense. WPI flips that. Through our partnership with Wholesale Payments Inc. — a 32,000-merchant processor with $2B+ in annual volume — your business can either earn rewards on every dollar processed, or pass card fees directly to your card-paying customers. Either way, processing stops being a line item and starts being a lever.
-        </div>
-
-        <!-- Author/credibility line -->
-        <div style="font-size:12px;color:rgba(255,255,255,.7);font-style:italic;margin-bottom:22px;border-left:2px solid var(--gold);padding-left:12px;line-height:1.7;">
-          Run by Dave Ivery — Wholesale Payments Independent Sales Partner. Local Florida representative. Direct line. No call center.
-        </div>
-
-        <!-- Two main programs -->
-        <div class="eyebrow" style="color:var(--gold-l);margin-bottom:10px;">TWO PROGRAMS · PICK THE ONE THAT FITS</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:22px;">
-          <div class="feature-tile">
-            <div class="ft" style="color:var(--gold-l);">💎 WPI Rewards</div>
-            <div class="fb">Every dollar you process turns into points toward travel, electronics, and high-end goods. Free at the qualifying rate (3.99% / no SSOC). Average merchant earns more in rewards than they pay in platform fees.</div>
-          </div>
-          <div class="feature-tile">
-            <div class="ft" style="color:var(--gold-l);">🪙 Cash Discount Program (CDP)</div>
-            <div class="fb">Pass card-processing fees to card-paying customers; cash customers get a discount. Eliminates ~2-3% of your processing cost overnight. Used by 70%+ of new WPI merchants.</div>
-          </div>
-        </div>
-
-        <!-- What's included (the rest of the suite) -->
-        <div class="eyebrow" style="color:var(--gold-l);margin-bottom:10px;">FULL MERCHANT-SERVICES SUITE</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-bottom:22px;">
-          <div class="stat-tile"><div style="font-size:14px;font-weight:700;color:var(--gold-l);margin-bottom:3px;">TSYS · FD Omaha · FD North</div><div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:600;">Major processing platforms</div></div>
-          <div class="stat-tile"><div style="font-size:14px;font-weight:700;color:var(--gold-l);margin-bottom:3px;">NFC + Contactless</div><div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:600;">Modern in-person payments</div></div>
-          <div class="stat-tile"><div style="font-size:14px;font-weight:700;color:var(--gold-l);margin-bottom:3px;">Gift Card Programs</div><div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:600;">Branded for your business</div></div>
-          <div class="stat-tile"><div style="font-size:14px;font-weight:700;color:var(--gold-l);margin-bottom:3px;">Check Guarantee</div><div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:600;">No-bounce check acceptance</div></div>
-          <div class="stat-tile"><div style="font-size:14px;font-weight:700;color:var(--gold-l);margin-bottom:3px;">Level 3 B2B</div><div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:600;">Lower rates on B2B card use</div></div>
-          <div class="stat-tile"><div style="font-size:14px;font-weight:700;color:var(--gold-l);margin-bottom:3px;">Cash Advances</div><div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:600;">Working capital backed by your processing</div></div>
-        </div>
-
-        <!-- Why us / promises -->
-        <div style="background:rgba(0,0,0,.25);border:1px solid rgba(201,168,76,.3);border-radius:var(--rs);padding:14px 18px;margin-bottom:18px;">
-          <div style="font-size:12px;font-weight:600;color:var(--gold-l);margin-bottom:8px;">WHAT YOU WON'T GET FROM US</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.78);line-height:1.85;">
-            ✗ No surprise rate hikes &nbsp;·&nbsp; ✗ No long-term lock-in on the rewards program &nbsp;·&nbsp; ✗ No call-center runaround &nbsp;·&nbsp; ✗ No hidden fees, surcharges, or premium add-ons &nbsp;·&nbsp; ✗ No high-pressure sales presentations
-          </div>
-        </div>
-
-        <!-- CTAs -->
-        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-          <button onclick="openLink('https://calendly.com/daveivery/meetandgreet')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);">📅 Book a Free Merchant Rate Audit</button>
-          <a href="tel:+19412779876" style="background:transparent;border:1px solid rgba(201,168,76,.4);border-radius:var(--rs);padding:13px 22px;font-size:13px;cursor:pointer;font-family:var(--fb);color:var(--gold-l);text-decoration:none;display:inline-block;">📞 Call Dave: 941-277-9876</a>
-        </div>
-      </div>
-
-      <!-- How a free audit works (3 steps) -->
-      <div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-top:18px;">
-        <div class="eyebrow" style="color:var(--gold-d);margin-bottom:10px;">⭐ HOW THE FREE AUDIT WORKS</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
-          <div>
-            <div style="font-family:var(--ff);font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px;">01 · Send your last 2 statements</div>
-            <div style="font-size:12.5px;color:var(--text-m);line-height:1.7;">We analyze your effective rate, hidden fees, and surcharge layers — usually finds 0.5%-1.5% in margin most owners don't see.</div>
-          </div>
-          <div>
-            <div style="font-family:var(--ff);font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px;">02 · Side-by-side proposal</div>
-            <div style="font-size:12.5px;color:var(--text-m);line-height:1.7;">You see exactly what your monthly cost would be on WPI Rewards vs. CDP vs. your current processor — apples-to-apples, no jargon.</div>
-          </div>
-          <div>
-            <div style="font-family:var(--ff);font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px;">03 · Decide on your timeline</div>
-            <div style="font-size:12.5px;color:var(--text-m);line-height:1.7;">If it makes sense, we set you up. If not, you keep the analysis. Either way, you walk away knowing your real cost of processing.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Who it's for -->
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;margin-top:14px;">
-        <div class="eyebrow" style="color:var(--gold-d);margin-bottom:8px;">⭐ BEST FIT</div>
-        <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:var(--navy);margin-bottom:10px;">Built for owner-operated and small-to-mid US businesses</div>
-        <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;">Restaurants, retail, salons, spas, medical/dental, auto service, fitness, professional services, contractors — basically any business that takes cards in person, online, or both. Especially strong for businesses already paying $5K+ per month in processing where the rewards or CDP savings compound quickly.</div>
-      </div>
-
-      <div class="inline-disc" style="margin-top:14px;">⚠️ Wholesale Payments Inc. is a separate company. Dave Ivery is an Independent Sales Partner. Rate availability, qualifying tier, and program terms set by WPI. See <a onclick="openModal('affiliate')">Affiliate Disclosure</a> · <a onclick="openModal('disclaimer')">Full Disclaimer</a>.</div>
-
-    </div>
-  </div>
-  <!-- /pane 8 -->
 
   <!-- ═══════ PANE 5 — MEMBER PERKS ═══════ -->
   <div class="pane" id="p-perks">
