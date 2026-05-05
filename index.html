@@ -756,141 +756,17 @@ window.addEventListener('unhandledrejection', function(ev){
         </div>
       </div>
 
-      <!-- ═══════ CUSTOM WEBSITE DEVELOPMENT — INTAKE (CREATE pillar) ═══════ -->
-      <div id="webdev" style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);padding:0;margin-bottom:18px;border:1px solid rgba(201,168,76,.45);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(22,43,68,.12);">
+      <!-- ═══════ CUSTOM WEBSITE DEVELOPMENT — slim referral card to ownly-web-studio.vercel.app ═══════ -->
+      <div style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);padding:0;margin-bottom:18px;border:1px solid rgba(201,168,76,.45);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(22,43,68,.12);">
         <div style="height:4px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));"></div>
-        <div style="padding:28px;">
+        <div style="padding:24px 28px;">
           <div style="font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.16em;margin-bottom:8px;">🌐 Custom Website Development · Free Mockup First</div>
-          <h3 style="font-family:var(--ff);font-size:30px;font-weight:500;color:#fff;margin:0 0 10px;line-height:1.15;">A site that earns its keep — <em style="color:var(--gold-l);font-style:italic;">designed for you, mocked up free.</em></h3>
-          <p style="font-size:14px;color:rgba(255,255,255,.78);line-height:1.65;margin-bottom:14px;font-weight:300;">Tell us about your business below. We'll build you a free design mockup before you pay a dime — so you see the vision before we send a quote. Pricing scales with what you need: simple landing pages start affordable, full e-commerce builds run higher. Logo design, SEO, hosting, and social marketing can be bundled to bring the total down.</p>
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px;">
-            <div style="background:rgba(0,0,0,.25);border:1px solid rgba(201,168,76,.25);border-radius:var(--rs);padding:10px 12px;text-align:center;">
-              <div style="font-size:18px;margin-bottom:2px;">📋</div>
-              <div style="font-size:10.5px;font-weight:700;color:var(--gold-l);margin-bottom:2px;">Step 1</div>
-              <div style="font-size:11px;color:rgba(255,255,255,.7);line-height:1.4;">Fill the brief below</div>
-            </div>
-            <div style="background:rgba(0,0,0,.25);border:1px solid rgba(201,168,76,.25);border-radius:var(--rs);padding:10px 12px;text-align:center;">
-              <div style="font-size:18px;margin-bottom:2px;">🎨</div>
-              <div style="font-size:10.5px;font-weight:700;color:var(--gold-l);margin-bottom:2px;">Step 2</div>
-              <div style="font-size:11px;color:rgba(255,255,255,.7);line-height:1.4;">Free mockup in 3-5 days</div>
-            </div>
-            <div style="background:rgba(0,0,0,.25);border:1px solid rgba(201,168,76,.25);border-radius:var(--rs);padding:10px 12px;text-align:center;">
-              <div style="font-size:18px;margin-bottom:2px;">💵</div>
-              <div style="font-size:10.5px;font-weight:700;color:var(--gold-l);margin-bottom:2px;">Step 3</div>
-              <div style="font-size:11px;color:rgba(255,255,255,.7);line-height:1.4;">Quote based on your needs</div>
-            </div>
-            <div style="background:rgba(0,0,0,.25);border:1px solid rgba(201,168,76,.25);border-radius:var(--rs);padding:10px 12px;text-align:center;">
-              <div style="font-size:18px;margin-bottom:2px;">🚀</div>
-              <div style="font-size:10.5px;font-weight:700;color:var(--gold-l);margin-bottom:2px;">Step 4</div>
-              <div style="font-size:11px;color:rgba(255,255,255,.7);line-height:1.4;">Build &amp; launch</div>
-            </div>
+          <h3 style="font-family:var(--ff);font-size:26px;font-weight:500;color:#fff;margin:0 0 8px;line-height:1.15;">A site that earns its keep — <em style="color:var(--gold-l);font-style:italic;">designed for you, mocked up free.</em></h3>
+          <p style="font-size:13.5px;color:rgba(255,255,255,.78);line-height:1.65;margin-bottom:14px;font-weight:300;">Custom-built websites with AI agents, SEO, and conversion tracking baked in. We send you a free design mockup before you pay a dime — see the vision before the quote. Pricing tiers from $1,500 lead pages to $25K+ custom builds.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+            <button onclick="openLink('https://ownly-web-studio.vercel.app')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 26px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);">🎨 Visit Ownly Web Studio →</button>
+            <span style="font-size:11px;color:rgba(255,255,255,.5);">Free 5-min brief · Mockup back in 3-5 days · Launch in 7-21</span>
           </div>
-
-          <!-- INTAKE FORM -->
-          <form id="webdevForm" onsubmit="submitWebdev(event)" style="background:rgba(0,0,0,.18);border:1px solid rgba(201,168,76,.25);border-radius:var(--rs);padding:22px;display:grid;gap:14px;">
-            <div style="font-size:13px;font-weight:600;color:var(--gold-l);margin-bottom:-4px;">Need Analysis Form — your map to a website that converts</div>
-
-            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Business / Organization Name *</label>
-                <input type="text" name="business" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Type of Business *</label>
-                <input type="text" name="biztype" required placeholder="e.g. real estate, dental, e-com" style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-            </div>
-
-            <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Type of Website You Need *</label>
-              <select name="sitetype" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;">
-                <option value="">— Select —</option>
-                <option>Personal</option><option>Educational</option><option>Sport</option><option>Food / Restaurant</option>
-                <option>Local Business</option><option>Small Business</option><option>Medium Business</option>
-                <option>E-Commerce</option><option>Portfolio</option>
-              </select></div>
-
-            <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Tell us about your company — what you do or produce *</label>
-              <textarea name="about" rows="3" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;resize:vertical;"></textarea></div>
-
-            <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Purpose of the site (pick the strongest fit) *</label>
-              <select name="purpose" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;">
-                <option value="">— Select —</option>
-                <option>Explain products and services</option>
-                <option>Bring in new clients to your business</option>
-                <option>Provide info on a specific subject</option>
-                <option>Deliver news / calendar of events</option>
-                <option>Sell products online (e-commerce)</option>
-                <option>Provide support for current clients</option>
-              </select></div>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Domain / Website Address *</label>
-                <input type="text" name="domain" required placeholder="yourcompany.com (existing or desired)" style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Budget Range *</label>
-                <select name="budget" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;">
-                  <option value="">— Select —</option>
-                  <option>Under $1,500</option><option>$1,500 — $3,000</option><option>$3,000 — $6,000</option>
-                  <option>$6,000 — $12,000</option><option>$12,000 — $25,000</option><option>$25,000+</option>
-                </select></div>
-            </div>
-
-            <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Navigation items you want (check all that apply)</label>
-              <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:rgba(255,255,255,.85);">
-                <label><input type="checkbox" name="nav" value="About"/> About</label>
-                <label><input type="checkbox" name="nav" value="Services"/> Services</label>
-                <label><input type="checkbox" name="nav" value="Testimonials"/> Testimonials</label>
-                <label><input type="checkbox" name="nav" value="Shop"/> Shop</label>
-                <label><input type="checkbox" name="nav" value="Contact"/> Contact</label>
-                <label><input type="checkbox" name="nav" value="Blog"/> Blog</label>
-                <label><input type="checkbox" name="nav" value="Portfolio"/> Portfolio</label>
-                <label><input type="checkbox" name="nav" value="FAQ"/> FAQ</label>
-              </div></div>
-
-            <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Services / offerings to feature on the site *</label>
-              <textarea name="features" rows="2" required placeholder="Bullet your top 3-5 services or product lines" style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;resize:vertical;"></textarea></div>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Website you like #1 *</label>
-                <input type="text" name="like1" required placeholder="domain.com" style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">#2 *</label>
-                <input type="text" name="like2" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">#3 *</label>
-                <input type="text" name="like3" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-            </div>
-
-            <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:12px;">
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Color scheme (2-3 colors max) *</label>
-                <input type="text" name="colors" required placeholder="e.g. navy, gold, cream" style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Need monthly updates? *</label>
-                <select name="updates" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;">
-                  <option value="">— Select —</option><option>Yes</option><option>No</option><option>Not sure</option>
-                </select></div>
-            </div>
-
-            <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Bundle add-ons (check all that apply — bundling lowers total cost)</label>
-              <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:rgba(255,255,255,.85);">
-                <label><input type="checkbox" name="addon" value="Logo Design"/> Logo Design</label>
-                <label><input type="checkbox" name="addon" value="Business Cards"/> Business Cards</label>
-                <label><input type="checkbox" name="addon" value="Site Photography"/> Site Photography</label>
-                <label><input type="checkbox" name="addon" value="SEO"/> SEO</label>
-                <label><input type="checkbox" name="addon" value="Social Media Marketing"/> Social Media Marketing</label>
-                <label><input type="checkbox" name="addon" value="Domain Registration"/> Domain Registration</label>
-                <label><input type="checkbox" name="addon" value="Hosting"/> Hosting</label>
-              </div></div>
-
-            <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Special features or anything not listed above</label>
-              <textarea name="extras" rows="2" placeholder="e.g. booking widget, member portal, multilingual..." style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;resize:vertical;"></textarea></div>
-
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Your Name *</label>
-                <input type="text" name="name" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Email *</label>
-                <input type="email" name="email" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-              <div><label style="display:block;font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">Phone *</label>
-                <input type="tel" name="phone" required style="width:100%;padding:9px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:6px;font-family:var(--fb);font-size:13px;"/></div>
-            </div>
-
-            <div style="font-size:11px;color:rgba(255,255,255,.55);">When you submit, your default email opens with everything pre-filled — just hit send. We acknowledge in 24 hours and queue your free mockup.</div>
-
-            <button type="submit" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 26px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);justify-self:start;">📧 Send My Brief — Get Free Mockup →</button>
-          </form>
-
         </div>
       </div>
 
@@ -1303,48 +1179,7 @@ function openLink(url){
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 
-// ── Custom Website Development intake form submit ──
-function submitWebdev(e){
-  e.preventDefault();
-  var f = e.target;
-  var fd = new FormData(f);
-  function val(k){ return fd.get(k) || ''; }
-  function all(k){ return fd.getAll(k).join(', ') || '(none)'; }
-  var body =
-    'NEW WEBSITE BRIEF — Ownly ONCE / AceTech\n' +
-    'Submitted: ' + new Date().toLocaleString() + '\n' +
-    '────────────────────────────────────────\n\n' +
-    'BUSINESS INFO\n' +
-    'Business / Org: ' + val('business') + '\n' +
-    'Type of business: ' + val('biztype') + '\n' +
-    'Type of website: ' + val('sitetype') + '\n' +
-    'About company:\n' + val('about') + '\n\n' +
-    'Purpose of site: ' + val('purpose') + '\n' +
-    'Domain: ' + val('domain') + '\n' +
-    'Budget: ' + val('budget') + '\n\n' +
-    'STRUCTURE & DESIGN\n' +
-    'Navigation items: ' + all('nav') + '\n' +
-    'Services / offerings to feature:\n' + val('features') + '\n\n' +
-    'Websites they like:\n  1) ' + val('like1') + '\n  2) ' + val('like2') + '\n  3) ' + val('like3') + '\n\n' +
-    'Color scheme: ' + val('colors') + '\n' +
-    'Monthly updates: ' + val('updates') + '\n' +
-    'Add-on bundles: ' + all('addon') + '\n' +
-    'Special features / extras:\n' + val('extras') + '\n\n' +
-    'CONTACT\n' +
-    'Name: ' + val('name') + '\n' +
-    'Email: ' + val('email') + '\n' +
-    'Phone: ' + val('phone') + '\n\n' +
-    '— Sent from the-ownly-breakthrough.vercel.app · for Dave to forward to AceTech';
-  var subject = encodeURIComponent('Website Brief: ' + (val('business') || 'New Lead'));
-  var mailto = 'mailto:daveivery@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
-  window.location.href = mailto;
-  // Backup: copy to clipboard so even if mailto fails Dave can paste
-  try { navigator.clipboard.writeText('SUBJECT: '+decodeURIComponent(subject)+'\n\n'+body); } catch(_){}
-  setTimeout(function(){
-    alert("✓ Your email is opening pre-filled. Just hit Send.\n\nIf nothing opened, the brief was also copied to your clipboard — paste it into a new email to daveivery@gmail.com.");
-  }, 200);
-  return false;
-}
+// (Old submitWebdev intake function removed — full intake form now lives at ownly-web-studio.vercel.app)
 
 // ── DREAMS Score lead service (refid=AA3946 — Ownly Once partner ID) ──
 // Centralized URL so it can be updated in one place if the affiliate ID changes
