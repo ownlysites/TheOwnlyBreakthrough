@@ -201,6 +201,13 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
 @media(max-width:760px){
   .dreams-grid{grid-template-columns:repeat(3,1fr);}
 }
+/* Marketing stack 3x2 grid responsive */
+@media(max-width:900px){
+  .mkt-grid-3{grid-template-columns:repeat(2,1fr) !important;}
+}
+@media(max-width:560px){
+  .mkt-grid-3{grid-template-columns:1fr !important;}
+}
 @media(max-width:640px){
   .dreams-block{margin:0 14px 18px;padding:22px 18px 18px;}
   .dreams-title{font-size:22px;}
@@ -737,9 +744,9 @@ window.addEventListener('unhandledrejection', function(ev){
         </div>
       </div>
 
-      <!-- ═══════ MARKETING SERVICE GRID — compact square cards, side-by-side ═══════ -->
+      <!-- ═══════ MARKETING SERVICE GRID — 3 × 2 square cards ═══════ -->
       <div class="section-label" style="margin-top:6px;">🧰 The Marketing Stack</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:22px;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;" class="mkt-grid-3">
 
         <!-- CustomGPT — square card -->
         <div style="background:linear-gradient(135deg,#1B5777,#0F3F58);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
@@ -787,6 +794,15 @@ window.addEventListener('unhandledrejection', function(ev){
           <button onclick="openLink('https://ownlymarketing.com')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">📬 Get on the Card →</button>
         </div>
 
+        <!-- Restaurant Scan — square card (Owner.com) -->
+        <div style="background:linear-gradient(135deg,#3a0a0a,#5a1818);border-radius:var(--rl);border:1px solid rgba(193,39,45,.55);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
+          <div style="height:3px;background:linear-gradient(90deg,#7a1d22,#c1272d,#e74c5a,#c1272d,#7a1d22);position:absolute;top:0;left:0;right:0;"></div>
+          <div style="font-size:10px;font-weight:700;color:#ff8a8f;text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🍴 Restaurants · 60-Second Scan</div>
+          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">What's leaving your restaurant every month?</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.55;margin-bottom:14px;flex:1;">Free industry-specific diagnostic for independent restaurant owners. No login. No card. Just the number — most owners are stunned by what they see.</div>
+          <button onclick="openLink('https://notify.owner.com/e3t/Ctc/W1+23284/cMZLf04/Jks2-6qcW69sMD-6lZ3m6VbK0Ng5q5h9KW5pHDZR46jL7nW2-71VV2WVpNsW3PHN3c99pMrBW45LKHs7p0sYlW6RF8kM5rDXq7W13wL0d7H93dxW2rPBxp4-rdm6W8wZ0Kb82yqpVW4FPYRc7hfSXVV2ZMq48FrvHvW5hdHlr4QMM0cW4hNQZ51NPfp3N3HHT5K-nG-zW4-2hMB6WbLWVW2FlbLc1zQM7cVhpZKH4FG0TqW6YDFJ_12pBDLW5k0HRX8H723vW9f5lsk3S9KwPf95H62R04')" style="background:#c1272d;color:#fff;border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;">🍴 Run the Restaurant Scan →</button>
+        </div>
+
       </div>
 
       <!-- Lunch Money Marketing tie-back -->
@@ -797,25 +813,6 @@ window.addEventListener('unhandledrejection', function(ev){
           <div style="font-size:12.5px;color:var(--text-m);line-height:1.7;">Lunch Money Marketing — Second Edition is the playbook for owners who want to grow on a shoestring before scaling into a managed engagement.</div>
         </div>
         <button onclick="openLink('https://www.amazon.com/dp/B0GYXYRK75')" style="background:#c97a10;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);white-space:nowrap;">📖 Get the Book →</button>
-      </div>
-
-      <!-- Industry-Specific Tools (vertical callouts) -->
-      <div class="section-label" style="margin-top:22px;">🏷️ Industry-Specific Tools</div>
-      <div class="cards-grid tight">
-
-        <!-- Owner.com — restaurants -->
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;">
-          <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
-            <div style="font-size:32px;line-height:1;">🍴</div>
-            <div style="flex:1;">
-              <div class="eyebrow" style="color:#c1272d;margin-bottom:4px;">For Restaurants · 60-Second Scan</div>
-              <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:var(--navy);line-height:1.25;margin-bottom:6px;">What's leaving your restaurant every month?</div>
-              <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;">A free scan built for independent restaurant owners. Answer a few questions about how you're operating today and see the number. Most owners are surprised — some are stunned. No login. No card. Just the number.</div>
-            </div>
-          </div>
-          <button onclick="openLink('https://notify.owner.com/e3t/Ctc/W1+23284/cMZLf04/Jks2-6qcW69sMD-6lZ3m6VbK0Ng5q5h9KW5pHDZR46jL7nW2-71VV2WVpNsW3PHN3c99pMrBW45LKHs7p0sYlW6RF8kM5rDXq7W13wL0d7H93dxW2rPBxp4-rdm6W8wZ0Kb82yqpVW4FPYRc7hfSXVV2ZMq48FrvHvW5hdHlr4QMM0cW4hNQZ51NPfp3N3HHT5K-nG-zW4-2hMB6WbLWVW2FlbLc1zQM7cVhpZKH4FG0TqW6YDFJ_12pBDLW5k0HRX8H723vW9f5lsk3S9KwPf95H62R04')" style="background:#c1272d;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">🍴 Run the Restaurant Scan →</button>
-        </div>
-
       </div>
 
     </div>
