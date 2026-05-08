@@ -745,9 +745,26 @@ window.addEventListener('unhandledrejection', function(ev){
         </div>
       </div>
 
+      <!-- ═══════ PIPELINE-FILLING SPOTLIGHT — full-width feature card ═══════ -->
+      <div style="background:linear-gradient(135deg,#0a1628,#162B44 45%,#1f3a57);border-radius:var(--rl);border:1px solid rgba(201,168,76,.55);padding:28px 30px;margin-top:18px;position:relative;overflow:hidden;">
+        <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;">
+          <div>
+            <div class="eyebrow" style="color:var(--gold-l);margin-bottom:8px;">🎯 PIPELINE · DONE FOR YOU · LIVE NOW</div>
+            <div style="font-family:var(--ff);font-size:24px;font-weight:500;color:#fff;line-height:1.25;margin-bottom:8px;">Ownly Marketing — fill your pipeline with quote-ready clients.</div>
+            <div style="font-size:11px;color:var(--gold-l);font-style:italic;margin-bottom:10px;letter-spacing:.04em;">★ The Venice $50K Challenge · Free 5-Min AI Assessment · We Bet You Can't Find Less Than $50K</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.7;max-width:760px;">Done-for-you outbound that fills your pipeline with qualified, ready-to-buy clients every single month. Take the free 5-minute AI assessment first — we dare you to find less than $50,000 in future revenue hiding in your business. The number's yours either way.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;min-width:220px;">
+            <button onclick="openLink('https://ownly-marketing.vercel.app')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 22px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);white-space:nowrap;">🎯 Take the $50K Challenge →</button>
+            <button onclick="openLink('https://ownly-marketing.vercel.app')" style="background:transparent;border:1px solid rgba(201,168,76,.45);border-radius:var(--rs);padding:11px 22px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--gold-l);white-space:nowrap;">Fill My Pipeline →</button>
+          </div>
+        </div>
+      </div>
+
       <!-- ═══════ MARKETING SERVICE GRID — 3 × 2 square cards ═══════ -->
-      <div class="section-label" style="margin-top:6px;">🧰 The Marketing Stack</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;" class="mkt-grid-3">
+      <div class="section-label" style="margin-top:18px;">🧰 The Marketing Stack</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:14px;margin-bottom:22px;" class="mkt-grid-3">
 
         <!-- CustomGPT — square card -->
         <div style="background:linear-gradient(135deg,#1B5777,#0F3F58);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
