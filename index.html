@@ -1,22 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" style="overflow-x:hidden;">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0042)https://the-ownly-breakthrough.vercel.app/ -->
+<html lang="en" style="overflow-x:hidden;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Ownly Breakthrough — Find $50K to $500K in Hidden Money · Ownly Once Press</title>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://itsownlymoney.com/"/>
-<meta property="og:title" content="The Ownly Breakthrough — Find $50K to $500K in Hidden Money"/>
-<meta property="og:description" content="Find $50K to $500K in hidden money inside your business in 15 minutes. Free DREAMS Score diagnostic + Business Breakthroughs playbook + the vetted partners who actually go get the money. By Dave Ivery, NFEC CFEI."/>
-<meta property="og:site_name" content="Ownly ONCE"/>
-<meta property="og:image" content="https://ownly-hub.vercel.app/1%20Logo.png"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="The Ownly Breakthrough — Find $50K to $500K in Hidden Money"/>
-<meta name="twitter:description" content="15-min business diagnostic. Free DREAMS Score across six categories. By Dave Ivery, NFEC Certified Financial Education Instructor."/>
-<meta name="twitter:image" content="https://ownly-hub.vercel.app/1%20Logo.png"/>
-<link rel="canonical" href="https://itsownlymoney.com/"/>
 <meta name="description" content="Find $50K to $500K in hidden money inside your business in 15 minutes. The Ownly Breakthrough pairs a free DREAMS Score diagnostic with the Business Breakthroughs playbook and the vetted partners who actually go get the money.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="./breakthrough_live_files/css2" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -89,8 +78,22 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
 /* Eyebrow text — reused for every section/card label */
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
 
-/* ── HOME / HERO ── (video block removed 2026-05-05) */
+/* ── HOME / HERO (with integrated video) ──
+   CSS Grid layout: text + video side-by-side at desktop, stacked at mobile.
+   Grid template areas let us reorder visually without DOM changes — mobile
+   shows text → video → CTAs (video proves the value before the click);
+   desktop shows text-left + ctas-bottom-left + video-right.
+
+   Aspect-ratio note: the inner padding-top:56.25% hack needs a definite-width
+   parent. Grid columns provide that automatically — no flex-stretch issue. */
 .hero{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-areas:
+    "text"
+    "video"
+    "ctas";
+  gap:20px;
   background:linear-gradient(135deg,var(--navy-d),var(--navy-m));
   border-radius:var(--rl);
   padding:32px 28px;
@@ -100,21 +103,36 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
   overflow:hidden;
 }
 .hero::after{content:'♛';position:absolute;right:-10px;top:-10px;font-size:160px;opacity:.05;color:var(--gold);pointer-events:none;z-index:0;}
-.hero-text{position:relative;z-index:1;margin-bottom:20px;}
-.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1;}
+.hero-text{grid-area:text;position:relative;z-index:1;}
+.hero-video{grid-area:video;position:relative;z-index:1;}
+.hero-ctas{grid-area:ctas;display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1;}
 
 .hero-eyebrow{font-size:11px;font-weight:500;color:var(--gold-l);text-transform:uppercase;letter-spacing:.13em;margin-bottom:10px;}
 .hero-title{font-family:var(--ff);font-size:42px;font-weight:500;color:#fff;line-height:1.15;margin-bottom:14px;}
 .hero-title em{color:var(--gold-l);font-style:italic;}
 .hero-sub{font-size:15px;color:rgba(255,255,255,.78);line-height:1.85;font-weight:300;margin:0;}
 
+.hero-video-aspect{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;border:1px solid rgba(201,168,76,.25);box-shadow:0 8px 28px rgba(0,0,0,.35);}
+.hero-video-aspect iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+
 .btn-primary{background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);}
 .btn-primary:hover{background:var(--gold-l);}
 .btn-ghost{background:transparent;border:1px solid rgba(201,168,76,.4);border-radius:var(--rs);padding:13px 22px;font-size:13px;cursor:pointer;font-family:var(--fb);color:var(--gold-l);}
 .btn-ghost:hover{background:rgba(201,168,76,.1);}
 
+/* Desktop: text-left (with CTAs underneath) + video-right */
 @media(min-width:900px){
-  .hero{padding:40px 36px;}
+  .hero{
+    grid-template-columns:minmax(0,1fr) minmax(360px,440px);
+    grid-template-areas:
+      "text  video"
+      "ctas  video";
+    gap:24px 36px;
+    padding:40px 36px;
+    align-items:start;
+  }
+  .hero-video{align-self:center;}
+  .hero-text{align-self:end;}
   .hero-title{font-size:44px;}
 }
 
@@ -212,13 +230,6 @@ header{background:var(--navy-d);height:60px;display:flex;align-items:center;just
 @media(max-width:760px){
   .dreams-grid{grid-template-columns:repeat(3,1fr);}
 }
-/* Marketing stack 3x2 grid responsive */
-@media(max-width:900px){
-  .mkt-grid-3{grid-template-columns:repeat(2,1fr) !important;}
-}
-@media(max-width:560px){
-  .mkt-grid-3{grid-template-columns:1fr !important;}
-}
 @media(max-width:640px){
   .dreams-block{margin:0 14px 18px;padding:22px 18px 18px;}
   .dreams-title{font-size:22px;}
@@ -301,8 +312,8 @@ window.addEventListener('unhandledrejection', function(ev){
   } catch(e){}
 });
 </script>
-</head>
-<body>
+<script src="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/js/recordConsoleEvents.js"></script></head>
+<body data-new-gr-c-s-check-loaded="14.1286.0" data-gr-ext-installed="">
 
 <!-- ══════════════════ HEADER ══════════════════ -->
 <header>
@@ -310,19 +321,19 @@ window.addEventListener('unhandledrejection', function(ev){
     <div class="h-mark">♛</div>
     <div class="h-logo-txt">The Ownly <span>Breakthrough</span></div>
   </div>
-  <button class="h-btn" onclick="openLink('https://calendly.com/daveivery/meetandgreet')">📅 Book a Session</button>
+  <button class="h-btn" onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)">📅 Book a Session</button>
 </header>
 
 <!-- ══════════════════ TOP NAV (7 panes) ══════════════════ -->
 <nav class="tnav">
   <div class="tnav-inner">
-    <button class="tnav-item active" id="nav-home" onclick="switchPane('home')"><span class="ni">🏠</span>Home</button>
-    <button class="tnav-item" id="nav-funding" onclick="switchPane('funding')"><span class="ni">💼</span>Credit &amp; Funding</button>
-    <button class="tnav-item" id="nav-tax" onclick="switchPane('tax')"><span class="ni">📊</span>Tax Strategy</button>
-    <button class="tnav-item" id="nav-marketing" onclick="switchPane('marketing')"><span class="ni">📣</span>Marketing</button>
-    <button class="tnav-item" id="nav-perks" onclick="switchPane('perks')"><span class="ni">⭐</span>Member Perks</button>
-    <button class="tnav-item" id="nav-books" onclick="switchPane('books')"><span class="ni">📚</span>Books</button>
-    <button class="tnav-item" id="nav-about" onclick="switchPane('about')"><span class="ni">👤</span>About</button>
+    <button class="tnav-item active" id="nav-home" onclick="switchPane(&#39;home&#39;)"><span class="ni">🏠</span>Home</button>
+    <button class="tnav-item" id="nav-funding" onclick="switchPane(&#39;funding&#39;)"><span class="ni">💼</span>Credit &amp; Funding</button>
+    <button class="tnav-item" id="nav-tax" onclick="switchPane(&#39;tax&#39;)"><span class="ni">📊</span>Tax Strategy</button>
+    <button class="tnav-item" id="nav-marketing" onclick="switchPane(&#39;marketing&#39;)"><span class="ni">📣</span>Marketing</button>
+    <button class="tnav-item" id="nav-perks" onclick="switchPane(&#39;perks&#39;)"><span class="ni">⭐</span>Member Perks</button>
+    <button class="tnav-item" id="nav-books" onclick="switchPane(&#39;books&#39;)"><span class="ni">📚</span>Books</button>
+    <button class="tnav-item" id="nav-about" onclick="switchPane(&#39;about&#39;)"><span class="ni">👤</span>About</button>
   </div>
 </nav>
 
@@ -331,17 +342,21 @@ window.addEventListener('unhandledrejection', function(ev){
 
   <!-- ═══════ PANE 1 — HOME / LANDING ═══════ -->
   <div class="pane active" id="p-home">
-    <!-- ═══════ HERO ═══════ -->
+    <!-- ═══════ HERO with integrated Business Breakthroughs intro video (Vimeo, S11) ═══════ -->
     <div class="hero">
       <div class="hero-text">
-        <div style="font-size:9px;font-weight:400;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px;font-style:italic;">New Home of The Venice Business Academy</div>
         <div class="hero-eyebrow">⭐ Free DREAMS Score · Business Breakthroughs Playbook on Amazon</div>
         <h1 class="hero-title">Find <em>$50K to $500K</em> in hidden money inside your business — in 15 minutes.</h1>
         <p class="hero-sub">No login. No email gate. No paywall. Run a free DREAMS Score to surface hidden funding, credits, and savings across six categories — then read the Business Breakthroughs playbook on what to do next. The vetted partners on this site are the specialists who actually go get the money.</p>
       </div>
+      <div class="hero-video">
+        <div class="hero-video-aspect">
+          <iframe src="./breakthrough_live_files/1187910196.html" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Business Breakthroughs" data-ready="true"></iframe>
+        </div>
+      </div>
       <div class="hero-ctas">
         <button class="btn-primary" onclick="dreamsScore()">💰 Find My Breakthrough</button>
-        <button class="btn-primary" style="background:#fff;color:var(--navy-d);" onclick="openLink('https://www.amazon.com/dp/B0GZ6QP1WH')">📕 Get the Playbook</button>
+        <button class="btn-primary" style="background:#fff;color:var(--navy-d);" onclick="openLink(&#39;https://www.amazon.com/dp/B0GZ6QP1WH&#39;)">📕 Get the Playbook</button>
       </div>
     </div>
 
@@ -351,12 +366,11 @@ window.addEventListener('unhandledrejection', function(ev){
       <h2 class="precision-title">Pick your revenue target. <em>We'll show you exactly how to hit it</em> — in 12 months or less.</h2>
       <p class="precision-sub">Five-minute questionnaire. You tell us the revenue increase you want — we map the precise moves, partners, and milestones to get you there inside a year. Custom to your business, your numbers, and your starting point. No generic advice. No guesswork.</p>
       <div class="precision-cta-row">
-        <button class="precision-cta-btn" onclick="openLink('https://app.mplannerpro.com/abce1ffefc/chat?pg=69539a14a3')">🎯 Build My 12-Month Plan →</button>
+        <button class="precision-cta-btn" onclick="openLink(&#39;https://app.growbotik.com/abce1ffefc/chat?pg=dea8573397&#39;)">🎯 Build My 12-Month Plan →</button>
         <span class="precision-meta">⏱️ 5 minutes · No credit card · Tailored to your goal</span>
       </div>
     </div>
     <!-- /Precision block -->
-
 
     <!-- ═══════ DREAMS SCORE — six-letter diagnostic ═══════ -->
     <div class="dreams-block">
@@ -390,32 +404,32 @@ window.addEventListener('unhandledrejection', function(ev){
     <!-- /DREAMS block -->
 
     <div class="pillars">
-      <div class="pillar" onclick="switchPane('books')">
+      <div class="pillar" onclick="switchPane(&#39;books&#39;)">
         <span class="ic">📚</span>
         <div class="pt">Books &amp; Resources</div>
         <div class="pd">Three books live on Amazon — the playbooks behind the system.</div>
       </div>
-      <div class="pillar" onclick="switchPane('funding')">
+      <div class="pillar" onclick="switchPane(&#39;funding&#39;)">
         <span class="ic">💼</span>
         <div class="pt">Credit &amp; Funding</div>
         <div class="pd">Seven vetted partners covering business credit, capital lines, and acquisition funding.</div>
       </div>
-      <div class="pillar" onclick="switchPane('tax')">
+      <div class="pillar" onclick="switchPane(&#39;tax&#39;)">
         <span class="ic">📊</span>
         <div class="pt">Tax Strategy</div>
         <div class="pd">A former IRS auditor's playbook for legally cutting your tax bill — free training.</div>
       </div>
-      <div class="pillar" onclick="switchPane('perks')">
+      <div class="pillar" onclick="switchPane(&#39;perks&#39;)">
         <span class="ic">⭐</span>
         <div class="pt">Member Perks</div>
         <div class="pd">Travel, entertainment, and corporate benefits typically reserved for big-company employees.</div>
       </div>
-      <div class="pillar" onclick="switchPane('marketing')">
+      <div class="pillar" onclick="switchPane(&#39;marketing&#39;)">
         <span class="ic">📣</span>
         <div class="pt">Marketing Done For You</div>
         <div class="pd">Full-service growth marketing — built, run, and reported on by the Ownly Once team.</div>
       </div>
-      <div class="pillar" onclick="switchPane('about')">
+      <div class="pillar" onclick="switchPane(&#39;about&#39;)">
         <span class="ic">👤</span>
         <div class="pt">About Dave</div>
         <div class="pd">Author, certified coach, and the person who curated every partner on this site.</div>
@@ -445,8 +459,8 @@ window.addEventListener('unhandledrejection', function(ev){
           Before you reach out to any funding partner, run our quick prequalification scan. It's a 60-second snapshot of where your business stands — a fast read on the funding options you're positioned for right now. Use it as a reality check before you invest time with the partners below.
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button onclick="openLink('https://member.creditsavvi.com/agent/DIvery')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);">⚡ Start My 60-Second Scan →</button>
-          <button onclick="openLink('https://calendly.com/daveivery/meetandgreet')" style="background:transparent;border:1px solid rgba(201,168,76,.4);border-radius:var(--rs);padding:13px 22px;font-size:13px;cursor:pointer;font-family:var(--fb);color:var(--gold-l);">📅 Talk to Dave First</button>
+          <button onclick="openLink(&#39;https://member.creditsavvi.com/agent/DIvery&#39;)" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);">⚡ Start My 60-Second Scan →</button>
+          <button onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)" style="background:transparent;border:1px solid rgba(201,168,76,.4);border-radius:var(--rs);padding:13px 22px;font-size:13px;cursor:pointer;font-family:var(--fb);color:var(--gold-l);">📅 Talk to Dave First</button>
         </div>
       </div>
       <!-- /60-Second Business Scan -->
@@ -483,8 +497,8 @@ window.addEventListener('unhandledrejection', function(ev){
             <div style="font-size:11px;color:rgba(255,255,255,.35);line-height:1.6;">0% APR intro rate applies for 6–18 months; standard rates (15–25% APR) apply after. Requires personal credit check and personal guarantee. Up to $300K for well-qualified clients over a 12-month membership. Average client obtains $50K–$150K. Individual results vary significantly. You are personally liable for all debt incurred. Consult a financial advisor before proceeding.</div>
           </div>
           <div style="display:flex;flex-direction:column;gap:10px;flex-shrink:0;">
-            <button onclick="openLink('https://www.fundandgrow.com/davidiverywebinar/')" style="background:#4caf50;border:none;border-radius:var(--rs);padding:14px 22px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--fb);color:#fff;white-space:nowrap;">🎓 Register for Free Masterclass →</button>
-            <button onclick="openLink('https://calendly.com/daveivery/meetandgreet')" style="background:transparent;border:1px solid rgba(42,180,42,.4);border-radius:var(--rs);padding:11px 22px;font-size:12px;cursor:pointer;font-family:var(--fb);color:rgba(255,255,255,.7);white-space:nowrap;">📅 Book a Session with Dave</button>
+            <button onclick="openLink(&#39;https://www.fundandgrow.com/davidiverywebinar/&#39;)" style="background:#4caf50;border:none;border-radius:var(--rs);padding:14px 22px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--fb);color:#fff;white-space:nowrap;">🎓 Register for Free Masterclass →</button>
+            <button onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)" style="background:transparent;border:1px solid rgba(42,180,42,.4);border-radius:var(--rs);padding:11px 22px;font-size:12px;cursor:pointer;font-family:var(--fb);color:rgba(255,255,255,.7);white-space:nowrap;">📅 Book a Session with Dave</button>
           </div>
         </div>
       </div>
@@ -507,8 +521,8 @@ window.addEventListener('unhandledrejection', function(ev){
           <div class="stat-tile" style="background:rgba(0,200,83,.08);border:1px solid rgba(0,200,83,.2);"><div class="v" style="color:#4caf50;">10K+</div><div class="l">5-Star Reviews</div></div>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button onclick="openLink('https://www.primecorporateservices.com/?_ef_transaction_id=&oid=2&affid=1535')" style="background:linear-gradient(135deg,#2e7d32,#1b5e20);border:none;border-radius:var(--rs);padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#fff;">Start with a Free Consultation →</button>
-          <button onclick="openLink('https://www.primecorporateservices.com/llc-checkout-new/')" style="background:transparent;border:1px solid rgba(0,200,83,.4);border-radius:var(--rs);padding:11px 16px;font-size:12px;cursor:pointer;font-family:var(--fb);color:#4caf50;">Form My LLC Now</button>
+          <button onclick="openLink(&#39;https://www.primecorporateservices.com/?_ef_transaction_id=&amp;oid=2&amp;affid=1535&#39;)" style="background:linear-gradient(135deg,#2e7d32,#1b5e20);border:none;border-radius:var(--rs);padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#fff;">Start with a Free Consultation →</button>
+          <button onclick="openLink(&#39;https://www.primecorporateservices.com/llc-checkout-new/&#39;)" style="background:transparent;border:1px solid rgba(0,200,83,.4);border-radius:var(--rs);padding:11px 16px;font-size:12px;cursor:pointer;font-family:var(--fb);color:#4caf50;">Form My LLC Now</button>
         </div>
         <div style="font-size:10px;color:rgba(255,255,255,.3);margin-top:10px;">Prime Corporate Services · 170,000+ businesses formed · Results vary</div>
       </div>
@@ -521,15 +535,15 @@ window.addEventListener('unhandledrejection', function(ev){
       <div class="premium-card">
         <div class="premium-banner" style="background:linear-gradient(135deg,var(--navy-d) 0%,var(--navy-m) 60%,#1e3a5a 100%);">
           <svg viewBox="0 0 300 120" preserveAspectRatio="none" style="position:absolute;top:0;right:0;width:60%;height:100%;opacity:.08;pointer-events:none;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="270" cy="30" r="60" fill="#C9A84C"/>
-            <circle cx="220" cy="100" r="40" fill="#fff"/>
-            <circle cx="295" cy="95" r="25" fill="#C9A84C"/>
+            <circle cx="270" cy="30" r="60" fill="#C9A84C"></circle>
+            <circle cx="220" cy="100" r="40" fill="#fff"></circle>
+            <circle cx="295" cy="95" r="25" fill="#C9A84C"></circle>
           </svg>
           <div style="position:relative;display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
             <div style="flex-shrink:0;">
               <svg width="108" height="108" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 16 80 A 38 38 0 1 1 92 80" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="9" stroke-linecap="round"/>
-                <path d="M 16 80 A 38 38 0 1 1 92 80" fill="none" stroke="#C9A84C" stroke-width="9" stroke-linecap="round" stroke-dasharray="155 180"/>
+                <path d="M 16 80 A 38 38 0 1 1 92 80" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="9" stroke-linecap="round"></path>
+                <path d="M 16 80 A 38 38 0 1 1 92 80" fill="none" stroke="#C9A84C" stroke-width="9" stroke-linecap="round" stroke-dasharray="155 180"></path>
                 <text x="54" y="58" text-anchor="middle" fill="#fff" style="font-family:Cormorant Garamond,Georgia,serif;font-size:28px;font-weight:600;font-variant-numeric:lining-nums tabular-nums;">725</text>
                 <text x="54" y="76" text-anchor="middle" fill="rgba(255,255,255,.55)" style="font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-family:DM Sans,system-ui,sans-serif;font-weight:600;">Score</text>
               </svg>
@@ -552,51 +566,57 @@ window.addEventListener('unhandledrejection', function(ev){
             <div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--rs);padding:10px 12px;"><div style="font-size:15px;margin-bottom:3px;">💰</div><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:3px;">Build Savings Too</div><div style="font-size:11px;color:var(--text-m);line-height:1.5;">Principal returned at account close — credit + savings together.</div></div>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-            <button onclick="openLink('https://creditstrong.referralrock.com/l/3DAVEIVERY53/')" style="background:linear-gradient(135deg,#1565C0,#0d47a1);color:#fff;border:none;border-radius:var(--rs);padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);box-shadow:0 2px 10px rgba(21,101,192,.3);">Start Building My Credit →</button>
-            <button onclick="openLink('https://calendly.com/daveivery/meetandgreet')" style="background:transparent;border:1px solid var(--border);border-radius:var(--rs);padding:11px 16px;font-size:12px;cursor:pointer;font-family:var(--fb);color:var(--text-m);">Ask Dave First</button>
+            <button onclick="openLink(&#39;https://creditstrong.referralrock.com/l/3DAVEIVERY53/&#39;)" style="background:linear-gradient(135deg,#1565C0,#0d47a1);color:#fff;border:none;border-radius:var(--rs);padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);box-shadow:0 2px 10px rgba(21,101,192,.3);">Start Building My Credit →</button>
+            <button onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)" style="background:transparent;border:1px solid var(--border);border-radius:var(--rs);padding:11px 16px;font-size:12px;cursor:pointer;font-family:var(--fb);color:var(--text-m);">Ask Dave First</button>
+          </div>
+
+          <!-- CredBlu — fast-lane credit builder, app-based alternative within the same card -->
+          <div style="margin-top:18px;padding-top:18px;border-top:1px dashed var(--border);">
+            <div class="eyebrow" style="color:#1976D2;margin-bottom:8px;">📱 Or Take the Fast Lane · App-Based · Instant Approval</div>
+            <div style="font-family:var(--ff);font-size:16px;font-weight:500;color:var(--navy);margin-bottom:8px;">CredBlu — Build Your Credit Without the Wait</div>
+            <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;margin-bottom:12px;">Prefer the modern, mobile-first route? <strong>CredBlu</strong> gives you instant approval with <strong>no credit check</strong>, automatic monthly payments, and guaranteed reporting to the major bureaus. Set up in minutes from your phone and let your score build itself in the background.</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:8px;margin-bottom:14px;">
+              <div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--rs);padding:9px 11px;"><div style="font-size:14px;margin-bottom:2px;">⚡</div><div style="font-size:11.5px;font-weight:600;color:var(--navy);margin-bottom:2px;">Instant Approval</div><div style="font-size:10.5px;color:var(--text-m);line-height:1.5;">No credit check — approved on the spot.</div></div>
+              <div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--rs);padding:9px 11px;"><div style="font-size:14px;margin-bottom:2px;">📱</div><div style="font-size:11.5px;font-weight:600;color:var(--navy);margin-bottom:2px;">Mobile-First Setup</div><div style="font-size:10.5px;color:var(--text-m);line-height:1.5;">Apply, pay, and track entirely from your phone.</div></div>
+              <div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--rs);padding:9px 11px;"><div style="font-size:14px;margin-bottom:2px;">📊</div><div style="font-size:11.5px;font-weight:600;color:var(--navy);margin-bottom:2px;">Bureau Reporting</div><div style="font-size:10.5px;color:var(--text-m);line-height:1.5;">Every payment reported — score builds from day 1.</div></div>
+            </div>
+            <button onclick="openLink(&#39;https://www.credblu.com/ref/ownlycredit&#39;)" style="background:linear-gradient(135deg,#1976D2,#0d47a1);color:#fff;border:none;border-radius:var(--rs);padding:11px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);box-shadow:0 2px 10px rgba(25,118,210,.3);">Try CredBlu — Instant Approval →</button>
           </div>
         </div>
       </div>
 
-      <!-- Capital ladder — Bank Breezy + 24Hour Approvals + Truss Financial + ARF Financial + Payro Finance -->
+      <!-- 6, 7, 8 & 9. Get Me Capital + 24Hour Approvals + ARF Financial + Payro Finance (paired quad) -->
       <div class="cards-grid">
-        <div class="dark-card" style="background:linear-gradient(135deg,#1a3a2e,#2e5a45);border-color:rgba(129,199,132,.35);margin-bottom:0;padding:20px;">
-          <div class="eyebrow" style="color:#a5d6a7;margin-bottom:8px;">💵 Same-Day · Gig + Micro Funding</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;margin-bottom:8px;">Bank Breezy — Same-Day Gig &amp; Micro Funding</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:14px;">For 1099 contractors, gig workers, freelancers, and brand-new businesses that don't yet fit a traditional bank or LOC. Smaller dollar amounts, same-day decisions, no business credit required to start. The first rung on the capital ladder — when speed and access matter more than ticket size.</div>
-          <button onclick="openLink('https://bankbreezy.com/AA3946')" style="background:#388e3c;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">See If You Qualify Today →</button>
-        </div>
-
         <div class="dark-card deep-green" style="margin-bottom:0;padding:20px;">
           <div class="eyebrow" style="color:#81c784;margin-bottom:8px;">⚡ Fast Approvals · Up to $5M</div>
           <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;margin-bottom:8px;">24Hour Approvals — Speed-of-Business Funding</div>
           <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:14px;">When the deal won't wait, 24Hour Approvals delivers. Approval decisions in 24 hours, funds in your account in as few as 48. For owners with cash flow needs that don't fit a traditional bank timeline — payroll gaps, inventory loads, equipment, and growth capital.</div>
-          <button onclick="openLink('https://24hourapprovals.com/11477')" style="background:#2e7d32;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">Get Funding in 24 Hours →</button>
+          <button onclick="openLink(&#39;https://24hourapprovals.com/11477&#39;)" style="background:#2e7d32;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">Get Funding in 24 Hours →</button>
         </div>
 
         <div class="dark-card deep-blue" style="margin-bottom:0;padding:20px;">
-          <div class="eyebrow" style="color:#90caf9;margin-bottom:8px;">🏢 Commercial &amp; Investment Loans</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;margin-bottom:8px;">Truss Financial Group — Commercial + Investment Loan Specialists</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:14px;">Specialized financing for commercial real estate, investment properties, and rental portfolios. Bank-statement and DSCR programs for self-employed borrowers and investors who don't fit cookie-cutter conventional underwriting. Direct lender access without the bank's standard approval box.</div>
-          <button onclick="openLink('https://trussfinancialgroup.com/?fpr=david78')" style="background:#1565C0;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">Pre-Qualify with Truss →</button>
+          <div class="eyebrow" style="color:#90caf9;margin-bottom:8px;">💼 Business Capital Access</div>
+          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;margin-bottom:8px;">Get Me Capital — Business Capital Access</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:14px;">A direct path to business capital across loan products, lines of credit, and asset-based lending. Get Me Capital matches your business profile to lenders most likely to approve — saving you the shotgun-application process that tanks your credit score.</div>
+          <button onclick="openLink(&#39;https://getmecapital.com/11477&#39;)" style="background:#1565C0;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">Access Business Capital →</button>
         </div>
 
         <div class="dark-card" style="background:linear-gradient(135deg,#3a2510,#5a3a1a);border-color:rgba(201,168,76,.35);margin-bottom:0;padding:20px;">
           <div class="eyebrow" style="color:#e6c46f;margin-bottom:8px;">🏢 Brick-and-Mortar Only · True Line of Credit</div>
           <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;margin-bottom:8px;">ARF Financial — Revolving Working Capital</div>
           <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:14px;">A real revolving line of credit for established brick-and-mortar businesses — restaurants, retail, hospitality, healthcare, auto, and service. Draw, repay, draw again. Fixed payments, fixed rates, no surprises. Built for owners who want a working capital line, not another short-term loan dressed up as one.</div>
-          <button onclick="openLink('https://arffinancial.my.site.com/portal/ARFPreQualify?prequalgd=41c65bbe-31b7-44c1-9fde-0bbddd7459d9&amp;RPId=0034y00002BXNYXAA5')" style="background:#c9a84c;color:#1a1208;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">See If You Pre-Qualify →</button>
+          <button onclick="openLink(&#39;https://arffinancial.my.site.com/portal/ARFPreQualify?prequalgd=41c65bbe-31b7-44c1-9fde-0bbddd7459d9&amp;RPId=0034y00002BXNYXAA5&#39;)" style="background:#c9a84c;color:#1a1208;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">See If You Pre-Qualify →</button>
         </div>
 
         <div class="dark-card" style="background:linear-gradient(135deg,#2a1638,#4a2658);border-color:rgba(186,104,200,.35);margin-bottom:0;padding:20px;">
           <div class="eyebrow" style="color:#ce93d8;margin-bottom:8px;">💸 Payroll-Specific · Funded in Hours</div>
           <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;margin-bottom:8px;">Payro Finance — The Payroll Line of Credit</div>
           <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:14px;">A line of credit built for one moment: payroll is due and the cash isn't there yet. Draw what you need, cover the run, repay on a short term. Used by owners who never want to choose between making payroll and protecting cash flow — without burning a relationship with the bank.</div>
-          <button onclick="openLink('https://portal.payrofinance.com/sign-up?partner=ivery')" style="background:#9c27b0;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">Sign Up for Payroll Funding →</button>
+          <button onclick="openLink(&#39;https://portal.payrofinance.com/sign-up?partner=ivery&#39;)" style="background:#9c27b0;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">Sign Up for Payroll Funding →</button>
         </div>
       </div>
 
-      <div class="inline-disc" style="margin-top:14px;">⚠️ All partner links are affiliate links. Funding subject to qualification. Personal guarantees may apply. Results vary. See <a onclick="openModal('affiliate')">Affiliate Disclosure</a> and <a onclick="openModal('disclaimer')">General Disclaimer</a>.</div>
+      <div class="inline-disc" style="margin-top:14px;">⚠️ All partner links are affiliate links. Funding subject to qualification. Personal guarantees may apply. Results vary. See <a onclick="openModal(&#39;affiliate&#39;)">Affiliate Disclosure</a> and <a onclick="openModal(&#39;disclaimer&#39;)">General Disclaimer</a>.</div>
 
     </div>
   </div>
@@ -619,8 +639,8 @@ window.addEventListener('unhandledrejection', function(ev){
           Her free live training has helped <strong style="color:var(--gold-l);">3,707 business owners</strong> save a combined <strong style="color:var(--gold-l);">$139,670,158</strong> — and it applies to business owners, 1099 contractors, landlords, real estate investors, and farmers.
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button onclick="openLink('https://www.taxstrategiesnow.com/signup?fpr=david22')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:14px 26px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#1a0a2e;">🎓 Register for Free Training →</button>
-          <button onclick="openLink('https://calendly.com/daveivery/meetandgreet')" style="background:transparent;border:1px solid rgba(201,168,76,.4);border-radius:var(--rs);padding:14px 22px;font-size:13px;cursor:pointer;font-family:var(--fb);color:var(--gold-l);">📅 Talk to Dave First</button>
+          <button onclick="openLink(&#39;https://www.taxstrategiesnow.com/signup?fpr=david22&#39;)" style="background:var(--gold);border:none;border-radius:var(--rs);padding:14px 26px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#1a0a2e;">🎓 Register for Free Training →</button>
+          <button onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)" style="background:transparent;border:1px solid rgba(201,168,76,.4);border-radius:var(--rs);padding:14px 22px;font-size:13px;cursor:pointer;font-family:var(--fb);color:var(--gold-l);">📅 Talk to Dave First</button>
         </div>
         <div style="margin-top:14px;font-size:10px;color:rgba(255,255,255,.4);">Please budget 2 hours for this training · For business owners, 1099 contractors, landlords &amp; farmers</div>
       </div>
@@ -641,7 +661,7 @@ window.addEventListener('unhandledrejection', function(ev){
         <div class="result-card" style="border-left:3px solid var(--gold-d);">
           <div style="font-size:20px;margin-bottom:8px;">📈</div>
           <div style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:6px;">Retire Rich AND Cut Your Tax Bill</div>
-          <div style="font-size:12px;color:var(--text-m);line-height:1.7;">A Solo 401(k) lets self-employed owners contribute up to <strong>$70,000/year tax-free</strong> (2025). At a 30% tax rate, maxing it saves $21,000 in taxes. Pair with ShareBuilder 401k for easy setup. <button onclick="openLink('https://refer.sharebuilder401k.com/r/qNpC5AyH')" style="background:none;border:none;color:var(--gold-d);cursor:pointer;font-family:var(--fb);font-size:12px;padding:0;text-decoration:underline;">Set up yours →</button></div>
+          <div style="font-size:12px;color:var(--text-m);line-height:1.7;">A Solo 401(k) lets self-employed owners contribute up to <strong>$70,000/year tax-free</strong> (2025). At a 30% tax rate, maxing it saves $21,000 in taxes. Pair with ShareBuilder 401k for easy setup. <button onclick="openLink(&#39;https://refer.sharebuilder401k.com/r/qNpC5AyH&#39;)" style="background:none;border:none;color:var(--gold-d);cursor:pointer;font-family:var(--fb);font-size:12px;padding:0;text-decoration:underline;">Set up yours →</button></div>
         </div>
         <div class="result-card" style="border-left:3px solid var(--gold-d);">
           <div style="font-size:20px;margin-bottom:8px;">🚗</div>
@@ -662,7 +682,7 @@ window.addEventListener('unhandledrejection', function(ev){
           <div style="background:rgba(255,255,255,.08);border-radius:var(--rs);padding:10px;display:flex;gap:8px;align-items:center;"><span style="font-size:16px;">✅</span><span style="font-size:12px;color:rgba(255,255,255,.85);">Anyone who wants to pay less tax legally</span></div>
         </div>
         <div style="font-size:12px;color:rgba(255,255,255,.6);margin-bottom:14px;">3,707 previous attendees saved an average of <strong style="color:var(--gold-l);">$37,680 each</strong> from this free training alone. Budget 2 hours. It could be the most profitable 2 hours of your year.</div>
-        <button onclick="openLink('https://www.taxstrategiesnow.com/signup?fpr=david22')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:12px 24px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#1a0a2e;width:100%;">🎓 Register for the Free "Pathway to Zero" Training →</button>
+        <button onclick="openLink(&#39;https://www.taxstrategiesnow.com/signup?fpr=david22&#39;)" style="background:var(--gold);border:none;border-radius:var(--rs);padding:12px 24px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#1a0a2e;width:100%;">🎓 Register for the Free "Pathway to Zero" Training →</button>
       </div>
 
       <!-- Solo 401k card (ShareBuilder, business angle) -->
@@ -672,15 +692,15 @@ window.addEventListener('unhandledrejection', function(ev){
           <div class="eyebrow" style="color:var(--gold-d);margin-bottom:6px;">⭐ Solo &amp; Small Business 401(k)</div>
           <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:var(--navy);margin-bottom:8px;">ShareBuilder 401k</div>
           <div style="font-size:12px;color:var(--text-m);line-height:1.75;margin-bottom:14px;">Self-employed or own a small business? Set up a Solo or small business 401(k) — low fees, simple setup, powerful tax advantages. Contribute up to <strong>$70,000/year tax-free</strong> as the owner-employee, dramatically reducing your taxable income.</div>
-          <button onclick="openLink('https://refer.sharebuilder401k.com/r/qNpC5AyH')" style="background:var(--navy);border:none;border-radius:var(--rs);padding:10px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#fff;width:100%;">Set Up My Solo 401(k) →</button>
+          <button onclick="openLink(&#39;https://refer.sharebuilder401k.com/r/qNpC5AyH&#39;)" style="background:var(--navy);border:none;border-radius:var(--rs);padding:10px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#fff;width:100%;">Set Up My Solo 401(k) →</button>
         </div>
 
         <!-- Tax Hive -->
         <div style="background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:20px;">
           <div class="eyebrow" style="color:var(--gold-d);margin-bottom:6px;">⭐ Tax Strategy Platform · Tax Hive</div>
           <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:var(--navy);margin-bottom:8px;">Build Your Tax Strategy</div>
-          <div style="display:inline-block;background:#0d3b66;color:#fff;font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.04em;padding:6px 10px;border-radius:6px;margin-bottom:10px;">🏆 $10,000 TAX-SAVINGS GUARANTEE</div><div style="font-size:12px;color:var(--text-m);line-height:1.75;margin-bottom:14px;"><strong style="color:var(--navy);">Tax Hive guarantees you'll find at least $10,000 in tax savings — or your money back.</strong> A guided platform that walks owners through the same tax-saving moves their CPA usually doesn't surface — entity structure, deduction tracking, and year-round planning. Built so the strategy isn't a once-a-year scramble at filing time.</div>
-          <button onclick="openLink('https://app.411core.com/r/e7')" style="background:var(--navy);border:none;border-radius:var(--rs);padding:10px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#fff;width:100%;">Open Tax Hive →</button>
+          <div style="font-size:12px;color:var(--text-m);line-height:1.75;margin-bottom:14px;">A guided platform that walks owners through the same tax-saving moves their CPA usually doesn't surface — entity structure, deduction tracking, and year-round planning. Built so the strategy isn't a once-a-year scramble at filing time.</div>
+          <button onclick="openLink(&#39;https://app.411core.com/r/e7&#39;)" style="background:var(--navy);border:none;border-radius:var(--rs);padding:10px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#fff;width:100%;">Open Tax Hive →</button>
         </div>
 
         <!-- Maven Cost Seg (moved from Funding pane — cost seg is a tax strategy) -->
@@ -688,11 +708,11 @@ window.addEventListener('unhandledrejection', function(ev){
           <div class="eyebrow" style="color:var(--gold-d);margin-bottom:6px;">⭐ Real Estate Tax Strategy · Cost Segregation</div>
           <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:var(--navy);margin-bottom:8px;">Maven Cost Seg</div>
           <div style="font-size:12px;color:var(--text-m);line-height:1.75;margin-bottom:14px;">Engineering-based cost segregation studies for investment property. Reclassify building components into shorter depreciation schedules and turn what would have been future deductions into massive first-year tax savings.</div>
-          <button onclick="openLink('https://mavencostseg.referralrock.com/l/DAVIDIVERY12/')" style="background:var(--navy);border:none;border-radius:var(--rs);padding:10px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#fff;width:100%;">Get a Cost Seg Study →</button>
+          <button onclick="openLink(&#39;https://mavencostseg.referralrock.com/l/DAVIDIVERY12/&#39;)" style="background:var(--navy);border:none;border-radius:var(--rs);padding:10px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);color:#fff;width:100%;">Get a Cost Seg Study →</button>
         </div>
       </div>
 
-      <div class="inline-disc" style="margin-top:14px;">⚠️ This section provides general tax education only. It is not tax advice. Consult a qualified tax professional before implementing any strategy. Affiliate links — see <a onclick="openModal('affiliate')">Affiliate Disclosure</a> · <a onclick="openModal('disclaimer')">Full Disclaimer</a>.</div>
+      <div class="inline-disc" style="margin-top:14px;">⚠️ This section provides general tax education only. It is not tax advice. Consult a qualified tax professional before implementing any strategy. Affiliate links — see <a onclick="openModal(&#39;affiliate&#39;)">Affiliate Disclosure</a> · <a onclick="openModal(&#39;disclaimer&#39;)">Full Disclaimer</a>.</div>
     </div>
   </div>
   <!-- /pane 4 -->
@@ -753,101 +773,54 @@ window.addEventListener('unhandledrejection', function(ev){
         </div>
 
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button onclick="openLink('https://gb-ownlyagency.multiscreensite.com')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);">🚀 Explore the Marketing Agency →</button>
+          <button onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);">📅 Book a Strategy Call</button>
+          <button onclick="openLink(&#39;mailto:admin@ownly1nce.com?subject=Marketing%20Services%20Inquiry&#39;)" style="background:transparent;border:1px solid rgba(201,168,76,.4);border-radius:var(--rs);padding:13px 22px;font-size:13px;cursor:pointer;font-family:var(--fb);color:var(--gold-l);">✉ Email admin@ownly1nce.com</button>
         </div>
       </div>
 
-      <!-- ═══════ PIPELINE-FILLING SPOTLIGHT — full-width feature card ═══════ -->
-      <div style="background:linear-gradient(135deg,#0a1628,#162B44 45%,#1f3a57);border-radius:var(--rl);border:1px solid rgba(201,168,76,.55);padding:28px 30px;margin-top:18px;position:relative;overflow:hidden;">
-        <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-        <div style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;">
-          <div>
-            <div class="eyebrow" style="color:var(--gold-l);margin-bottom:8px;">🎯 PIPELINE · DONE FOR YOU · LIVE NOW</div>
-            <div style="font-family:var(--ff);font-size:24px;font-weight:500;color:#fff;line-height:1.25;margin-bottom:8px;">Ownly Marketing — fill your pipeline with quote-ready clients.</div>
-            <div style="font-size:11px;color:var(--gold-l);font-style:italic;margin-bottom:10px;letter-spacing:.04em;">★ The Venice $50K Challenge · Free 5-Min AI Assessment · I Bet We Find You At Least $50K</div>
-            <div style="font-size:13px;color:rgba(255,255,255,.78);line-height:1.7;max-width:760px;">Done-for-you outbound that fills your pipeline with qualified, ready-to-buy clients every single month. Take the free 5-minute AI assessment first — I bet we find you at least $50,000 in future revenue hiding in your business. The number's yours either way.</div>
+      <!-- Direct Mail Flagship — OwnlyMarketing.com (Session 8) -->
+      <div style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);padding:0;margin-bottom:18px;border:1px solid rgba(201,168,76,.45);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(22,43,68,.12);">
+
+        <!-- Gold ribbon top accent -->
+        <div style="height:4px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));"></div>
+
+        <div style="padding:28px;">
+
+          <!-- Eyebrow -->
+          <div class="eyebrow" style="color:var(--gold-l);margin-bottom:12px;">🎯 OWNLY MARKETING — DIRECT MAIL FLAGSHIP · LIVE NOW</div>
+
+          <!-- Headline -->
+          <div style="font-family:var(--ff);font-size:28px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:6px;">Premium category-exclusive slots.</div>
+          <div style="font-family:var(--ff);font-size:22px;font-weight:400;color:var(--gold-l);font-style:italic;line-height:1.3;margin-bottom:22px;">5,000 homes. 16 spots. One per category.</div>
+
+          <!-- Stat tiles -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;">
+            <div style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);border-radius:var(--rs);padding:16px 12px;text-align:center;">
+              <div style="font-family:var(--ff);font-size:38px;font-weight:500;color:var(--gold-l);line-height:1;margin-bottom:6px;">5,000</div>
+              <div style="font-size:9.5px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.65);text-transform:uppercase;">Homes Mailed / Month</div>
+            </div>
+            <div style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);border-radius:var(--rs);padding:16px 12px;text-align:center;">
+              <div style="font-family:var(--ff);font-size:38px;font-weight:500;color:var(--gold-l);line-height:1;margin-bottom:6px;">16</div>
+              <div style="font-size:9.5px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.65);text-transform:uppercase;">Spots Per Card</div>
+            </div>
+            <div style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);border-radius:var(--rs);padding:16px 12px;text-align:center;">
+              <div style="font-family:var(--ff);font-size:38px;font-weight:500;color:var(--gold-l);line-height:1;margin-bottom:6px;">1</div>
+              <div style="font-size:9.5px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.65);text-transform:uppercase;">Business Per Category</div>
+            </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:8px;min-width:220px;">
-            <button onclick="openLink('https://ownly-marketing.vercel.app')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 22px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);white-space:nowrap;">🎯 Take the $50K Challenge →</button>
-            <button onclick="openLink('https://ownly-marketing.vercel.app')" style="background:transparent;border:1px solid rgba(201,168,76,.45);border-radius:var(--rs);padding:11px 22px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--gold-l);white-space:nowrap;">Fill My Pipeline →</button>
+
+          <!-- Body -->
+          <div style="font-size:13px;color:rgba(255,255,255,.82);line-height:1.85;margin-bottom:20px;max-width:660px;">
+            Our shared-mail program for owners who want to <em style="color:var(--gold-l);font-style:italic;">own</em> their category in their zip codes. Your offer ships to 5,000 local homes a month on a card with up to 15 other businesses — none of them competing with you. Watch the walkthrough video at OwnlyMarketing.com and use the contact info on the page to get your spot locked in. First come, first served — once your category is claimed on a route, it’s locked.
           </div>
-        </div>
-      </div>
 
-      <!-- ═══════ MARKETING SERVICE GRID — 3 × 2 square cards ═══════ -->
-      <div class="section-label" style="margin-top:18px;">🧰 The Marketing Stack</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:14px;margin-bottom:22px;" class="mkt-grid-3">
-
-        <!-- CustomGPT — square card -->
-        <div style="background:linear-gradient(135deg,#1B5777,#0F3F58);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🤖 Custom AI Agent · Free Trial</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Your private AI agent — trained on your business.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">CustomGPT.ai grounds an AI in YOUR docs, site, and KB. No hallucinations. 7-day free trial, no credit card.</div>
-          <button onclick="openLink('https://customgpt.ai/?fpr=dave72')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">🤖 Start Free Trial →</button>
-        </div>
-
-        <!-- Ownly Engagement AI — square card -->
-        <div style="background:linear-gradient(135deg,#3d1a5f,#5b2588);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">✨ Engagement Layer</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Ownly Engagement AI — turn visitors into conversations.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">Quizzes, qualifies, captures, routes. The missing piece between traffic and lead. Pairs with CustomGPT.</div>
-          <button onclick="openLink('https://dreams-interactive.com/?refid=AA3946')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">✨ Explore Engagement AI →</button>
-        </div>
-
-        <!-- Ownly Web Studio — square card -->
-        <div style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🌐 Custom Website · Free Mockup</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Ownly Web Studio — designed for you, mocked up free.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">AI agents, SEO, and conversion tracking baked in. From $1,500 lead pages to $25K+ custom builds. Free mockup first.</div>
-          <button onclick="openLink('https://ownly-web-studio.vercel.app')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">🎨 Visit Web Studio →</button>
-        </div>
-
-        <!-- Ownly Tech Stack — square card -->
-        <div style="background:linear-gradient(135deg,#1a2e4a,#2a4a6e);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">⚙️ Tech Stack · Infrastructure</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Ownly Tech Stack — the back office for your stack.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">CRM, hosting, integrations, automation. Connect the six tools you're paying for that don't talk to each other.</div>
-          <button onclick="openLink('https://technology.dreamsresources.com/?refid=AA3946')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">⚙️ Open Ownly Tech Stack →</button>
-        </div>
-
-        <!-- Direct Mail Flagship — square card -->
-        <div style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);border:1px solid rgba(201,168,76,.55);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">📬 Direct Mail · LIVE NOW</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:6px;">Local Spotlight — premium category-exclusive slots.</div>
-          <div style="font-size:11px;color:var(--gold-l);font-style:italic;margin-bottom:8px;">5,000 homes · 16 spots · one per category</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.55;margin-bottom:14px;flex:1;">Shared-mail program — own your category in your zip codes. First come, first served. Categories close as they fill.</div>
-          <button onclick="openLink('https://ownlymarketing.com')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">📬 Get on the Card →</button>
-        </div>
-
-        <!-- Pipeline-Filling Marketing Service — square card -->
-        <div style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);border:1px solid rgba(201,168,76,.55);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🎯 Pipeline · Done For You</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:6px;">Ownly Marketing — fill your pipeline.</div>
-          <div style="font-size:11px;color:var(--gold-l);font-style:italic;margin-bottom:8px;">Quote-ready clients delivered monthly</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.55;margin-bottom:14px;flex:1;">Done-for-you outbound that fills your pipeline with qualified, ready-to-buy clients every single month. No hiring, no software, no learning curve.</div>
-          <button onclick="openLink('https://ownly-marketing.vercel.app')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">🎯 Fill My Pipeline →</button>
-        </div>
-
-        <!-- Restaurant Scan — square card (Owner.com) + Tip Credit Partners FICA recovery -->
-        <div style="background:linear-gradient(135deg,#3a0a0a,#5a1818);border-radius:var(--rl);border:1px solid rgba(193,39,45,.55);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,#7a1d22,#c1272d,#e74c5a,#c1272d,#7a1d22);position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:#ff8a8f;text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🍴 Restaurants · Bar · Hotel</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">What's leaving your restaurant every month?</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.55;margin-bottom:12px;">Free 60-second diagnostic for independent restaurant owners. No login. No card. Just the number.</div>
-          <button onclick="openLink('https://notify.owner.com/e3t/Ctc/W1+23284/cMZLf04/Jks2-6qcW69sMD-6lZ3m6VbK0Ng5q5h9KW5pHDZR46jL7nW2-71VV2WVpNsW3PHN3c99pMrBW45LKHs7p0sYlW6RF8kM5rDXq7W13wL0d7H93dxW2rPBxp4-rdm6W8wZ0Kb82yqpVW4FPYRc7hfSXVV2ZMq48FrvHvW5hdHlr4QMM0cW4hNQZ51NPfp3N3HHT5K-nG-zW4-2hMB6WbLWVW2FlbLc1zQM7cVhpZKH4FG0TqW6YDFJ_12pBDLW5k0HRX8H723vW9f5lsk3S9KwPf95H62R04')" style="background:#c1272d;color:#fff;border:none;border-radius:var(--rs);padding:10px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;margin-bottom:10px;">🍴 Run the Restaurant Scan →</button>
-          <div style="border-top:1px dashed rgba(255,255,255,.22);padding-top:10px;flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
-            <div style="font-size:9.5px;font-weight:700;color:#ffd699;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px;">⚡ FICA Tip Credit Recovery</div>
-            <div style="font-size:11.5px;color:rgba(255,255,255,.78);line-height:1.5;margin-bottom:8px;">Restaurants/bars/hotels with tipped staff are owed a federal tax credit. Avg $20K+/yr · retroactive · contingency only.</div>
-            <button onclick="openLink('https://tipcreditpartners.com/89eb')" style="background:#1a1a1a;color:#ffd699;border:1px solid rgba(255,214,153,.45);border-radius:var(--rs);padding:9px 14px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;">⚡ Calculate My FICA Tip Credit →</button>
+          <!-- CTA + caption -->
+          <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+            <button onclick="openLink(&#39;https://ownlymarketing.com&#39;)" style="background:var(--gold);border:none;border-radius:var(--rs);padding:14px 26px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);letter-spacing:.02em;box-shadow:0 2px 12px rgba(201,168,76,.25);">📬 See How It Works &amp; Get on the Card →</button>
+            <div style="font-size:11.5px;color:var(--gold-l);font-style:italic;line-height:1.5;flex:1;min-width:200px;">Live now. Inventory is limited per route — categories close as they fill.</div>
           </div>
-        </div>
 
+        </div>
       </div>
 
       <!-- Lunch Money Marketing tie-back -->
@@ -857,7 +830,26 @@ window.addEventListener('unhandledrejection', function(ev){
           <div style="font-family:var(--ff);font-size:17px;font-weight:500;color:var(--navy);margin-bottom:4px;">Want to do the marketing yourself first?</div>
           <div style="font-size:12.5px;color:var(--text-m);line-height:1.7;">Lunch Money Marketing — Second Edition is the playbook for owners who want to grow on a shoestring before scaling into a managed engagement.</div>
         </div>
-        <button onclick="openLink('https://www.amazon.com/dp/B0GYXYRK75')" style="background:#c97a10;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);white-space:nowrap;">📖 Get the Book →</button>
+        <button onclick="openLink(&#39;https://www.amazon.com/dp/B0GYXYRK75&#39;)" style="background:#c97a10;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);white-space:nowrap;">📖 Get the Book →</button>
+      </div>
+
+      <!-- Industry-Specific Tools (vertical callouts) -->
+      <div class="section-label" style="margin-top:22px;">🏷️ Industry-Specific Tools</div>
+      <div class="cards-grid tight">
+
+        <!-- Owner.com — restaurants -->
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+            <div style="font-size:32px;line-height:1;">🍴</div>
+            <div style="flex:1;">
+              <div class="eyebrow" style="color:#c1272d;margin-bottom:4px;">For Restaurants · 60-Second Scan</div>
+              <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:var(--navy);line-height:1.25;margin-bottom:6px;">What's leaving your restaurant every month?</div>
+              <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;">A free scan built for independent restaurant owners. Answer a few questions about how you're operating today and see the number. Most owners are surprised — some are stunned. No login. No card. Just the number.</div>
+            </div>
+          </div>
+          <button onclick="openLink(&#39;https://notify.owner.com/e3t/Ctc/W1+23284/cMZLf04/Jks2-6qcW69sMD-6lZ3m6VbK0Ng5q5h9KW5pHDZR46jL7nW2-71VV2WVpNsW3PHN3c99pMrBW45LKHs7p0sYlW6RF8kM5rDXq7W13wL0d7H93dxW2rPBxp4-rdm6W8wZ0Kb82yqpVW4FPYRc7hfSXVV2ZMq48FrvHvW5hdHlr4QMM0cW4hNQZ51NPfp3N3HHT5K-nG-zW4-2hMB6WbLWVW2FlbLc1zQM7cVhpZKH4FG0TqW6YDFJ_12pBDLW5k0HRX8H723vW9f5lsk3S9KwPf95H62R04&#39;)" style="background:#c1272d;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">🍴 Run the Restaurant Scan →</button>
+        </div>
+
       </div>
 
     </div>
@@ -885,7 +877,7 @@ window.addEventListener('unhandledrejection', function(ev){
           <div class="stat-tile"><div style="font-size:18px;margin-bottom:3px;">🏖</div><div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:600;">Vacation Packages</div></div>
           <div class="stat-tile"><div style="font-size:18px;margin-bottom:3px;">🎟</div><div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:600;">Members-Only Rates</div></div>
         </div>
-        <button onclick="openLink('https://ownly.globaltravel.com/')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 24px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);">🛫 Access the Travel Portal →</button>
+        <button onclick="openLink(&#39;https://ownly.globaltravel.com/&#39;)" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 24px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);">🛫 Access the Travel Portal →</button>
       </div>
 
       <!-- TicketsatWork + Corporate Plus Club paired -->
@@ -895,18 +887,18 @@ window.addEventListener('unhandledrejection', function(ev){
           <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:var(--navy);margin-bottom:8px;">TicketsatWork — Employee-Style Perks for Owners</div>
           <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;margin-bottom:14px;">The same corporate-perks platform Fortune 500 HR teams offer their staff — discounted theme park tickets, Broadway shows, hotels, theme parks, sporting events, and movie tickets. Available through Dave's Ownly Once members program; if you're self-employed or run a small business, you qualify.</div>
           <div class="inline-disc" style="margin-bottom:14px;font-size:11px;">📌 Confirm the business-program URL with Dave during onboarding — TicketsatWork has separate consumer and corporate access paths.</div>
-          <button onclick="openLink('https://calendly.com/daveivery/meetandgreet')" style="background:#1565C0;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">📅 Get Access via Dave →</button>
+          <button onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)" style="background:#1565C0;color:#fff;border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">📅 Get Access via Dave →</button>
         </div>
 
         <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px;">
           <div class="eyebrow" style="color:var(--gold-d);margin-bottom:6px;">⭐ Member Benefits Package</div>
           <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:var(--navy);margin-bottom:8px;">Corporate Plus Club — Owner-Level Benefits</div>
           <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;margin-bottom:14px;">A bundled member-benefits package historically reserved for corporate employees: discount programs, savings hubs, identity protection, telehealth access, and cash-back marketplaces. Activated under your Ownly Once membership — the same perks an HR department would distribute, available to you as the owner.</div>
-          <button onclick="openLink('https://ownly1nce.corporateplusclub.com/')" style="background:var(--gold);color:var(--navy-d);border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">⭐ Open the Member Portal →</button>
+          <button onclick="openLink(&#39;https://ownly1nce.corporateplusclub.com/&#39;)" style="background:var(--gold);color:var(--navy-d);border:none;border-radius:var(--rs);padding:11px 20px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">⭐ Open the Member Portal →</button>
         </div>
       </div>
 
-      <div class="inline-disc" style="margin-top:14px;">⚠️ Member-perk programs are operated by their respective providers under their own terms. Eligibility, pricing, and available benefits may change without notice. See <a onclick="openModal('affiliate')">Affiliate Disclosure</a>.</div>
+      <div class="inline-disc" style="margin-top:14px;">⚠️ Member-perk programs are operated by their respective providers under their own terms. Eligibility, pricing, and available benefits may change without notice. See <a onclick="openModal(&#39;affiliate&#39;)">Affiliate Disclosure</a>.</div>
 
     </div>
   </div>
@@ -934,7 +926,7 @@ window.addEventListener('unhandledrejection', function(ev){
               <div style="font-size:11.5px;color:var(--text-m);line-height:1.65;">The strategies, mindset, and systems successful business owners use to break through revenue plateaus and scale. Pairs with DREAMS Score — the diagnostic shows where the money is hiding, the book shows you what to do with it.</div>
             </div>
           </div>
-          <button onclick="openLink('https://www.amazon.com/dp/B0GZ6QP1WH')" style="background:var(--gold);color:var(--navy-d);border:none;border-radius:var(--rs);padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;">📖 Get the Playbook on Kindle →</button>
+          <button onclick="openLink(&#39;https://www.amazon.com/dp/B0GZ6QP1WH&#39;)" style="background:var(--gold);color:var(--navy-d);border:none;border-radius:var(--rs);padding:10px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;">📖 Get the Playbook on Kindle →</button>
         </div>
 
         <!-- DREAMS Score — paired diagnostic -->
@@ -966,7 +958,7 @@ window.addEventListener('unhandledrejection', function(ev){
               <div style="font-size:11.5px;color:var(--text-m);line-height:1.65;">The complete business credit blueprint. Build business credit from zero, access funding, and grow your business using a proven system that separates your personal and business financial identity.</div>
             </div>
           </div>
-          <button onclick="openLink('https://www.amazon.com/dp/B0GYJXHJYG')" style="background:#1565C0;color:#fff;border:none;border-radius:var(--rs);padding:10px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">📖 Order on Amazon →</button>
+          <button onclick="openLink(&#39;https://www.amazon.com/dp/B0GYJXHJYG&#39;)" style="background:#1565C0;color:#fff;border:none;border-radius:var(--rs);padding:10px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">📖 Order on Amazon →</button>
         </div>
 
         <!-- Lunch Money Marketing 2E -->
@@ -979,7 +971,7 @@ window.addEventListener('unhandledrejection', function(ev){
               <div style="font-size:11.5px;color:var(--text-m);line-height:1.65;">Practical marketing strategies that put money in your pocket without a big budget. <strong>Find. Win. Expand.</strong> Build your brand and attract clients without breaking the bank.</div>
             </div>
           </div>
-          <button onclick="openLink('https://www.amazon.com/dp/B0GYXYRK75')" style="background:#c97a10;color:#fff;border:none;border-radius:var(--rs);padding:10px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">📖 Order on Amazon →</button>
+          <button onclick="openLink(&#39;https://www.amazon.com/dp/B0GYXYRK75&#39;)" style="background:#c97a10;color:#fff;border:none;border-radius:var(--rs);padding:10px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);width:100%;">📖 Order on Amazon →</button>
         </div>
 
       </div>
@@ -993,10 +985,10 @@ window.addEventListener('unhandledrejection', function(ev){
           <div style="font-family:var(--ff);font-size:17px;font-weight:500;color:var(--navy);margin-bottom:4px;">David James Ivery</div>
           <div style="font-size:12px;color:var(--text-m);">Author · Certified Financial Education Instructor® · Ownly Once Press, Sarasota FL</div>
         </div>
-        <button onclick="openLink('https://www.amazon.com/author/davidjamesivery')" style="background:var(--navy);color:#fff;border:none;border-radius:var(--rs);padding:10px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);">View Amazon Author Page →</button>
+        <button onclick="openLink(&#39;https://www.amazon.com/author/davidjamesivery&#39;)" style="background:var(--navy);color:#fff;border:none;border-radius:var(--rs);padding:10px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);">View Amazon Author Page →</button>
       </div>
 
-      <div class="inline-disc" style="margin-top:14px;">⚠️ Amazon links are affiliate links. See <a onclick="openModal('affiliate')">Affiliate Disclosure</a>.</div>
+      <div class="inline-disc" style="margin-top:14px;">⚠️ Amazon links are affiliate links. See <a onclick="openModal(&#39;affiliate&#39;)">Affiliate Disclosure</a>.</div>
     </div>
   </div>
   <!-- /pane 2 -->
@@ -1040,7 +1032,7 @@ window.addEventListener('unhandledrejection', function(ev){
             </div>
           </div>
           <div style="font-size:12px;color:var(--text-m);line-height:1.75;margin-bottom:12px;">The CFEI® is the gold standard in financial education — the only credential issued by an IACET-accredited organization and approved by the CFP Board of Standards. Dave has met the highest national standards for knowledge, pedagogy, and measurable learner outcomes.</div>
-          <button onclick="openLink('https://www.financialeducatorscouncil.org/david-ivery/')" style="background:var(--navy);border:none;border-radius:var(--rs);padding:8px 16px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--fb);color:#fff;">View NFEC Profile →</button>
+          <button onclick="openLink(&#39;https://www.financialeducatorscouncil.org/david-ivery/&#39;)" style="background:var(--navy);border:none;border-radius:var(--rs);padding:8px 16px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--fb);color:#fff;">View NFEC Profile →</button>
         </div>
 
         <div class="result-card" style="border-left:3px solid var(--gold-d);">
@@ -1052,7 +1044,7 @@ window.addEventListener('unhandledrejection', function(ev){
             </div>
           </div>
           <div style="font-size:12px;color:var(--text-m);line-height:1.75;margin-bottom:12px;">Member of the first national bureau of certified finance speakers. Dave has spoken on behalf of Kellogg's, Roadway Trucking, Six Flags of America, the US Army, and the Negro Baseball Museum — at Dodger Stadium, Disney World, and major events nationwide.</div>
-          <button onclick="openLink('https://www.financialeducatorscouncil.org/david-ivery/')" style="background:var(--navy);border:none;border-radius:var(--rs);padding:8px 16px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--fb);color:#fff;">View Speaker Profile →</button>
+          <button onclick="openLink(&#39;https://www.financialeducatorscouncil.org/david-ivery/&#39;)" style="background:var(--navy);border:none;border-radius:var(--rs);padding:8px 16px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--fb);color:#fff;">View Speaker Profile →</button>
         </div>
 
         <div class="result-card" style="border-left:3px solid var(--gold-d);">
@@ -1064,7 +1056,7 @@ window.addEventListener('unhandledrejection', function(ev){
             </div>
           </div>
           <div style="font-size:12px;color:var(--text-m);line-height:1.75;margin-bottom:12px;">Dave partners with Kevin Harrington — inventor of the infomercial, original Shark on Shark Tank, and creator of $10B+ in business value. Together they help entrepreneurs build, fund, and scale through advisory, marketing, and coaching programs.</div>
-          <button onclick="openLink('https://ambassador.kevinharrington.tv/v2/preview/OUYk11oXWKZpWitxPy5L')" style="background:var(--navy);border:none;border-radius:var(--rs);padding:8px 16px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--fb);color:#fff;">Build With Dave &amp; Kevin →</button>
+          <button onclick="openLink(&#39;https://ambassador.kevinharrington.tv/v2/preview/OUYk11oXWKZpWitxPy5L&#39;)" style="background:var(--navy);border:none;border-radius:var(--rs);padding:8px 16px;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--fb);color:#fff;">Build With Dave &amp; Kevin →</button>
         </div>
       </div>
 
@@ -1084,7 +1076,7 @@ window.addEventListener('unhandledrejection', function(ev){
             <div style="font-family:var(--ff);font-size:20px;font-weight:500;color:#fff;margin-bottom:4px;">Ready to map out your next move?</div>
             <div style="font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.7;">Book a free 1-on-1 with Dave. He'll review where your business is, where the gaps are, and which of the partners on this site fit your situation. No pitch — just clarity.</div>
           </div>
-          <button onclick="openLink('https://calendly.com/daveivery/meetandgreet')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);white-space:nowrap;">Book a Free Session →</button>
+          <button onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)" style="background:var(--gold);border:none;border-radius:var(--rs);padding:13px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb);color:var(--navy-d);white-space:nowrap;">Book a Free Session →</button>
         </div>
       </div>
 
@@ -1097,24 +1089,24 @@ window.addEventListener('unhandledrejection', function(ev){
         </div>
         <div class="result-card">
           <div class="eyebrow" style="color:var(--gold-d);margin-bottom:6px;">✉ Contact</div>
-          <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;">Email: <a href="mailto:admin@ownly1nce.com" style="color:var(--gold-d);text-decoration:none;">admin@ownly1nce.com</a><br>Phone: <a href="tel:+19412779876" style="color:var(--gold-d);text-decoration:none;">941-277-9876</a><br>Calendly: <a onclick="openLink('https://calendly.com/daveivery/meetandgreet')" style="color:var(--gold-d);text-decoration:none;cursor:pointer;">calendly.com/daveivery/meetandgreet</a></div>
+          <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;">Email: <a href="mailto:admin@ownly1nce.com" style="color:var(--gold-d);text-decoration:none;">admin@ownly1nce.com</a><br>Phone: <a href="tel:+19412779876" style="color:var(--gold-d);text-decoration:none;">941-277-9876</a><br>Calendly: <a onclick="openLink(&#39;https://calendly.com/daveivery/meetandgreet&#39;)" style="color:var(--gold-d);text-decoration:none;cursor:pointer;">calendly.com/daveivery/meetandgreet</a></div>
         </div>
         <div class="result-card">
           <div class="eyebrow" style="color:var(--gold-d);margin-bottom:6px;">🔗 Around the Web</div>
           <div style="font-size:12.5px;color:var(--text-m);line-height:1.85;">
-            <a onclick="openLink('http://DaveIvery.com')" style="color:var(--gold-d);text-decoration:none;cursor:pointer;">DaveIvery.com</a><br>
-            <a onclick="openLink('https://www.amazon.com/author/davidjamesivery')" style="color:var(--gold-d);text-decoration:none;cursor:pointer;">Amazon Author Page</a><br>
-            <a onclick="openLink('https://www.financialeducatorscouncil.org/david-ivery/')" style="color:var(--gold-d);text-decoration:none;cursor:pointer;">NFEC Educator Profile</a>
+            <a onclick="openLink(&#39;http://DaveIvery.com&#39;)" style="color:var(--gold-d);text-decoration:none;cursor:pointer;">DaveIvery.com</a><br>
+            <a onclick="openLink(&#39;https://www.amazon.com/author/davidjamesivery&#39;)" style="color:var(--gold-d);text-decoration:none;cursor:pointer;">Amazon Author Page</a><br>
+            <a onclick="openLink(&#39;https://www.financialeducatorscouncil.org/david-ivery/&#39;)" style="color:var(--gold-d);text-decoration:none;cursor:pointer;">NFEC Educator Profile</a>
           </div>
         </div>
       </div>
 
       <!-- Legal modals row -->
       <div style="margin-top:20px;text-align:center;font-size:12px;color:var(--text-m);">
-        <a onclick="openModal('disclaimer')" style="color:var(--gold-d);cursor:pointer;text-decoration:none;margin:0 10px;">General Disclaimer</a> ·
-        <a onclick="openModal('privacy')" style="color:var(--gold-d);cursor:pointer;text-decoration:none;margin:0 10px;">Privacy Policy</a> ·
-        <a onclick="openModal('terms')" style="color:var(--gold-d);cursor:pointer;text-decoration:none;margin:0 10px;">Terms of Use</a> ·
-        <a onclick="openModal('affiliate')" style="color:var(--gold-d);cursor:pointer;text-decoration:none;margin:0 10px;">Affiliate Disclosure</a>
+        <a onclick="openModal(&#39;disclaimer&#39;)" style="color:var(--gold-d);cursor:pointer;text-decoration:none;margin:0 10px;">General Disclaimer</a> ·
+        <a onclick="openModal(&#39;privacy&#39;)" style="color:var(--gold-d);cursor:pointer;text-decoration:none;margin:0 10px;">Privacy Policy</a> ·
+        <a onclick="openModal(&#39;terms&#39;)" style="color:var(--gold-d);cursor:pointer;text-decoration:none;margin:0 10px;">Terms of Use</a> ·
+        <a onclick="openModal(&#39;affiliate&#39;)" style="color:var(--gold-d);cursor:pointer;text-decoration:none;margin:0 10px;">Affiliate Disclosure</a>
       </div>
 
     </div>
@@ -1137,10 +1129,10 @@ window.addEventListener('unhandledrejection', function(ev){
   <div><strong>The Ownly Breakthrough</strong> · An Ownly Once LLC publication · Sarasota, FL · For educational and informational purposes only. Not investment, tax, or legal advice.</div>
   <div style="margin:4px 0;color:rgba(255,255,255,.4);">Partner links are affiliate links — Ownly Once LLC may earn a commission. Funding, tax, and credit outcomes vary. Consult a qualified professional before acting.</div>
   <div class="cb-links">
-    <a onclick="openModal('disclaimer')">General Disclaimer</a>
-    <a onclick="openModal('privacy')">Privacy Policy</a>
-    <a onclick="openModal('terms')">Terms of Use</a>
-    <a onclick="openModal('affiliate')">Affiliate Disclosure</a>
+    <a onclick="openModal(&#39;disclaimer&#39;)">General Disclaimer</a>
+    <a onclick="openModal(&#39;privacy&#39;)">Privacy Policy</a>
+    <a onclick="openModal(&#39;terms&#39;)">Terms of Use</a>
+    <a onclick="openModal(&#39;affiliate&#39;)">Affiliate Disclosure</a>
   </div>
   <div style="margin-top:6px;color:rgba(255,255,255,.3);font-size:10px;">© 2026 Ownly Once LLC · admin@ownly1nce.com · 941-277-9876 · All rights reserved · Not affiliated with the SEC, FINRA, or any regulatory body</div>
 </footer>
@@ -1195,8 +1187,6 @@ function openLink(url){
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 
-// (Old submitWebdev intake function removed — full intake form now lives at ownly-web-studio.vercel.app)
-
 // ── DREAMS Score lead service (refid=AA3946 — Ownly Once partner ID) ──
 // Centralized URL so it can be updated in one place if the affiliate ID changes
 const DREAMS_SCORE_URL = 'https://dreamsscore.biz/?refid=AA3946';
@@ -1220,7 +1210,7 @@ const LEGAL = {
 <p>You should consult with a qualified, licensed professional before making any business funding, tax, investment, entity-formation, or other significant decision.</p>
 
 <h4>Third-Party Partners</h4>
-<p>References to Fund &amp; Grow, Prime Corporate Services, Tax Strategists of America, CreditStrong, Truss Financial Group, 24Hour Approvals, Maven Cost Seg, Tax Hive, ShareBuilder 401k, Global Travel, TicketsatWork, Corporate Plus Club, and other third-party providers are provided for informational purposes. Ownly Once LLC may receive compensation when you use referral links to access these services (see our Affiliate Disclosure). This compensation may influence which services are featured, but we strive to provide accurate, balanced information.</p>
+<p>References to Fund &amp; Grow, Prime Corporate Services, Tax Strategists of America, CreditStrong, Get Me Capital, 24Hour Approvals, Maven Cost Seg, Tax Hive, ShareBuilder 401k, Global Travel, TicketsatWork, Corporate Plus Club, and other third-party providers are provided for informational purposes. Ownly Once LLC may receive compensation when you use referral links to access these services (see our Affiliate Disclosure). This compensation may influence which services are featured, but we strive to provide accurate, balanced information.</p>
 <p>All third-party services involve their own terms, fees, qualification criteria, and risks. Some involve personal credit checks or personal guarantees. You are responsible for reading and understanding partner terms before engaging.</p>
 
 <h4>Funding &amp; Capital Disclaimers</h4>
@@ -1255,7 +1245,7 @@ const LEGAL = {
 <p>Our hosting provider (Vercel) may maintain standard server logs containing IP addresses, browser type, and request timestamps for security and operational purposes. We do not actively analyze, share, or sell this information.</p>
 
 <h4>Affiliate Links &amp; Third Parties</h4>
-<p>When you click referral links to third-party services (Fund &amp; Grow, Prime Corporate Services, Tax Strategists of America, CreditStrong, Truss Financial Group, 24Hour Approvals, Maven Cost Seg, Tax Hive, ShareBuilder 401k, Global Travel, TicketsatWork, Corporate Plus Club, and others), those platforms have their own privacy policies and data practices. Ownly Once LLC is not responsible for third-party privacy practices. The third-party platforms may track that you arrived via our referral link in order to attribute commission.</p>
+<p>When you click referral links to third-party services (Fund &amp; Grow, Prime Corporate Services, Tax Strategists of America, CreditStrong, Get Me Capital, 24Hour Approvals, Maven Cost Seg, Tax Hive, ShareBuilder 401k, Global Travel, TicketsatWork, Corporate Plus Club, and others), those platforms have their own privacy policies and data practices. Ownly Once LLC is not responsible for third-party privacy practices. The third-party platforms may track that you arrived via our referral link in order to attribute commission.</p>
 
 <h4>Direct Communications</h4>
 <p>If you choose to contact Dave Ivery directly via email (admin@ownly1nce.com), phone (941-277-9876), or by booking a Calendly session, the information you provide in those communications is handled under the privacy practices of those communication channels (Google Workspace, Calendly, etc.) and is used solely to respond to your inquiry.</p>
@@ -1285,10 +1275,8 @@ const LEGAL = {
   <li><strong>Fund &amp; Grow</strong> — referral compensation for masterclass registrations and program enrollments via fundandgrow.com/davidiverywebinar/</li>
   <li><strong>Prime Corporate Services</strong> — referral commission for new business-formation, tax-prep, business-credit, and estate-planning accounts</li>
   <li><strong>CreditStrong</strong> — referral compensation for credit-builder enrollments via creditstrong.referralrock.com/l/3DAVEIVERY53/</li>
-  <li><strong>Truss Financial Group</strong> — referral compensation via trussfinancialgroup.com/?fpr=david78</li>
-  <li><strong>Bank Breezy</strong> — referral compensation for same-day gig and micro-funding originations via bankbreezy.com/AA3946 (refid AA3946)</li>
-  <li><strong>Ownly Engagement AI</strong> — engagement-layer AI services delivered through our partner platform (dreams-interactive.com, refid AA3946); we receive referral compensation on subscriptions activated through this Platform.</li>
-  <li><strong>Ownly Tech Stack</strong> — technology infrastructure services delivered through our partner platform (technology.dreamsresources.com, refid AA3946); we receive referral compensation on subscriptions activated through this Platform.</li>
+  <li><strong>CredBlu</strong> — referral compensation for credit-builder app enrollments via credblu.com/ref/ownlycredit</li>
+  <li><strong>Get Me Capital</strong> — referral compensation at getmecapital.com/11477</li>
   <li><strong>24Hour Approvals</strong> — referral compensation at 24hourapprovals.com/11477</li>
   <li><strong>Maven Cost Seg</strong> — referral compensation at mavencostseg.referralrock.com/l/DAVIDIVERY12/</li>
   <li><strong>Tax Hive</strong> — referral compensation for tax strategy platform enrollments</li>
@@ -1378,6 +1366,28 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
   }
 })();
 </script>
-</body>
-</html>
+<script src="./breakthrough_live_files/player.js"></script>
 
+
+
+<div class="calendly-frame-tag" manager_id="7fc8e611-2de0-4575-8d3d-ffd899d2cefb" id="7fc8e611-2de0-4575-8d3d-ffd899d2cefb" style="height: 0px; width: 0px; visibility: hidden;"></div><div class="calendly-lifecycle-optibutton_singleton"><template shadowrootmode="closed"><div class="calendly-opti-root"><div class="optibutton__DragElement-kg9shj-6 jrxtxQ"><div class="optibutton__DragContainer-kg9shj-5 cpkLra"><div class="optibutton__Logo-kg9shj-7 bfAaVx"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 35 35"><path fill="#006BFF" d="M23.546 22.697c-1.112.985-2.496 2.212-5.016 2.212h-1.505c-1.821 0-3.477-.66-4.663-1.861-1.157-1.172-1.795-2.777-1.795-4.518V16.47c0-1.742.638-3.346 1.795-4.518 1.186-1.2 2.842-1.862 4.663-1.862h1.505c2.52 0 3.903 1.227 5.016 2.213 1.153 1.022 2.15 1.905 4.803 1.905.413 0 .817-.033 1.21-.096l-.01-.023a9.187 9.187 0 0 0-.558-1.147l-1.774-3.074a9.117 9.117 0 0 0-7.894-4.557h-3.549a9.114 9.114 0 0 0-7.893 4.557l-1.775 3.074a9.115 9.115 0 0 0 0 9.115l1.775 3.073a9.114 9.114 0 0 0 7.893 4.558h3.55a9.114 9.114 0 0 0 7.893-4.558l1.774-3.073c.215-.372.4-.756.558-1.147l.01-.023a7.592 7.592 0 0 0-1.21-.097c-2.654 0-3.65.883-4.803 1.905Z"></path><path fill="#006BFF" d="M18.53 11.957h-1.505c-2.771 0-4.593 1.98-4.593 4.514v2.059c0 2.534 1.822 4.514 4.593 4.514h1.505c4.038 0 3.722-4.118 9.82-4.118.583 0 1.16.053 1.723.157a9.134 9.134 0 0 0 0-3.166 9.43 9.43 0 0 1-1.724.158c-6.097 0-5.78-4.118-9.82-4.118Z"></path><path fill="#006BFF" d="M33.575 20.588a8.502 8.502 0 0 0-3.503-1.505l-.005.03a9.136 9.136 0 0 1-.51 1.775 6.67 6.67 0 0 1 2.896 1.192l-.008.028a15.535 15.535 0 0 1-2.175 4.415 15.692 15.692 0 0 1-3.4 3.493 15.501 15.501 0 0 1-9.37 3.119 15.586 15.586 0 0 1-11.056-4.58A15.58 15.58 0 0 1 1.865 17.5a15.586 15.586 0 0 1 4.58-11.056A15.58 15.58 0 0 1 17.5 1.865c3.41 0 6.65 1.078 9.37 3.119a15.72 15.72 0 0 1 3.4 3.493 15.535 15.535 0 0 1 2.183 4.443 6.664 6.664 0 0 1-2.895 1.192 9.055 9.055 0 0 1 .513 1.804 8.501 8.501 0 0 0 3.503-1.505c1-.739.806-1.574.654-2.068C32.028 5.195 25.37 0 17.5 0 7.835 0 0 7.835 0 17.5S7.835 35 17.5 35c7.87 0 14.527-5.195 16.728-12.344.153-.493.346-1.328-.653-2.068Z"></path><path fill="#0AE9EF" d="M29.559 14.113a7.581 7.581 0 0 1-1.21.096c-2.653 0-3.65-.882-4.803-1.905-1.112-.986-2.496-2.213-5.016-2.213h-1.505c-1.821 0-3.477.662-4.662 1.862-1.158 1.172-1.796 2.776-1.796 4.518v2.059c0 1.741.638 3.346 1.796 4.518 1.185 1.2 2.84 1.861 4.662 1.861h1.505c2.52 0 3.903-1.226 5.016-2.212 1.153-1.023 2.15-1.905 4.803-1.905.413 0 .817.033 1.21.096.231-.577.4-1.17.509-1.774l.005-.031a9.432 9.432 0 0 0-1.724-.157c-6.097 0-5.78 4.118-9.82 4.118h-1.504c-2.771 0-4.593-1.98-4.593-4.514V16.47c0-2.534 1.822-4.514 4.593-4.514h1.505c4.038 0 3.722 4.118 9.82 4.118.583 0 1.16-.053 1.723-.157a9.144 9.144 0 0 0-.514-1.805Z"></path><path fill="#0AE9EF" d="M29.559 14.113a7.581 7.581 0 0 1-1.21.096c-2.653 0-3.65-.882-4.803-1.905-1.112-.986-2.496-2.213-5.016-2.213h-1.505c-1.821 0-3.477.662-4.662 1.862-1.158 1.172-1.796 2.776-1.796 4.518v2.059c0 1.741.638 3.346 1.796 4.518 1.185 1.2 2.84 1.861 4.662 1.861h1.505c2.52 0 3.903-1.226 5.016-2.212 1.153-1.023 2.15-1.905 4.803-1.905.413 0 .817.033 1.21.096.231-.577.4-1.17.509-1.774l.005-.031a9.432 9.432 0 0 0-1.724-.157c-6.097 0-5.78 4.118-9.82 4.118h-1.504c-2.771 0-4.593-1.98-4.593-4.514V16.47c0-2.534 1.822-4.514 4.593-4.514h1.505c4.038 0 3.722 4.118 9.82 4.118.583 0 1.16-.053 1.723-.157a9.144 9.144 0 0 0-.514-1.805Z"></path></svg></div></div></div><div draggable="true" class="optibutton__OptiContainer-kg9shj-3 hfxtSH"><div draggable="false" class="optibutton__Close-kg9shj-1 hDOnAB"><button class="unpa5j9 optibutton__CloseButton-kg9shj-2 dLZvEo" type="button"><span aria-hidden="true" class="s1g68cf5 l48001z lmi2mqq" style="color: rgb(0, 0, 0);"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"><path fill="#fff" fill-opacity="0.01" d="M0 0h16v16H0z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3.298 11.855c-.316.315-.381.76-.147.995.235.234.68.169.995-.146l3.855-3.856 3.855 3.855c.315.316.76.381.995.147.234-.234.169-.68-.147-.995L8.85 8l3.854-3.855c.316-.315.381-.76.147-.995-.235-.234-.68-.169-.995.147L8 7.15 4.146 3.297c-.315-.316-.76-.381-.995-.147-.234.235-.168.68.147.995L7.152 8l-3.854 3.855Z" fill="currentColor"></path></svg></span></button></div><div draggable="false" class="optibutton__LogoContainer-kg9shj-4 hAycAb"><div draggable="false" class="optibutton__Logo-kg9shj-7 bfAaVx"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 35 35"><path fill="#006BFF" d="M23.546 22.697c-1.112.985-2.496 2.212-5.016 2.212h-1.505c-1.821 0-3.477-.66-4.663-1.861-1.157-1.172-1.795-2.777-1.795-4.518V16.47c0-1.742.638-3.346 1.795-4.518 1.186-1.2 2.842-1.862 4.663-1.862h1.505c2.52 0 3.903 1.227 5.016 2.213 1.153 1.022 2.15 1.905 4.803 1.905.413 0 .817-.033 1.21-.096l-.01-.023a9.187 9.187 0 0 0-.558-1.147l-1.774-3.074a9.117 9.117 0 0 0-7.894-4.557h-3.549a9.114 9.114 0 0 0-7.893 4.557l-1.775 3.074a9.115 9.115 0 0 0 0 9.115l1.775 3.073a9.114 9.114 0 0 0 7.893 4.558h3.55a9.114 9.114 0 0 0 7.893-4.558l1.774-3.073c.215-.372.4-.756.558-1.147l.01-.023a7.592 7.592 0 0 0-1.21-.097c-2.654 0-3.65.883-4.803 1.905Z"></path><path fill="#006BFF" d="M18.53 11.957h-1.505c-2.771 0-4.593 1.98-4.593 4.514v2.059c0 2.534 1.822 4.514 4.593 4.514h1.505c4.038 0 3.722-4.118 9.82-4.118.583 0 1.16.053 1.723.157a9.134 9.134 0 0 0 0-3.166 9.43 9.43 0 0 1-1.724.158c-6.097 0-5.78-4.118-9.82-4.118Z"></path><path fill="#006BFF" d="M33.575 20.588a8.502 8.502 0 0 0-3.503-1.505l-.005.03a9.136 9.136 0 0 1-.51 1.775 6.67 6.67 0 0 1 2.896 1.192l-.008.028a15.535 15.535 0 0 1-2.175 4.415 15.692 15.692 0 0 1-3.4 3.493 15.501 15.501 0 0 1-9.37 3.119 15.586 15.586 0 0 1-11.056-4.58A15.58 15.58 0 0 1 1.865 17.5a15.586 15.586 0 0 1 4.58-11.056A15.58 15.58 0 0 1 17.5 1.865c3.41 0 6.65 1.078 9.37 3.119a15.72 15.72 0 0 1 3.4 3.493 15.535 15.535 0 0 1 2.183 4.443 6.664 6.664 0 0 1-2.895 1.192 9.055 9.055 0 0 1 .513 1.804 8.501 8.501 0 0 0 3.503-1.505c1-.739.806-1.574.654-2.068C32.028 5.195 25.37 0 17.5 0 7.835 0 0 7.835 0 17.5S7.835 35 17.5 35c7.87 0 14.527-5.195 16.728-12.344.153-.493.346-1.328-.653-2.068Z"></path><path fill="#0AE9EF" d="M29.559 14.113a7.581 7.581 0 0 1-1.21.096c-2.653 0-3.65-.882-4.803-1.905-1.112-.986-2.496-2.213-5.016-2.213h-1.505c-1.821 0-3.477.662-4.662 1.862-1.158 1.172-1.796 2.776-1.796 4.518v2.059c0 1.741.638 3.346 1.796 4.518 1.185 1.2 2.84 1.861 4.662 1.861h1.505c2.52 0 3.903-1.226 5.016-2.212 1.153-1.023 2.15-1.905 4.803-1.905.413 0 .817.033 1.21.096.231-.577.4-1.17.509-1.774l.005-.031a9.432 9.432 0 0 0-1.724-.157c-6.097 0-5.78 4.118-9.82 4.118h-1.504c-2.771 0-4.593-1.98-4.593-4.514V16.47c0-2.534 1.822-4.514 4.593-4.514h1.505c4.038 0 3.722 4.118 9.82 4.118.583 0 1.16-.053 1.723-.157a9.144 9.144 0 0 0-.514-1.805Z"></path><path fill="#0AE9EF" d="M29.559 14.113a7.581 7.581 0 0 1-1.21.096c-2.653 0-3.65-.882-4.803-1.905-1.112-.986-2.496-2.213-5.016-2.213h-1.505c-1.821 0-3.477.662-4.662 1.862-1.158 1.172-1.796 2.776-1.796 4.518v2.059c0 1.741.638 3.346 1.796 4.518 1.185 1.2 2.84 1.861 4.662 1.861h1.505c2.52 0 3.903-1.226 5.016-2.212 1.153-1.023 2.15-1.905 4.803-1.905.413 0 .817.033 1.21.096.231-.577.4-1.17.509-1.774l.005-.031a9.432 9.432 0 0 0-1.724-.157c-6.097 0-5.78 4.118-9.82 4.118h-1.504c-2.771 0-4.593-1.98-4.593-4.514V16.47c0-2.534 1.822-4.514 4.593-4.514h1.505c4.038 0 3.722 4.118 9.82 4.118.583 0 1.16-.053 1.723-.157a9.144 9.144 0 0 0-.514-1.805Z"></path></svg></div><div class="optibutton__Divider-kg9shj-0 ejbsDY"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="26" fill="none"><path fill="#BDBDBD" d="M3.6 7.4a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM3.6 13A1.8 1.8 0 1 1 0 13a1.8 1.8 0 0 1 3.6 0ZM3.6 18.601a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 7.4a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 13a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 18.601a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM3.6 1.8a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 1.8a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM3.6 24.2a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 24.2a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0Z"></path></svg></div></div></div></div><style data-styled="active" data-styled-version="5.3.5"></style></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
