@@ -777,83 +777,143 @@ window.addEventListener('unhandledrejection', function(ev){
         </div>
       </div>
 
-      <!-- ═══════ MARKETING SERVICE GRID — 3 × 2 square cards ═══════ -->
+      <!-- ═══════ MARKETING SERVICE GRID — auto-fit square tiles ═══════ -->
       <div class="section-label" style="margin-top:6px;">🧰 The Marketing Stack</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;" class="mkt-grid-3">
+      <style>
+        .mkt-tile{background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--r);border:1px solid rgba(201,168,76,.4);padding:14px 14px 12px;display:flex;flex-direction:column;aspect-ratio:1/1;min-height:230px;position:relative;overflow:hidden;}
+        .mkt-tile::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));}
+        .mkt-tile-kicker{font-size:9px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.1em;margin-top:4px;margin-bottom:6px;line-height:1.3;}
+        .mkt-tile-title{font-family:var(--ff);font-size:15px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:6px;}
+        .mkt-tile-blurb{font-size:11px;color:rgba(255,255,255,.72);line-height:1.5;margin-bottom:8px;}
+        .mkt-tile-list{list-style:none;padding:0;margin:0 0 10px 0;font-size:10.5px;color:rgba(255,255,255,.82);line-height:1.55;flex:1;}
+        .mkt-tile-list li{padding-left:12px;position:relative;margin-bottom:3px;}
+        .mkt-tile-list li::before{content:"›";position:absolute;left:0;color:var(--gold-l);font-weight:700;}
+        .mkt-tile-cta{background:var(--gold);border:none;border-radius:var(--rs);padding:9px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;letter-spacing:.01em;}
+        @media (max-width: 720px){ .mkt-tile{aspect-ratio:auto;min-height:auto;} }
+      </style>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:22px;">
 
-        <!-- CustomGPT — square card -->
-        <div style="background:linear-gradient(135deg,#1B5777,#0F3F58);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🤖 Custom AI Agent · Free Trial</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Your private AI agent — trained on your business.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">CustomGPT.ai grounds an AI in YOUR docs, site, and KB. No hallucinations. 7-day free trial, no credit card.</div>
-          <button onclick="openLink('https://customgpt.ai/?fpr=dave72')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">🤖 Start Free Trial →</button>
+        <div class="mkt-tile" style="background:linear-gradient(135deg,#1B5777,#0F3F58);">
+          <div class="mkt-tile-kicker">🤖 Custom AI Agent · Free Trial</div>
+          <div class="mkt-tile-title">Private AI trained on your business.</div>
+          <div class="mkt-tile-blurb">CustomGPT.ai grounds an AI in YOUR docs, site, and KB.</div>
+          <ul class="mkt-tile-list">
+            <li>Zero hallucinations — answers from your sources only</li>
+            <li>7-day free trial, no credit card</li>
+            <li>Embed on site, in Slack, or as a Zapier action</li>
+            <li>Trained in minutes, not weeks</li>
+          </ul>
+          <button class="mkt-tile-cta" onclick="openLink('https://customgpt.ai/?fpr=dave72')">Start Free Trial →</button>
         </div>
 
-        <!-- Ownly Engagement AI — square card -->
-        <div style="background:linear-gradient(135deg,#3d1a5f,#5b2588);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">✨ Engagement Layer</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Ownly Engagement AI — turn visitors into conversations.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">Quizzes, qualifies, captures, routes. The missing piece between traffic and lead. Pairs with CustomGPT.</div>
-          <button onclick="openLink('https://dreams-interactive.com/?refid=AA3946')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">✨ Explore Engagement AI →</button>
+        <div class="mkt-tile" style="background:linear-gradient(135deg,#3d1a5f,#5b2588);">
+          <div class="mkt-tile-kicker">✨ Engagement Layer</div>
+          <div class="mkt-tile-title">Turn visitors into conversations.</div>
+          <div class="mkt-tile-blurb">The missing piece between traffic and lead.</div>
+          <ul class="mkt-tile-list">
+            <li>Interactive quizzes that qualify in real time</li>
+            <li>Auto-routes hot leads to your inbox</li>
+            <li>Captures contact + intent in one motion</li>
+            <li>Pairs cleanly with CustomGPT</li>
+          </ul>
+          <button class="mkt-tile-cta" onclick="openLink('https://dreams-interactive.com/?refid=AA3946')">Explore Engagement AI →</button>
         </div>
 
-        <!-- Ownly Web Studio — square card -->
-        <div style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🌐 Custom Website · Free Mockup</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Ownly Web Studio — designed for you, mocked up free.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">AI agents, SEO, and conversion tracking baked in. From $1,500 lead pages to $25K+ custom builds. Free mockup first.</div>
-          <button onclick="openLink('https://ownly-web-studio.vercel.app')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">🎨 Visit Web Studio →</button>
+        <div class="mkt-tile">
+          <div class="mkt-tile-kicker">🌐 Custom Website · Free Mockup</div>
+          <div class="mkt-tile-title">Designed for you, mocked up free.</div>
+          <div class="mkt-tile-blurb">Sites engineered to convert from day one.</div>
+          <ul class="mkt-tile-list">
+            <li>AI agent, SEO &amp; conversion tracking baked in</li>
+            <li>$1,500 lead pages → $25K+ custom builds</li>
+            <li>Free mockup before any commitment</li>
+            <li>Hosted on Vercel — fast everywhere</li>
+          </ul>
+          <button class="mkt-tile-cta" onclick="openLink('https://ownly-web-studio.vercel.app')">Visit Web Studio →</button>
         </div>
 
-        <!-- Ownly Tech Stack — square card -->
-        <div style="background:linear-gradient(135deg,#1a2e4a,#2a4a6e);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">⚙️ Tech Stack · Infrastructure</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Ownly Tech Stack — the back office for your stack.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">CRM, hosting, integrations, automation. Connect the six tools you're paying for that don't talk to each other.</div>
-          <button onclick="openLink('https://technology.dreamsresources.com/?refid=AA3946')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">⚙️ Open Ownly Tech Stack →</button>
+        <div class="mkt-tile" style="background:linear-gradient(135deg,#1a2e4a,#2a4a6e);">
+          <div class="mkt-tile-kicker">⚙️ Tech Stack · Infrastructure</div>
+          <div class="mkt-tile-title">The back office for your stack.</div>
+          <div class="mkt-tile-blurb">Connect the six tools you pay for that don't talk to each other.</div>
+          <ul class="mkt-tile-list">
+            <li>CRM, hosting, integrations, automation</li>
+            <li>One login, one bill, one accountable team</li>
+            <li>Replaces 6+ disconnected subscriptions</li>
+            <li>Setup handled — you just use it</li>
+          </ul>
+          <button class="mkt-tile-cta" onclick="openLink('https://technology.dreamsresources.com/?refid=AA3946')">Open Tech Stack →</button>
         </div>
 
-        <!-- Smartlead — square card (NEW affiliate, ?via=ownly-leads) -->
-        <div style="background:linear-gradient(135deg,#0c2540,#1565C0);border-radius:var(--rl);border:1px solid rgba(201,168,76,.45);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">📨 Cold Email · Self-Serve · $39/mo</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">Smartlead — cold outreach without paying per inbox.</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:14px;flex:1;">Unlimited email accounts and warm-ups at every tier. AI agents personalize and auto-route replies. The infrastructure agencies use to run outbound at volume.</div>
-          <button onclick="openLink('https://smartlead.ai/?via=ownly-leads')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">📨 Start with Smartlead →</button>
+        <div class="mkt-tile" style="background:linear-gradient(135deg,#0c2540,#1565C0);">
+          <div class="mkt-tile-kicker">📨 Cold Email · Self-Serve · $39/mo</div>
+          <div class="mkt-tile-title">Smartlead — outreach at scale.</div>
+          <div class="mkt-tile-blurb">Run agency-grade cold outreach yourself.</div>
+          <ul class="mkt-tile-list">
+            <li>Unlimited inboxes &amp; warm-ups at every tier</li>
+            <li>AI personalization on every send</li>
+            <li>Unified reply inbox, auto-sorted by intent</li>
+            <li>White-label option for agencies</li>
+          </ul>
+          <button class="mkt-tile-cta" onclick="openLink('https://smartlead.ai/?via=ownly-leads')">Start with Smartlead →</button>
         </div>
 
-        <!-- Pipeline-Filling Marketing Service — square card -->
-        <div style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);border:1px solid rgba(201,168,76,.55);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🎯 Pipeline · Done For You</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:6px;">Ownly Marketing — fill your pipeline.</div>
-          <div style="font-size:11px;color:var(--gold-l);font-style:italic;margin-bottom:8px;">Quote-ready clients delivered monthly</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.55;margin-bottom:14px;flex:1;">Done-for-you outbound that fills your pipeline with qualified, ready-to-buy clients every single month. No hiring, no software, no learning curve.</div>
-          <button onclick="openLink('https://ownly-marketing.vercel.app')" style="background:var(--gold);border:none;border-radius:var(--rs);padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--fb);color:var(--navy-d);width:100%;">🎯 Fill My Pipeline →</button>
+        <div class="mkt-tile" style="border:1px solid rgba(201,168,76,.55);">
+          <div class="mkt-tile-kicker">📬 Direct Mail · Live Now</div>
+          <div class="mkt-tile-title">Own your category on a shared card.</div>
+          <div class="mkt-tile-blurb">5,000 homes · 16 spots · one per category.</div>
+          <ul class="mkt-tile-list">
+            <li>Monthly mailing into your zip codes</li>
+            <li>Category-exclusive — no competing offers</li>
+            <li>First come, first served per route</li>
+            <li>Lock your spot before it's gone</li>
+          </ul>
+          <button class="mkt-tile-cta" onclick="openLink('https://ownlymarketing.com')">Get on the Card →</button>
         </div>
 
-        <!-- Restaurant Scan + FICA Tip Credit — square card -->
-        <div style="background:linear-gradient(135deg,#3a0a0a,#5a1818);border-radius:var(--rl);border:1px solid rgba(193,39,45,.55);padding:18px;display:flex;flex-direction:column;min-height:280px;position:relative;overflow:hidden;">
-          <div style="height:3px;background:linear-gradient(90deg,#7a1d22,#c1272d,#e74c5a,#c1272d,#7a1d22);position:absolute;top:0;left:0;right:0;"></div>
-          <div style="font-size:10px;font-weight:700;color:#ff8a8f;text-transform:uppercase;letter-spacing:.12em;margin-top:6px;margin-bottom:8px;">🍴 Restaurants · Bar · Hotel</div>
-          <div style="font-family:var(--ff);font-size:18px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:8px;">What's leaving your restaurant every month?</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.55;margin-bottom:12px;">Free 60-second diagnostic for independent restaurant owners. No login. No card. Just the number.</div>
-          <button onclick="openLink('https://notify.owner.com/e3t/Ctc/W1+23284/cMZLf04/Jks2-6qcW69sMD-6lZ3m6VbK0Ng5q5h9KW5pHDZR46jL7nW2-71VV2WVpNsW3PHN3c99pMrBW45LKHs7p0sYlW6RF8kM5rDXq7W13wL0d7H93dxW2rPBxp4-rdm6W8wZ0Kb82yqpVW4FPYRc7hfSXVV2ZMq48FrvHvW5hdHlr4QMM0cW4hNQZ51NPfp3N3HHT5K-nG-zW4-2hMB6WbLWVW2FlbLc1zQM7cVhpZKH4FG0TqW6YDFJ_12pBDLW5k0HRX8H723vW9f5lsk3S9KwPf95H62R04')" style="background:#c1272d;color:#fff;border:none;border-radius:var(--rs);padding:10px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;margin-bottom:10px;">🍴 Run the Restaurant Scan →</button>
-          <div style="border-top:1px dashed rgba(255,255,255,.22);padding-top:10px;flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
-            <div style="font-size:9.5px;font-weight:700;color:#ffd699;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px;">⚡ FICA Tip Credit Recovery</div>
-            <div style="font-size:11.5px;color:rgba(255,255,255,.78);line-height:1.5;margin-bottom:8px;">Restaurants/bars/hotels with tipped staff are owed a federal tax credit. Avg $20K+/yr · retroactive · contingency only.</div>
-            <button onclick="openLink('https://tipcreditpartners.com/89eb')" style="background:#1a1a1a;color:#ffd699;border:1px solid rgba(255,214,153,.45);border-radius:var(--rs);padding:9px 14px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;">⚡ Calculate My FICA Tip Credit →</button>
-          </div>
+        <div class="mkt-tile" style="border:1px solid rgba(201,168,76,.55);">
+          <div class="mkt-tile-kicker">🎯 Pipeline · Done For You</div>
+          <div class="mkt-tile-title">Ownly Marketing — fill your pipeline.</div>
+          <div class="mkt-tile-blurb">Quote-ready clients delivered every month.</div>
+          <ul class="mkt-tile-list">
+            <li>Done-for-you outbound, no hiring</li>
+            <li>Targeted to your ideal customer profile</li>
+            <li>Booked appointments, not raw leads</li>
+            <li>Pay for results, not effort</li>
+          </ul>
+          <button class="mkt-tile-cta" onclick="openLink('https://ownly-marketing.vercel.app')">Fill My Pipeline →</button>
+        </div>
+
+        <div class="mkt-tile" style="background:linear-gradient(135deg,#3a0a0a,#5a1818);border:1px solid rgba(193,39,45,.55);">
+          <div class="mkt-tile-kicker" style="color:#ff8a8f;">🍴 Restaurants · Bars · Hotels</div>
+          <div class="mkt-tile-title">What's leaving your restaurant?</div>
+          <div class="mkt-tile-blurb">Free 60-second diagnostic for owners.</div>
+          <ul class="mkt-tile-list">
+            <li>No login. No card. Just the number.</li>
+            <li>Surfaces hidden monthly profit leak</li>
+            <li>Pairs with FICA tip credit recovery</li>
+            <li>Most owners are surprised, some are stunned</li>
+          </ul>
+          <button class="mkt-tile-cta" style="background:#c1272d;color:#fff;" onclick="openLink('https://notify.owner.com/e3t/Ctc/W1+23284/cMZLf04/Jks2-6qcW69sMD-6lZ3m6VbK0Ng5q5h9KW5pHDZR46jL7nW2-71VV2WVpNsW3PHN3c99pMrBW45LKHs7p0sYlW6RF8kM5rDXq7W13wL0d7H93dxW2rPBxp4-rdm6W8wZ0Kb82yqpVW4FPYRc7hfSXVV2ZMq48FrvHvW5hdHlr4QMM0cW4hNQZ51NPfp3N3HHT5K-nG-zW4-2hMB6WbLWVW2FlbLc1zQM7cVhpZKH4FG0TqW6YDFJ_12pBDLW5k0HRX8H723vW9f5lsk3S9KwPf95H62R04')">Run the Restaurant Scan →</button>
+        </div>
+
+        <div class="mkt-tile" style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a);">
+          <div class="mkt-tile-kicker" style="color:#ffd699;">⚡ FICA Tip Credit · Contingency Only</div>
+          <div class="mkt-tile-title">Recover the federal tip-tax credit.</div>
+          <div class="mkt-tile-blurb">For restaurants, bars &amp; hotels with tipped staff.</div>
+          <ul class="mkt-tile-list">
+            <li>Average recovery $20K+ per year</li>
+            <li>Retroactive — captures prior years too</li>
+            <li>Pay nothing unless we recover money</li>
+            <li>Free assessment from licensed firm</li>
+          </ul>
+          <button class="mkt-tile-cta" style="background:#ffd699;color:#1a1a1a;" onclick="openLink('https://tipcreditpartners.com/89eb')">Calculate My Credit →</button>
         </div>
 
       </div>
 
-      <!-- Direct Mail Flagship — OwnlyMarketing.com (Session 8) -->
-      <div style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);padding:0;margin-bottom:18px;border:1px solid rgba(201,168,76,.45);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(22,43,68,.12);">
+      <!-- Direct Mail Flagship hero — REMOVED (info captured in grid square) -->
+      <div style="display:none;background:linear-gradient(135deg,var(--navy-d),var(--navy-m));border-radius:var(--rl);padding:0;margin-bottom:18px;border:1px solid rgba(201,168,76,.45);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(22,43,68,.12);">
 
         <!-- Gold ribbon top accent -->
         <div style="height:4px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold),var(--gold-d));"></div>
@@ -1423,26 +1483,4 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal();
 </script>
 <script src="https://player.vimeo.com/api/player.js"></script>
 
-
-
-<div class="calendly-frame-tag" manager_id="7fc8e611-2de0-4575-8d3d-ffd899d2cefb" id="7fc8e611-2de0-4575-8d3d-ffd899d2cefb" style="height: 0px; width: 0px; visibility: hidden;"></div><div class="calendly-lifecycle-optibutton_singleton"><template shadowrootmode="closed"><div class="calendly-opti-root"><div class="optibutton__DragElement-kg9shj-6 jrxtxQ"><div class="optibutton__DragContainer-kg9shj-5 cpkLra"><div class="optibutton__Logo-kg9shj-7 bfAaVx"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 35 35"><path fill="#006BFF" d="M23.546 22.697c-1.112.985-2.496 2.212-5.016 2.212h-1.505c-1.821 0-3.477-.66-4.663-1.861-1.157-1.172-1.795-2.777-1.795-4.518V16.47c0-1.742.638-3.346 1.795-4.518 1.186-1.2 2.842-1.862 4.663-1.862h1.505c2.52 0 3.903 1.227 5.016 2.213 1.153 1.022 2.15 1.905 4.803 1.905.413 0 .817-.033 1.21-.096l-.01-.023a9.187 9.187 0 0 0-.558-1.147l-1.774-3.074a9.117 9.117 0 0 0-7.894-4.557h-3.549a9.114 9.114 0 0 0-7.893 4.557l-1.775 3.074a9.115 9.115 0 0 0 0 9.115l1.775 3.073a9.114 9.114 0 0 0 7.893 4.558h3.55a9.114 9.114 0 0 0 7.893-4.558l1.774-3.073c.215-.372.4-.756.558-1.147l.01-.023a7.592 7.592 0 0 0-1.21-.097c-2.654 0-3.65.883-4.803 1.905Z"></path><path fill="#006BFF" d="M18.53 11.957h-1.505c-2.771 0-4.593 1.98-4.593 4.514v2.059c0 2.534 1.822 4.514 4.593 4.514h1.505c4.038 0 3.722-4.118 9.82-4.118.583 0 1.16.053 1.723.157a9.134 9.134 0 0 0 0-3.166 9.43 9.43 0 0 1-1.724.158c-6.097 0-5.78-4.118-9.82-4.118Z"></path><path fill="#006BFF" d="M33.575 20.588a8.502 8.502 0 0 0-3.503-1.505l-.005.03a9.136 9.136 0 0 1-.51 1.775 6.67 6.67 0 0 1 2.896 1.192l-.008.028a15.535 15.535 0 0 1-2.175 4.415 15.692 15.692 0 0 1-3.4 3.493 15.501 15.501 0 0 1-9.37 3.119 15.586 15.586 0 0 1-11.056-4.58A15.58 15.58 0 0 1 1.865 17.5a15.586 15.586 0 0 1 4.58-11.056A15.58 15.58 0 0 1 17.5 1.865c3.41 0 6.65 1.078 9.37 3.119a15.72 15.72 0 0 1 3.4 3.493 15.535 15.535 0 0 1 2.183 4.443 6.664 6.664 0 0 1-2.895 1.192 9.055 9.055 0 0 1 .513 1.804 8.501 8.501 0 0 0 3.503-1.505c1-.739.806-1.574.654-2.068C32.028 5.195 25.37 0 17.5 0 7.835 0 0 7.835 0 17.5S7.835 35 17.5 35c7.87 0 14.527-5.195 16.728-12.344.153-.493.346-1.328-.653-2.068Z"></path><path fill="#0AE9EF" d="M29.559 14.113a7.581 7.581 0 0 1-1.21.096c-2.653 0-3.65-.882-4.803-1.905-1.112-.986-2.496-2.213-5.016-2.213h-1.505c-1.821 0-3.477.662-4.662 1.862-1.158 1.172-1.796 2.776-1.796 4.518v2.059c0 1.741.638 3.346 1.796 4.518 1.185 1.2 2.84 1.861 4.662 1.861h1.505c2.52 0 3.903-1.226 5.016-2.212 1.153-1.023 2.15-1.905 4.803-1.905.413 0 .817.033 1.21.096.231-.577.4-1.17.509-1.774l.005-.031a9.432 9.432 0 0 0-1.724-.157c-6.097 0-5.78 4.118-9.82 4.118h-1.504c-2.771 0-4.593-1.98-4.593-4.514V16.47c0-2.534 1.822-4.514 4.593-4.514h1.505c4.038 0 3.722 4.118 9.82 4.118.583 0 1.16-.053 1.723-.157a9.144 9.144 0 0 0-.514-1.805Z"></path><path fill="#0AE9EF" d="M29.559 14.113a7.581 7.581 0 0 1-1.21.096c-2.653 0-3.65-.882-4.803-1.905-1.112-.986-2.496-2.213-5.016-2.213h-1.505c-1.821 0-3.477.662-4.662 1.862-1.158 1.172-1.796 2.776-1.796 4.518v2.059c0 1.741.638 3.346 1.796 4.518 1.185 1.2 2.84 1.861 4.662 1.861h1.505c2.52 0 3.903-1.226 5.016-2.212 1.153-1.023 2.15-1.905 4.803-1.905.413 0 .817.033 1.21.096.231-.577.4-1.17.509-1.774l.005-.031a9.432 9.432 0 0 0-1.724-.157c-6.097 0-5.78 4.118-9.82 4.118h-1.504c-2.771 0-4.593-1.98-4.593-4.514V16.47c0-2.534 1.822-4.514 4.593-4.514h1.505c4.038 0 3.722 4.118 9.82 4.118.583 0 1.16-.053 1.723-.157a9.144 9.144 0 0 0-.514-1.805Z"></path></svg></div></div></div><div draggable="true" class="optibutton__OptiContainer-kg9shj-3 hfxtSH"><div draggable="false" class="optibutton__Close-kg9shj-1 hDOnAB"><button class="unpa5j9 optibutton__CloseButton-kg9shj-2 dLZvEo" type="button"><span aria-hidden="true" class="s1g68cf5 l48001z lmi2mqq" style="color: rgb(0, 0, 0);"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"><path fill="#fff" fill-opacity="0.01" d="M0 0h16v16H0z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M3.298 11.855c-.316.315-.381.76-.147.995.235.234.68.169.995-.146l3.855-3.856 3.855 3.855c.315.316.76.381.995.147.234-.234.169-.68-.147-.995L8.85 8l3.854-3.855c.316-.315.381-.76.147-.995-.235-.234-.68-.169-.995.147L8 7.15 4.146 3.297c-.315-.316-.76-.381-.995-.147-.234.235-.168.68.147.995L7.152 8l-3.854 3.855Z" fill="currentColor"></path></svg></span></button></div><div draggable="false" class="optibutton__LogoContainer-kg9shj-4 hAycAb"><div draggable="false" class="optibutton__Logo-kg9shj-7 bfAaVx"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 35 35"><path fill="#006BFF" d="M23.546 22.697c-1.112.985-2.496 2.212-5.016 2.212h-1.505c-1.821 0-3.477-.66-4.663-1.861-1.157-1.172-1.795-2.777-1.795-4.518V16.47c0-1.742.638-3.346 1.795-4.518 1.186-1.2 2.842-1.862 4.663-1.862h1.505c2.52 0 3.903 1.227 5.016 2.213 1.153 1.022 2.15 1.905 4.803 1.905.413 0 .817-.033 1.21-.096l-.01-.023a9.187 9.187 0 0 0-.558-1.147l-1.774-3.074a9.117 9.117 0 0 0-7.894-4.557h-3.549a9.114 9.114 0 0 0-7.893 4.557l-1.775 3.074a9.115 9.115 0 0 0 0 9.115l1.775 3.073a9.114 9.114 0 0 0 7.893 4.558h3.55a9.114 9.114 0 0 0 7.893-4.558l1.774-3.073c.215-.372.4-.756.558-1.147l.01-.023a7.592 7.592 0 0 0-1.21-.097c-2.654 0-3.65.883-4.803 1.905Z"></path><path fill="#006BFF" d="M18.53 11.957h-1.505c-2.771 0-4.593 1.98-4.593 4.514v2.059c0 2.534 1.822 4.514 4.593 4.514h1.505c4.038 0 3.722-4.118 9.82-4.118.583 0 1.16.053 1.723.157a9.134 9.134 0 0 0 0-3.166 9.43 9.43 0 0 1-1.724.158c-6.097 0-5.78-4.118-9.82-4.118Z"></path><path fill="#006BFF" d="M33.575 20.588a8.502 8.502 0 0 0-3.503-1.505l-.005.03a9.136 9.136 0 0 1-.51 1.775 6.67 6.67 0 0 1 2.896 1.192l-.008.028a15.535 15.535 0 0 1-2.175 4.415 15.692 15.692 0 0 1-3.4 3.493 15.501 15.501 0 0 1-9.37 3.119 15.586 15.586 0 0 1-11.056-4.58A15.58 15.58 0 0 1 1.865 17.5a15.586 15.586 0 0 1 4.58-11.056A15.58 15.58 0 0 1 17.5 1.865c3.41 0 6.65 1.078 9.37 3.119a15.72 15.72 0 0 1 3.4 3.493 15.535 15.535 0 0 1 2.183 4.443 6.664 6.664 0 0 1-2.895 1.192 9.055 9.055 0 0 1 .513 1.804 8.501 8.501 0 0 0 3.503-1.505c1-.739.806-1.574.654-2.068C32.028 5.195 25.37 0 17.5 0 7.835 0 0 7.835 0 17.5S7.835 35 17.5 35c7.87 0 14.527-5.195 16.728-12.344.153-.493.346-1.328-.653-2.068Z"></path><path fill="#0AE9EF" d="M29.559 14.113a7.581 7.581 0 0 1-1.21.096c-2.653 0-3.65-.882-4.803-1.905-1.112-.986-2.496-2.213-5.016-2.213h-1.505c-1.821 0-3.477.662-4.662 1.862-1.158 1.172-1.796 2.776-1.796 4.518v2.059c0 1.741.638 3.346 1.796 4.518 1.185 1.2 2.84 1.861 4.662 1.861h1.505c2.52 0 3.903-1.226 5.016-2.212 1.153-1.023 2.15-1.905 4.803-1.905.413 0 .817.033 1.21.096.231-.577.4-1.17.509-1.774l.005-.031a9.432 9.432 0 0 0-1.724-.157c-6.097 0-5.78 4.118-9.82 4.118h-1.504c-2.771 0-4.593-1.98-4.593-4.514V16.47c0-2.534 1.822-4.514 4.593-4.514h1.505c4.038 0 3.722 4.118 9.82 4.118.583 0 1.16-.053 1.723-.157a9.144 9.144 0 0 0-.514-1.805Z"></path><path fill="#0AE9EF" d="M29.559 14.113a7.581 7.581 0 0 1-1.21.096c-2.653 0-3.65-.882-4.803-1.905-1.112-.986-2.496-2.213-5.016-2.213h-1.505c-1.821 0-3.477.662-4.662 1.862-1.158 1.172-1.796 2.776-1.796 4.518v2.059c0 1.741.638 3.346 1.796 4.518 1.185 1.2 2.84 1.861 4.662 1.861h1.505c2.52 0 3.903-1.226 5.016-2.212 1.153-1.023 2.15-1.905 4.803-1.905.413 0 .817.033 1.21.096.231-.577.4-1.17.509-1.774l.005-.031a9.432 9.432 0 0 0-1.724-.157c-6.097 0-5.78 4.118-9.82 4.118h-1.504c-2.771 0-4.593-1.98-4.593-4.514V16.47c0-2.534 1.822-4.514 4.593-4.514h1.505c4.038 0 3.722 4.118 9.82 4.118.583 0 1.16-.053 1.723-.157a9.144 9.144 0 0 0-.514-1.805Z"></path></svg></div><div class="optibutton__Divider-kg9shj-0 ejbsDY"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="26" fill="none"><path fill="#BDBDBD" d="M3.6 7.4a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM3.6 13A1.8 1.8 0 1 1 0 13a1.8 1.8 0 0 1 3.6 0ZM3.6 18.601a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 7.4a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 13a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 18.601a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM3.6 1.8a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 1.8a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM3.6 24.2a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0ZM9.197 24.2a1.8 1.8 0 1 1-3.6 0 1.8 1.8 0 0 1 3.6 0Z"></path></svg></div></div></div></div><style data-styled="active" data-styled-version="5.3.5"></style></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
-      div.grammarly-desktop-integration {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select:none;
-        user-select:none;
-      }
-
-      div.grammarly-desktop-integration:before {
-        content: attr(data-content);
-      }
-    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
+</body></html>
