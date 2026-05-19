@@ -1,1100 +1,793 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Ownly Breakthrough — Find $50K to $500K in Hidden Money · Ownly Once Press</title>
-<meta name="description" content="Find $50K to $500K in hidden money inside your business in 15 minutes. The Ownly Breakthrough pairs a free DREAMS Score diagnostic with the Business Breakthroughs playbook and the vetted partners who actually go get the money." />
-<meta property="og:title" content="The Ownly Breakthrough — Find $50K to $500K in Hidden Money" />
-<meta property="og:description" content="Free 15-minute diagnostic for business owners. Surface hidden funding, credits, and savings. Get the playbook. Meet the partners." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://the-ownly-breakthrough.vercel.app/" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<script src="https://player.vimeo.com/api/player.js"></script>
-
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Ownly Breakthrough — Find $50K to $500K in Hidden Money</title>
+<meta name="description" content="Run a free 15-minute DREAMS Score, surface hidden money across six categories, then connect with the vetted partners who go get it." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{navy:'#0B2545',navy2:'#1B3C73',gold:'#C5A05A',gold2:'#E8C97A',cream:'#F5EDD8',cloud:'#F5F7FA',silver:'#C0C7CF',ink:'#1A2540',green:'#00843D'},fontFamily:{sans:['Inter','sans-serif'],serif:['Playfair Display','Georgia','serif']},boxShadow:{glow:'0 0 50px -10px rgba(197,160,90,0.45)'},animation:{shimmer:'shimmer 3s linear infinite',rise:'rise 1s ease-out forwards',drift:'drift 14s linear infinite'},keyframes:{shimmer:{'0%':{backgroundPosition:'-200% 0'},'100%':{backgroundPosition:'200% 0'}},rise:{from:{opacity:0,transform:'translateY(40px)'},to:{opacity:1,transform:'translateY(0)'}},drift:{'0%':{transform:'translate(0,0)'},'50%':{transform:'translate(20px,-20px)'},'100%':{transform:'translate(0,0)'}}}}}}</script>
 <style>
-:root{
-  --navy:#162B44; --navy-d:#0d1d2e; --navy-m:#1f3a57; --navy-l:#2e5480;
-  --gold:#C9A84C; --gold-l:#e0c070; --gold-d:#9a7830; --gold-pale:#fdf6e3;
-  --cream:#f9f6f0; --white:#ffffff; --navy-pale:#eef4fb;
-  --text:#162B44; --text-m:#4a6580; --text-l:#8aa0b4;
-  --border:rgba(22,43,68,.1); --border-g:rgba(201,168,76,.25);
-  --green:#0a8f4a; --green-pale:#e6f5ed;
-  --orange:#E05622;
-  --r:14px; --rs:8px; --rl:20px;
-  --ff:'Cormorant Garamond',Georgia,serif;
-  --fb:'DM Sans',system-ui,sans-serif;
-  --shadow:0 4px 24px rgba(22,43,68,.10);
-  --shadow-s:0 2px 8px rgba(22,43,68,.07);
-  --shadow-lg:0 20px 50px rgba(22,43,68,.18);
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;overflow-x:hidden;scroll-behavior:smooth;}
-body{background:var(--cream);color:var(--text);font-family:var(--fb);font-size:15px;line-height:1.6;}
-
-a{color:var(--gold-d);text-decoration:none}
-a:hover{color:var(--gold)}
-button{font-family:var(--fb);cursor:pointer;border:0;outline:0}
-img,svg{display:block;max-width:100%}
-
-/* ───── STICKY NAV ───── */
-.nav{position:sticky;top:0;z-index:100;background:rgba(13,29,46,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,.2);}
-.nav-inner{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
-.nav-brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--ff);font-size:18px;font-weight:500;letter-spacing:.04em;}
-.nav-brand-mark{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;object-fit:contain;flex-shrink:0;}
-.nav-brand em{font-style:italic;color:var(--gold-l);font-weight:500;}
-.nav-links{display:flex;gap:28px;align-items:center;}
-.nav-links a{color:rgba(255,255,255,.78);font-size:13.5px;letter-spacing:.02em;transition:color .15s;}
-.nav-links a:hover{color:var(--gold-l)}
-.nav-cta{background:var(--gold);color:var(--navy-d);border-radius:100px;padding:10px 22px;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
-.nav-cta:hover{background:var(--gold-l)}
-@media (max-width: 880px){ .nav-links{display:none} }
-
-/* ───── HERO ───── */
-.hero{background:linear-gradient(135deg,var(--navy-d) 0%,var(--navy) 55%,var(--navy-m) 100%);color:#fff;padding:64px 24px 80px;position:relative;overflow:hidden;}
-.hero::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.18) 0%,transparent 65%);pointer-events:none;}
-.hero::after{content:"";position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(46,84,128,.4) 0%,transparent 65%);pointer-events:none;}
-.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;position:relative;z-index:2;}
-.hero-eyebrow{font-size:11px;font-weight:700;color:var(--gold-l);text-transform:uppercase;letter-spacing:.2em;margin-bottom:18px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid rgba(201,168,76,.4);border-radius:100px;background:rgba(201,168,76,.06);}
-.hero h1{font-family:var(--ff);font-size:64px;font-weight:500;line-height:1.02;letter-spacing:-.015em;margin-bottom:22px;}
-.hero h1 em{color:var(--gold-l);font-style:italic;}
-.hero-sub{font-size:17px;line-height:1.65;color:rgba(255,255,255,.82);margin-bottom:28px;max-width:560px;}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px;}
-.btn-primary{background:var(--gold);color:var(--navy-d);border-radius:var(--rs);padding:16px 28px;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:transform .15s,box-shadow .15s,background .15s;box-shadow:0 6px 20px rgba(201,168,76,.32);}
-.btn-primary:hover{background:var(--gold-l);transform:translateY(-1px);box-shadow:0 10px 30px rgba(201,168,76,.42);}
-.btn-secondary{background:transparent;color:var(--gold-l);border:1px solid rgba(201,168,76,.5);border-radius:var(--rs);padding:16px 26px;font-size:13.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;transition:background .15s,border-color .15s;}
-.btn-secondary:hover{background:rgba(201,168,76,.1);border-color:var(--gold);}
-.hero-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.65);}
-.hero-meta span{display:inline-flex;align-items:center;gap:6px;}
-.hero-meta .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
-
-.hero-video{position:relative;border-radius:var(--rl);overflow:hidden;border:1px solid rgba(201,168,76,.3);box-shadow:var(--shadow-lg);aspect-ratio:16/9;background:#000;}
-.hero-video iframe{width:100%;height:100%;border:0;display:block;}
-
-@media (max-width: 980px){
-  .hero{padding:48px 20px 60px;}
-  .hero-inner{grid-template-columns:1fr;gap:36px;}
-  .hero h1{font-size:44px}
-  .hero-video{max-width:560px;margin:0 auto;}
-}
-
-/* ───── TRUST BAR ───── */
-.trust{background:var(--navy);color:#fff;padding:30px 24px;border-top:1px solid rgba(201,168,76,.18);border-bottom:1px solid rgba(201,168,76,.18);}
-.trust-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;text-align:center;}
-.trust-stat{padding:8px 12px;border-right:1px solid rgba(201,168,76,.18);}
-.trust-stat:last-child{border-right:0;}
-.trust-num{font-family:var(--ff);font-size:32px;font-weight:600;color:var(--gold-l);line-height:1;margin-bottom:6px;}
-.trust-label{font-size:11px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.12em;font-weight:500;}
-@media (max-width: 760px){.trust-stat{border-right:0;border-bottom:1px solid rgba(201,168,76,.18);padding-bottom:18px;}}
-
-/* ───── SECTION SHELL ───── */
-section{padding:80px 24px;}
-.section-inner{max-width:1280px;margin:0 auto;}
-.section-eyebrow{font-size:11px;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:.22em;text-align:center;margin-bottom:14px;}
-.section-title{font-family:var(--ff);font-size:46px;font-weight:500;line-height:1.1;letter-spacing:-.01em;color:var(--navy);text-align:center;margin-bottom:14px;max-width:880px;margin-left:auto;margin-right:auto;}
-.section-title em{color:var(--gold-d);font-style:italic;}
-.section-sub{font-size:16.5px;color:var(--text-m);text-align:center;max-width:680px;margin:0 auto 48px;line-height:1.65;}
-@media (max-width: 720px){.section-title{font-size:34px}}
-
-/* ───── PROBLEM SECTION ───── */
-.problem{background:var(--cream);}
-.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
-.problem-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:32px;text-align:center;transition:transform .2s,box-shadow .2s;}
-.problem-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-.problem-icon{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--gold-pale),#fff);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 18px;}
-.problem-card h3{font-family:var(--ff);font-size:22px;font-weight:500;color:var(--navy);margin-bottom:10px;}
-.problem-card p{font-size:14px;color:var(--text-m);line-height:1.7;}
-
-/* ───── DREAMS DIAGNOSTIC ───── */
-.dreams{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff;position:relative;overflow:hidden;}
-.dreams::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-.dreams .section-eyebrow{color:var(--gold-l);}
-.dreams .section-title{color:#fff;}
-.dreams .section-sub{color:rgba(255,255,255,.75);}
-.dreams-letters{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;max-width:980px;margin:0 auto 36px;}
-.dreams-letter{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:24px 12px;text-align:center;cursor:pointer;transition:all .2s;text-decoration:none;color:#fff;display:block;}
-.dreams-letter:hover{background:rgba(201,168,76,.12);border-color:var(--gold);transform:translateY(-3px);}
-.dreams-letter-l{font-family:var(--ff);font-size:42px;font-weight:600;color:var(--gold-l);line-height:1;margin-bottom:6px;}
-.dreams-letter-w{font-size:11.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;}
-.dreams-letter-s{font-size:10.5px;color:rgba(255,255,255,.62);line-height:1.4;}
-.dreams-cta-row{text-align:center;}
-@media (max-width: 760px){.dreams-letters{grid-template-columns:repeat(3,1fr);}}
-@media (max-width: 420px){.dreams-letters{grid-template-columns:repeat(2,1fr);}}
-
-/* ───── AI ASSESSMENT BLOCK ───── */
-.ai-block{background:linear-gradient(135deg,var(--gold-pale) 0%,#fff 60%,var(--cream) 100%);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);position:relative;overflow:hidden;}
-.ai-block::before{content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,.2),transparent 70%);pointer-events:none;}
-.ai-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;position:relative;z-index:2;}
-.ai-eyebrow{font-size:11px;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:.22em;margin-bottom:16px;}
-.ai-content h2{font-family:var(--ff);font-size:42px;color:var(--navy);font-weight:500;line-height:1.1;letter-spacing:-.01em;margin-bottom:18px;}
-.ai-content h2 em{color:var(--gold-d);font-style:italic;}
-.ai-content p{font-size:15.5px;color:var(--text-m);line-height:1.7;margin-bottom:24px;}
-.ai-cta-row{display:flex;gap:14px;flex-wrap:wrap;}
-.ai-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-.ai-stat-card{background:#fff;border:1px solid var(--gold);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-s);}
-.ai-stat-num{font-family:var(--ff);font-size:26px;color:var(--gold-d);font-weight:600;line-height:1;margin-bottom:6px;}
-.ai-stat-label{font-size:11.5px;color:var(--text-m);line-height:1.45;font-weight:500;}
-@media (max-width: 880px){.ai-inner{grid-template-columns:1fr;}.ai-content h2{font-size:32px;}}
-
-/* ───── CASE STUDIES STRIP ───── */
-.case-studies{background:#fff;padding:60px 24px;}
-.cs-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:1180px;margin:0 auto;}
-.cs-card{background:var(--cream);border-left:4px solid var(--gold);border-radius:var(--rs);padding:24px;}
-.cs-quote{font-family:var(--ff);font-size:17px;color:var(--navy);line-height:1.45;margin-bottom:14px;font-style:italic;}
-.cs-meta{font-size:11.5px;color:var(--text-m);text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
-.cs-meta strong{color:var(--gold-d);font-style:normal;}
-.cs-footer{text-align:center;margin-top:32px;font-size:13px;color:var(--text-m);}
-.cs-footer a{color:var(--gold-d);font-weight:600;cursor:pointer;border-bottom:1px solid var(--gold);padding-bottom:2px;}
-
-/* ───── HOW IT WORKS ───── */
-.how{background:#fff;}
-.how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;position:relative;}
-.how-step{text-align:center;position:relative;padding:0 12px;}
-.how-step-num{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--navy-d);font-family:var(--ff);font-size:28px;font-weight:600;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 20px rgba(201,168,76,.3);}
-.how-step h3{font-family:var(--ff);font-size:22px;color:var(--navy);margin-bottom:8px;font-weight:500;}
-.how-step p{font-size:14px;color:var(--text-m);line-height:1.7;}
-
-/* ───── SERVICES (sales-page style with imagery) ───── */
-.services{background:var(--cream);}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
-.svc-card{background:#fff;border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;position:relative;}
-.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-.svc-art{height:140px;position:relative;overflow:hidden;}
-.svc-art svg{position:absolute;inset:0;width:100%;height:100%;}
-.svc-trial-badge{position:absolute;top:14px;right:14px;background:var(--gold);color:var(--navy-d);padding:5px 11px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 4px 12px rgba(0,0,0,.15);z-index:2;}
-.svc-trial-badge.green{background:#0a8f4a;color:#fff;}
-.svc-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column;}
-.svc-kicker{font-size:10.5px;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:.14em;margin-bottom:8px;}
-.svc-title{font-family:var(--ff);font-size:22px;font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:8px;}
-.svc-blurb{font-size:13.5px;color:var(--text-m);line-height:1.6;margin-bottom:14px;}
-.svc-list{list-style:none;padding:0;margin:0 0 18px 0;font-size:12.5px;color:var(--text);line-height:1.7;flex:1;}
-.svc-list li{padding-left:18px;position:relative;margin-bottom:4px;}
-.svc-list li::before{content:"✓";position:absolute;left:0;color:var(--gold-d);font-weight:700;}
-.svc-cta{background:var(--navy);color:#fff;border-radius:var(--rs);padding:13px 20px;font-size:13px;font-weight:600;width:100%;letter-spacing:.02em;transition:background .15s;}
-.svc-cta:hover{background:var(--navy-m);}
-.svc-cta.gold{background:var(--gold);color:var(--navy-d);}
-.svc-cta.gold:hover{background:var(--gold-l);}
-.svc-cta.red{background:#c1272d;}
-.svc-cta.red:hover{background:#9a1d22;}
-
-/* ───── CREDIT & FUNDING SECTION ───── */
-.credit{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%);}
-.credit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
-.credit-card{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:24px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s;}
-.credit-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(201,168,76,.5);}
-.credit-card.flagship{background:linear-gradient(135deg,var(--navy-d),var(--navy-m));color:#fff;border:1px solid var(--gold);position:relative;overflow:hidden;}
-.credit-card.flagship::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));}
-.credit-card.flagship h3{color:#fff;}
-.credit-card.flagship p{color:rgba(255,255,255,.82);}
-.credit-card.flagship .credit-meta{color:var(--gold-l);}
-.credit-card.flagship .credit-tag{color:var(--gold-l);}
-.credit-tag{font-size:10.5px;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px;}
-.credit-card h3{font-family:var(--ff);font-size:21px;color:var(--navy);font-weight:500;line-height:1.2;margin-bottom:10px;}
-.credit-card p{font-size:13.5px;color:var(--text-m);line-height:1.65;margin-bottom:14px;flex:1;}
-.credit-meta{font-size:11.5px;color:var(--gold-d);font-weight:600;letter-spacing:.02em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px dashed var(--border);}
-.credit-cta{background:var(--navy);color:#fff;border-radius:var(--rs);padding:12px 18px;font-size:13px;font-weight:600;width:100%;letter-spacing:.02em;cursor:pointer;border:0;transition:background .15s;}
-.credit-cta:hover{background:var(--navy-m);}
-.credit-cta.gold{background:var(--gold);color:var(--navy-d);}
-.credit-cta.gold:hover{background:var(--gold-l);}
-.credit-note{margin-top:28px;text-align:center;font-size:12.5px;color:var(--text-m);max-width:780px;margin-left:auto;margin-right:auto;font-style:italic;}
-.credit-note a{color:var(--gold-d);font-weight:600;cursor:pointer;}
-
-/* ───── FREE TRIALS CALLOUT (THE NEW EMPHASIS) ───── */
-.trials{background:linear-gradient(135deg,var(--gold-pale) 0%,#fff 100%);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);}
-.trials .section-eyebrow{color:var(--gold-d);}
-.trials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:18px;}
-.trial-card{background:#fff;border:1px solid var(--gold);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;position:relative;transition:transform .2s,box-shadow .2s;}
-.trial-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-.trial-card::before{content:"FREE";position:absolute;top:-10px;left:18px;background:var(--green);color:#fff;padding:4px 12px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.1em;}
-.trial-tag{font-size:10.5px;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;margin-top:6px;}
-.trial-title{font-family:var(--ff);font-size:19px;color:var(--navy);font-weight:500;line-height:1.2;margin-bottom:8px;}
-.trial-blurb{font-size:13px;color:var(--text-m);line-height:1.6;flex:1;margin-bottom:14px;}
-.trial-link{color:var(--gold-d);font-weight:600;font-size:13px;border-bottom:1px solid var(--gold);padding-bottom:2px;align-self:flex-start;cursor:pointer;}
-.trial-link:hover{color:var(--navy);border-color:var(--navy);}
-.trials-note{margin-top:32px;text-align:center;font-size:13px;color:var(--text-m);max-width:680px;margin-left:auto;margin-right:auto;font-style:italic;}
-
-/* ───── FOUNDER SECTION ───── */
-.founder{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff;}
-.founder .section-title{color:#fff;}
-.founder-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:center;max-width:1140px;margin:0 auto;}
-.founder-card{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.3);border-radius:var(--rl);padding:32px;backdrop-filter:blur(8px);text-align:center;}
-.founder-avatar{width:160px;height:160px;border-radius:50%;margin:0 auto 18px;object-fit:cover;border:3px solid var(--gold-l);box-shadow:0 12px 30px rgba(201,168,76,.25);display:block;}
-.founder-name{font-family:var(--ff);font-size:28px;color:#fff;font-weight:500;margin-bottom:4px;}
-.founder-role{font-size:12px;color:var(--gold-l);text-transform:uppercase;letter-spacing:.14em;font-weight:600;margin-bottom:18px;}
-.founder-creds{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
-.founder-cred{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.4);color:var(--gold-l);padding:5px 12px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.04em;}
-.founder-bio h2{font-family:var(--ff);font-size:38px;color:#fff;font-weight:500;line-height:1.15;margin-bottom:18px;}
-.founder-bio h2 em{color:var(--gold-l);font-style:italic;}
-.founder-bio p{font-size:15px;color:rgba(255,255,255,.85);line-height:1.75;margin-bottom:16px;}
-.founder-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
-@media (max-width: 880px){.founder-inner{grid-template-columns:1fr;text-align:center;}}
-
-/* ───── BOOKS ───── */
-.books{background:#fff;}
-.books-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
-.book-card{background:var(--cream);border-radius:var(--rl);padding:28px;border:1px solid var(--border);display:flex;flex-direction:column;align-items:flex-start;transition:transform .2s,border-color .2s;}
-.book-card:hover{transform:translateY(-4px);border-color:var(--gold);}
-.book-cover{width:80px;height:110px;border-radius:6px;background:linear-gradient(135deg,var(--navy-d),var(--navy-m));display:flex;align-items:center;justify-content:center;font-size:36px;color:var(--gold);margin-bottom:16px;box-shadow:0 8px 20px rgba(22,43,68,.2);position:relative;}
-.book-cover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);border-radius:6px 0 0 6px;}
-.book-eyebrow{font-size:10.5px;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;}
-.book-title{font-family:var(--ff);font-size:22px;font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:10px;}
-.book-blurb{font-size:13.5px;color:var(--text-m);line-height:1.65;margin-bottom:16px;flex:1;}
-.book-cta{background:var(--gold);color:var(--navy-d);border-radius:var(--rs);padding:10px 18px;font-size:12.5px;font-weight:600;letter-spacing:.02em;transition:background .15s;}
-.book-cta:hover{background:var(--gold-l);}
-
-/* ───── PERKS ───── */
-.perks{background:var(--cream);}
-.perks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
-.perk-card{background:#fff;border:1px solid var(--border);border-radius:var(--rl);padding:28px;text-align:left;display:flex;flex-direction:column;}
-.perk-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-m));color:var(--gold-l);font-size:24px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
-.perk-card h3{font-family:var(--ff);font-size:20px;color:var(--navy);font-weight:500;margin-bottom:8px;}
-.perk-card p{font-size:13.5px;color:var(--text-m);line-height:1.6;margin-bottom:16px;flex:1;}
-.perk-cta{background:var(--navy);color:#fff;border-radius:var(--rs);padding:11px 18px;font-size:12.5px;font-weight:600;}
-.perk-cta:hover{background:var(--navy-m);}
-
-/* ───── FINAL CTA ───── */
-.final-cta{background:linear-gradient(135deg,var(--navy-d) 0%,var(--navy) 100%);color:#fff;text-align:center;position:relative;overflow:hidden;}
-.final-cta::before{content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,.15) 0%,transparent 60%);pointer-events:none;}
-.final-cta-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;}
-.final-cta h2{font-family:var(--ff);font-size:48px;font-weight:500;line-height:1.1;color:#fff;margin-bottom:18px;}
-.final-cta h2 em{color:var(--gold-l);font-style:italic;}
-.final-cta p{font-size:17px;color:rgba(255,255,255,.78);line-height:1.65;margin-bottom:28px;}
-.final-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-
-/* ───── FOOTER ───── */
-footer{background:var(--navy-d);color:rgba(255,255,255,.7);padding:48px 24px 28px;border-top:1px solid rgba(201,168,76,.2);}
-.footer-inner{max-width:1280px;margin:0 auto;}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid rgba(201,168,76,.18);}
-.footer-brand{font-family:var(--ff);color:#fff;font-size:18px;font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-.footer-tag{font-size:12px;color:rgba(255,255,255,.5);line-height:1.65;max-width:280px;}
-.footer-col h4{color:var(--gold-l);font-size:11.5px;text-transform:uppercase;letter-spacing:.14em;font-weight:600;margin-bottom:12px;}
-.footer-col ul{list-style:none;padding:0;font-size:13px;line-height:1.9;}
-.footer-col a{color:rgba(255,255,255,.62);cursor:pointer;}
-.footer-col a:hover{color:var(--gold-l)}
-.footer-disc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.7;text-align:center;padding-top:20px;}
-.footer-disc a{color:var(--gold-l);}
-@media (max-width: 760px){.footer-top{grid-template-columns:1fr 1fr;}}
-
-/* ───── FLOATING CTA ───── */
-.float-cta{position:fixed;bottom:24px;right:24px;background:var(--gold);color:var(--navy-d);border-radius:100px;padding:13px 20px 13px 16px;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;box-shadow:0 12px 32px rgba(201,168,76,.4);z-index:50;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;transition:transform .15s,box-shadow .15s;}
-.float-cta:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(201,168,76,.5);color:var(--navy-d);}
-.float-cta .ic{width:30px;height:30px;border-radius:50%;background:var(--navy-d);color:var(--gold-l);display:flex;align-items:center;justify-content:center;font-size:14px;}
-.float-cta small{display:block;font-size:9.5px;color:rgba(13,29,46,.7);letter-spacing:.16em;font-weight:600;margin-top:2px;}
-
-/* ───── DISCLOSURE MODAL ───── */
-.modal-bg{position:fixed;inset:0;background:rgba(13,29,46,.78);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:200;padding:24px;}
-.modal-bg.show{display:flex;}
-.modal{background:#fff;border-radius:var(--rl);max-width:640px;max-height:88vh;overflow-y:auto;padding:36px;position:relative;}
-.modal-close{position:absolute;top:14px;right:18px;background:none;border:0;font-size:26px;color:var(--text-m);cursor:pointer;line-height:1;}
-.modal h3{font-family:var(--ff);font-size:28px;color:var(--navy);margin-bottom:14px;}
-.modal p{font-size:13.5px;color:var(--text-m);line-height:1.7;margin-bottom:12px;}
+html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:#0B2545;color:#fff;overflow-x:hidden}
+.font-serif{font-family:'Playfair Display',serif}
+.shimmer-gold{background:linear-gradient(110deg,#C5A05A,#E8C97A,#FFFFFF,#E8C97A,#C5A05A);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4s linear infinite}
+.glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.12)}
+.gold-line{background:linear-gradient(90deg,transparent,#C5A05A,transparent)}
+.tilt{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.tilt:hover{transform:perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-6px)}
+.parallax-bg{background-attachment:fixed;background-size:cover;background-position:center}
+.gradient-text{background:linear-gradient(135deg,#E8C97A 0%,#C5A05A 50%,#FFFFFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gradient-text-light{background:linear-gradient(135deg,#FFFFFF,#C0C7CF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dot-grid{background-image:radial-gradient(rgba(197,160,90,0.18) 1px,transparent 1px);background-size:28px 28px}
+.scroll-mask{mask-image:linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent)}
+.glow-pulse{animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 30px -10px rgba(197,160,90,.4)}50%{box-shadow:0 0 60px -10px rgba(197,160,90,.85)}}
+.cursor-magnet{transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+#globe-canvas{position:absolute;inset:0;z-index:0;opacity:.7}
+.section-fade{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.section-fade.in{opacity:1;transform:translateY(0)}
+.book-cover{transform-style:preserve-3d;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.book-cover:hover{transform:rotateY(-25deg) translateY(-12px) scale(1.04)}
+.book-cover::before{content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(110deg,transparent 45%,rgba(255,255,255,.18) 50%,transparent 55%);opacity:0;transition:.6s}
+.book-cover:hover::before{opacity:1}
+.marquee{display:flex;gap:3rem;animation:marquee 40s linear infinite}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+.coin{position:absolute;color:#C5A05A;opacity:.85;animation:coinfall linear infinite}
+@keyframes coinfall{0%{transform:translateY(-50px) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.bar-fill{transform:scaleX(0);transform-origin:left;transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+.bar-fill.fill{transform:scaleX(var(--w,1))}
+.text-stroke{-webkit-text-stroke:1px rgba(197,160,90,.6);color:transparent}
+.dreams-gauge{filter:drop-shadow(0 0 18px rgba(197,160,90,.45))}
 </style>
 </head>
-<body>
+<body class="bg-navy text-white">
 
-<!-- ═══════ STICKY NAV ═══════ -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#top" class="nav-brand">
-      <img class="nav-brand-mark" src="data:image/png;base64,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" alt="Ownly ONCE" />
-      The Ownly <em>Breakthrough</em>
-    </a>
-    <div class="nav-links">
-      <a href="#ai-assessment">AI Assessment</a>
-      <a href="#services">Services</a>
-      <a href="#credit">Credit &amp; Funding</a>
-      <a href="#case-studies">Case Studies</a>
-      <a href="#trials">Free Trials</a>
-      <a href="#about">About</a>
-    </div>
-    <a href="#book" class="nav-cta">📅 Book a Session</a>
-  </div>
-</nav>
-
-<!-- ═══════ HERO ═══════ -->
-<section class="hero" id="top" style="padding-top:48px;padding-bottom:64px;">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-eyebrow">⭐ Free 15-Minute Business Diagnostic · No Login</div>
-      <h1>Find <em>$50K to $500K</em> in hidden money inside your business — in 15 minutes.</h1>
-      <p class="hero-sub">No login. No email gate. No paywall. Run a free DREAMS Score to surface hidden funding, credits, and savings across six categories — then read the playbook and connect with the vetted partners who actually go get the money.</p>
-      <div class="hero-ctas">
-        <button class="btn-primary" onclick="dreamsScore()">💰 Find My Breakthrough →</button>
-        <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See How It Works</button>
-      </div>
-      <div class="hero-meta">
-        <span><span class="dot"></span>15-minute diagnostic</span>
-        <span><span class="dot"></span>No credit card</span>
-        <span><span class="dot"></span>Tailored to your business</span>
-      </div>
-    </div>
-    <div class="hero-video">
-      <iframe src="https://player.vimeo.com/video/1187910196?title=0&byline=0&portrait=0&autoplay=0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Business Breakthroughs"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ TRUST BAR ═══════ -->
-<div class="trust">
-  <div class="trust-inner">
-    <div class="trust-stat">
-      <div class="trust-num">$50K–$500K</div>
-      <div class="trust-label">Hidden money found per business</div>
-    </div>
-    <div class="trust-stat">
-      <div class="trust-num">6</div>
-      <div class="trust-label">Categories diagnosed</div>
-    </div>
-    <div class="trust-stat">
-      <div class="trust-num">15 min</div>
-      <div class="trust-label">To your free score</div>
-    </div>
-    <div class="trust-stat">
-      <div class="trust-num">12+</div>
-      <div class="trust-label">Vetted partners on call</div>
-    </div>
-  </div>
+<!-- ───── ANNOUNCEMENT BAR ───── -->
+<div class="bg-gradient-to-r from-gold via-gold2 to-gold text-navy text-xs md:text-sm font-bold py-2 text-center tracking-wider uppercase">
+  ⭐ Free 15-minute Business Diagnostic · No login · No card · Most owners find six figures
 </div>
 
-<!-- ═══════ PROBLEM ═══════ -->
-<section class="problem">
-  <div class="section-inner">
-    <div class="section-eyebrow">The problem most owners don't see</div>
-    <h2 class="section-title">Your business is leaking <em>real money</em> in places you've never looked.</h2>
-    <p class="section-sub">Most owners can name two or three line items where they're spending too much. The bigger gaps — credits never claimed, restructuring options never modeled, capital they qualify for but never accessed — are invisible without a diagnostic.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon">🔍</div>
-        <h3>Money you can't see</h3>
-        <p>Federal credits, tax restructuring, cost-segregation studies — most owners have never had a specialist run the numbers. The credits exist whether you claim them or not.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">⏳</div>
-        <h3>Capital you can't access</h3>
-        <p>Banks tell you no. They never tell you about the $50K–$300K in 0% APR business credit you actually qualify for — or the working capital line that fits your cash flow.</p>
-      </div>
-      <div class="problem-card">
-        <div class="problem-icon">🪓</div>
-        <h3>Expenses you've stopped seeing</h3>
-        <p>Six SaaS subscriptions you forgot, payroll inefficiencies, retirement plans paying executives 0.5% more than they should. Small lines that add up to one big number.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ AI ASSESSMENT — positioning pillar ═══════ -->
-<section class="ai-block" id="ai-assessment">
-  <div class="section-inner">
-    <div class="ai-inner">
-      <div class="ai-content">
-        <div class="ai-eyebrow">⚡ Ownly Once Positioning · Free 5-Minute Assessment</div>
-        <h2>Is AI <em>actually right</em> for your business — or are you about to waste money on it?</h2>
-        <p>Our second job, after helping owners find hidden money, is helping them figure out where AI actually fits — and where it doesn't. The free <strong>AI Assessment</strong> walks you through your operation, identifies the real-world automation and AI opportunities specific to your business, and tells you which ones to deploy first. No hype, no hand-waving. If AI isn't the right move for your business right now, we'll say so.</p>
-        <div class="ai-cta-row">
-          <button class="btn-primary" onclick="openLink('https://ownly-gap-audit.vercel.app/')">⚡ Take the Free AI Assessment →</button>
-          <button class="btn-secondary" onclick="document.getElementById('case-studies').scrollIntoView({behavior:'smooth'})">See Case Studies</button>
-        </div>
-      </div>
-      <div class="ai-stats">
-        <div class="ai-stat-card">
-          <div class="ai-stat-num">5 min</div>
-          <div class="ai-stat-label">Live conversation with the AI</div>
-        </div>
-        <div class="ai-stat-card">
-          <div class="ai-stat-num">Custom</div>
-          <div class="ai-stat-label">Plan tailored to your specific business</div>
-        </div>
-        <div class="ai-stat-card">
-          <div class="ai-stat-num">Honest</div>
-          <div class="ai-stat-label">Will tell you if AI isn't the right move yet</div>
-        </div>
-        <div class="ai-stat-card">
-          <div class="ai-stat-num">Free</div>
-          <div class="ai-stat-label">No login, no card, no follow-up unless you ask</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ HOW IT WORKS ═══════ -->
-<section class="how" id="how">
-  <div class="section-inner">
-    <div class="section-eyebrow">How It Works</div>
-    <h2 class="section-title">Three steps. <em>Real money on the table by the third.</em></h2>
-    <p class="section-sub">No upsells, no high-pressure sales. The diagnostic surfaces the gaps, the playbook explains what to do, and the partners are the specialists who actually go execute.</p>
-    <div class="how-steps">
-      <div class="how-step">
-        <div class="how-step-num">1</div>
-        <h3>Diagnose</h3>
-        <p>Run the free 15-minute DREAMS Score. Surfaces hidden funding, credits, and savings across six categories. No login, no card, no email gate.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">2</div>
-        <h3>Read the Playbook</h3>
-        <p>Business Breakthroughs (2nd Edition) explains exactly what to do with each finding — which moves come first, who runs them, and what the numbers usually look like.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">3</div>
-        <h3>Meet the Partners</h3>
-        <p>The vetted partners on this site are the specialists who actually go get the money — credit, capital, tax credits, marketing, cost seg. Many start with free trials or free assessments.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ SERVICES — Sales-page tile grid ═══════ -->
-<section class="services" id="services">
-  <div class="section-inner">
-    <div class="section-eyebrow">The Stack</div>
-    <h2 class="section-title">Services that actually move the number.</h2>
-    <p class="section-sub">Each one runs on results, not promises. Click into any service to start — most include a free trial, free assessment, or contingency-based engagement.</p>
-    <div class="svc-grid">
-
-      <!-- 1. Pipeline / Ownly Marketing -->
-      <div class="svc-card">
-        <div class="svc-art" style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="80" cy="70" r="20" fill="rgba(201,168,76,.3)"/>
-            <circle cx="150" cy="70" r="20" fill="rgba(201,168,76,.45)"/>
-            <circle cx="220" cy="70" r="20" fill="rgba(201,168,76,.6)"/>
-            <circle cx="290" cy="70" r="20" fill="rgba(201,168,76,.85)"/>
-            <line x1="100" y1="70" x2="130" y2="70" stroke="rgba(201,168,76,.5)" stroke-width="2"/>
-            <line x1="170" y1="70" x2="200" y2="70" stroke="rgba(201,168,76,.55)" stroke-width="2"/>
-            <line x1="240" y1="70" x2="270" y2="70" stroke="rgba(201,168,76,.6)" stroke-width="2"/>
-            <text x="80" y="76" text-anchor="middle" font-size="14" fill="#fff">👤</text>
-            <text x="150" y="76" text-anchor="middle" font-size="14" fill="#fff">📞</text>
-            <text x="220" y="76" text-anchor="middle" font-size="14" fill="#fff">📅</text>
-            <text x="290" y="76" text-anchor="middle" font-size="14" fill="#fff">💰</text>
-          </svg>
-          <span class="svc-trial-badge">Free Strategy Call</span>
-        </div>
-        <div class="svc-body">
-          <div class="svc-kicker">🎯 Done-For-You Pipeline</div>
-          <div class="svc-title">Ownly Marketing — fill your pipeline.</div>
-          <p class="svc-blurb">Done-for-you outbound that delivers quote-ready clients every single month. Pay for results, not effort.</p>
-          <ul class="svc-list">
-            <li>Targeted to your ideal customer profile</li>
-            <li>Booked appointments, not raw leads</li>
-            <li>Free strategy walkthrough to start</li>
-          </ul>
-          <button class="svc-cta gold" onclick="openLink('https://gb-ownlyagency.multiscreensite.com')">Learn More →</button>
-        </div>
-      </div>
-
-      <!-- 2. Smartlead -->
-      <div class="svc-card">
-        <div class="svc-art" style="background:linear-gradient(135deg,#0c2540,#1565C0);">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect x="80" y="40" width="240" height="60" rx="6" fill="rgba(255,255,255,.08)" stroke="rgba(201,168,76,.4)"/>
-            <polyline points="80,40 200,90 320,40" fill="none" stroke="rgba(201,168,76,.7)" stroke-width="2"/>
-            <circle cx="320" cy="40" r="14" fill="rgba(201,168,76,.95)"/>
-            <text x="320" y="46" text-anchor="middle" font-size="14" font-weight="700" fill="#0c2540">→</text>
-          </svg>
-          <span class="svc-trial-badge green">Free Trial Available</span>
-        </div>
-        <div class="svc-body">
-          <div class="svc-kicker">📨 Cold Email · Self-Serve</div>
-          <div class="svc-title">Smartlead — outreach at scale.</div>
-          <p class="svc-blurb">Unlimited inboxes and warm-ups at every tier. The infrastructure agencies use to run outbound at volume.</p>
-          <ul class="svc-list">
-            <li>Unlimited email accounts &amp; warm-ups</li>
-            <li>AI personalization on every send</li>
-            <li>Free trial · plans from $39/mo</li>
-          </ul>
-          <button class="svc-cta" onclick="openLink('https://smartlead.ai/?via=ownly-leads')">Start Free Trial →</button>
-        </div>
-      </div>
-
-      <!-- 3. CustomGPT -->
-      <div class="svc-card">
-        <div class="svc-art" style="background:linear-gradient(135deg,#1B5777,#0F3F58);">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="80" cy="70" r="38" fill="rgba(201,168,76,.18)"/>
-            <circle cx="80" cy="70" r="22" fill="rgba(201,168,76,.35)"/>
-            <text x="80" y="78" text-anchor="middle" font-family="DM Sans" font-size="24" fill="#fff" font-weight="700">AI</text>
-            <rect x="160" y="50" width="180" height="10" rx="5" fill="rgba(255,255,255,.18)"/>
-            <rect x="160" y="68" width="140" height="10" rx="5" fill="rgba(255,255,255,.12)"/>
-            <rect x="160" y="86" width="100" height="10" rx="5" fill="rgba(201,168,76,.4)"/>
-          </svg>
-          <span class="svc-trial-badge green">7-Day Free Trial</span>
-        </div>
-        <div class="svc-body">
-          <div class="svc-kicker">🤖 Custom AI Agent</div>
-          <div class="svc-title">Private AI trained on your business.</div>
-          <p class="svc-blurb">CustomGPT.ai grounds an AI in your docs, site, and KB — zero hallucinations, just sourced answers.</p>
-          <ul class="svc-list">
-            <li>Trained in minutes on YOUR content</li>
-            <li>Embed on site, Slack, or as a Zapier action</li>
-            <li>7-day free trial · no credit card required</li>
-          </ul>
-          <button class="svc-cta gold" onclick="openLink('https://customgpt.ai/?fpr=dave72')">Start Free Trial →</button>
-        </div>
-      </div>
-
-      <!-- 4. Engagement AI -->
-      <div class="svc-card">
-        <div class="svc-art" style="background:linear-gradient(135deg,#3d1a5f,#5b2588);">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="120" cy="70" r="28" fill="rgba(201,168,76,.3)"/>
-            <circle cx="200" cy="50" r="18" fill="rgba(255,255,255,.2)"/>
-            <circle cx="280" cy="85" r="22" fill="rgba(201,168,76,.25)"/>
-            <path d="M 120 70 L 200 50 L 280 85" stroke="rgba(201,168,76,.6)" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
-            <text x="120" y="77" text-anchor="middle" font-family="DM Sans" font-size="22" fill="#fff" font-weight="700">?</text>
-            <text x="200" y="56" text-anchor="middle" font-family="DM Sans" font-size="14" fill="#fff" font-weight="700">✓</text>
-            <text x="280" y="92" text-anchor="middle" font-family="DM Sans" font-size="16" fill="#fff" font-weight="700">💬</text>
-          </svg>
-        </div>
-        <div class="svc-body">
-          <div class="svc-kicker">✨ Engagement Layer</div>
-          <div class="svc-title">Turn visitors into conversations.</div>
-          <p class="svc-blurb">Interactive quizzes that qualify in real time. The missing piece between traffic and lead.</p>
-          <ul class="svc-list">
-            <li>Auto-routes hot leads to your inbox</li>
-            <li>Captures contact + intent in one motion</li>
-            <li>Pairs cleanly with CustomGPT</li>
-          </ul>
-          <button class="svc-cta gold" onclick="openLink('https://dreams-interactive.com/?refid=AA3946')">Explore Engagement AI →</button>
-        </div>
-      </div>
-
-      <!-- 5. Direct Mail / Own Your Category -->
-      <div class="svc-card">
-        <div class="svc-art" style="background:linear-gradient(135deg,#3a2515,#5a3a25);">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect x="100" y="35" width="200" height="70" rx="6" fill="rgba(255,255,255,.85)" stroke="rgba(201,168,76,.6)" stroke-width="2"/>
-            <polyline points="100,35 200,80 300,35" fill="rgba(201,168,76,.2)" stroke="rgba(201,168,76,.6)" stroke-width="2"/>
-            <text x="200" y="98" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#3a2515">DIRECT MAIL · LIVE</text>
-          </svg>
-          <span class="svc-trial-badge">Live Now</span>
-        </div>
-        <div class="svc-body">
-          <div class="svc-kicker">📬 Direct Mail Flagship</div>
-          <div class="svc-title">Own your category on a shared card.</div>
-          <p class="svc-blurb">5,000 homes · 16 spots · one per category. Monthly mailing into your zip codes.</p>
-          <ul class="svc-list">
-            <li>Category-exclusive — no competing offers</li>
-            <li>First come, first served per route</li>
-            <li>Lock your spot before it's gone</li>
-          </ul>
-          <button class="svc-cta gold" onclick="openLink('https://ownlymarketing.com')">Get on the Card →</button>
-        </div>
-      </div>
-
-      <!-- 6. Web Studio / Custom Website -->
-      <div class="svc-card">
-        <div class="svc-art" style="background:linear-gradient(135deg,var(--navy-d),var(--navy-m));">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect x="100" y="30" width="200" height="80" rx="6" fill="rgba(255,255,255,.05)" stroke="rgba(201,168,76,.4)" stroke-width="1.5"/>
-            <circle cx="115" cy="44" r="3" fill="rgba(255,80,80,.7)"/>
-            <circle cx="125" cy="44" r="3" fill="rgba(255,200,80,.7)"/>
-            <circle cx="135" cy="44" r="3" fill="rgba(80,255,80,.7)"/>
-            <rect x="115" y="58" width="80" height="6" rx="3" fill="rgba(201,168,76,.5)"/>
-            <rect x="115" y="70" width="120" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
-            <rect x="115" y="80" width="90" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
-            <rect x="115" y="94" width="48" height="14" rx="3" fill="rgba(201,168,76,.5)"/>
-          </svg>
-          <span class="svc-trial-badge green">Free Mockup</span>
-        </div>
-        <div class="svc-body">
-          <div class="svc-kicker">🌐 Custom Website</div>
-          <div class="svc-title">Designed for you, mocked up free.</div>
-          <p class="svc-blurb">AI agent, SEO, and conversion tracking baked in. From $1,500 lead pages to $25K+ custom builds.</p>
-          <ul class="svc-list">
-            <li>Free mockup before any commitment</li>
-            <li>Hosted on Vercel — fast everywhere</li>
-            <li>Conversion tracking from day one</li>
-          </ul>
-          <button class="svc-cta" onclick="openLink('https://ownly-web-studio.vercel.app')">Get My Free Mockup →</button>
-        </div>
-      </div>
-
-      <!-- 7. Restaurant Scan -->
-      <div class="svc-card">
-        <div class="svc-art" style="background:linear-gradient(135deg,#3a0a0a,#5a1818);">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <text x="120" y="86" font-size="58">🍴</text>
-            <text x="240" y="82" font-size="46">💰</text>
-            <path d="M 175 60 L 235 60" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-dasharray="4 4"/>
-          </svg>
-          <span class="svc-trial-badge green">Free Scan · 60 sec</span>
-        </div>
-        <div class="svc-body">
-          <div class="svc-kicker">🍴 For Restaurants &amp; Hospitality</div>
-          <div class="svc-title">What's leaving your restaurant?</div>
-          <p class="svc-blurb">Free 60-second diagnostic built for independent restaurant owners. No login. No card. Just the number.</p>
-          <ul class="svc-list">
-            <li>Surfaces hidden monthly profit leak</li>
-            <li>Most owners are surprised — some are stunned</li>
-            <li>Pairs with FICA Tip Credit recovery</li>
-          </ul>
-          <button class="svc-cta red" onclick="openLink('https://notify.owner.com/e3t/Ctc/W1+23284/cMZLf04/Jks2-6qcW69sMD-6lZ3m6VbK0Ng5q5h9KW5pHDZR46jL7nW2-71VV2WVpNsW3PHN3c99pMrBW45LKHs7p0sYlW6RF8kM5rDXq7W13wL0d7H93dxW2rPBxp4-rdm6W8wZ0Kb82yqpVW4FPYRc7hfSXVV2ZMq48FrvHvW5hdHlr4QMM0cW4hNQZ51NPfp3N3HHT5K-nG-zW4-2hMB6WbLWVW2FlbLc1zQM7cVhpZKH4FG0TqW6YDFJ_12pBDLW5k0HRX8H723vW9f5lsk3S9KwPf95H62R04')">Run the Free Scan →</button>
-        </div>
-      </div>
-
-      <!-- 8. FICA Tip Credit -->
-      <div class="svc-card">
-        <div class="svc-art" style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a);">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect x="120" y="40" width="160" height="60" rx="6" fill="rgba(255,214,153,.92)" stroke="rgba(255,214,153,1)" stroke-width="1"/>
-            <text x="200" y="62" text-anchor="middle" font-family="Cormorant Garamond" font-size="22" fill="#1a1a1a" font-weight="700">$20K+</text>
-            <text x="200" y="84" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#1a1a1a" font-weight="600" letter-spacing="2">AVG ANNUAL RECOVERY</text>
-            <text x="200" y="120" text-anchor="middle" font-family="DM Sans" font-size="10" fill="rgba(255,214,153,.85)" font-weight="600" letter-spacing="2">FICA TIP CREDIT</text>
-          </svg>
-          <span class="svc-trial-badge green">Pay Only if Recovered</span>
-        </div>
-        <div class="svc-body">
-          <div class="svc-kicker">⚡ Federal Tip Credit · Contingency</div>
-          <div class="svc-title">Recover the federal tip-tax credit.</div>
-          <p class="svc-blurb">For restaurants, bars &amp; hotels with tipped staff. Free assessment from a licensed firm.</p>
-          <ul class="svc-list">
-            <li>Average recovery $20K+ per year</li>
-            <li>Retroactive — captures prior years too</li>
-            <li>Pay nothing unless we recover money</li>
-          </ul>
-          <button class="svc-cta" style="background:#ffd699;color:#1a1a1a;" onclick="openLink('https://tipcreditpartners.com/89eb')">Calculate My Credit →</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ CREDIT & FUNDING ═══════ -->
-<section class="credit" id="credit">
-  <div class="section-inner">
-    <div class="section-eyebrow">Credit · Capital · Formation</div>
-    <h2 class="section-title">The funding stack <em>your bank never told you about.</em></h2>
-    <p class="section-sub">Eight specialists across credit-building, capital lines, payroll finance, instant approvals, and proper entity formation. Most start with a free assessment or no-impact pre-qualification — and most owners qualify for more than they think.</p>
-
-    <div class="credit-grid">
-
-      <!-- Ownly Business Credit Builder (new) -->
-      <div class="credit-card flagship">
-        <div class="credit-tag">★ Ownly Once · Free Scan</div>
-        <h3>Ownly Business Credit Builder</h3>
-        <p>Our in-house diagnostic that maps every step between you and a credit profile your bank takes seriously. Free magic-link scan, Claude-powered next-step driver — no login, no card.</p>
-        <div class="credit-meta">No login · No card · Built by Ownly Once</div>
-        <button class="credit-cta gold" onclick="openLink('https://ownly-business-credit-builder.vercel.app/')">Run the Free Scan →</button>
-      </div>
-
-      <!-- Fund & Grow -->
-      <div class="credit-card">
-        <div class="credit-tag">💰 Free Masterclass</div>
-        <h3>Fund &amp; Grow</h3>
-        <p>Access $50K–$300K in 0% APR business credit with no collateral and no impact on your personal credit. CEO Ari Page walks you through the exact process on the free training.</p>
-        <div class="credit-meta">$50K–$300K · 0% APR · No personal credit impact</div>
-        <button class="credit-cta" onclick="openLink('https://www.fundandgrow.com/davidiverywebinar/')">Watch Free Masterclass →</button>
-      </div>
-
-      <!-- ARF Financial -->
-      <div class="credit-card">
-        <div class="credit-tag">🏦 Free Pre-Qualification</div>
-        <h3>ARF Financial — Working Capital LOC</h3>
-        <p>$5K–$1.5M revolving line of credit for established businesses. Soft-pull pre-qualification — no impact on personal credit before you decide.</p>
-        <div class="credit-meta">$5K–$1.5M · Soft-pull · Revolving line</div>
-        <button class="credit-cta" onclick="openLink('https://arffinancial.my.site.com/portal/ARFPreQualify?prequalgd=41c65bbe-31b7-44c1-9fde-0bbddd7459d9&RPId=0034y00002BXNYXAA5')">Pre-Qualify →</button>
-      </div>
-
-      <!-- 24Hour Approvals -->
-      <div class="credit-card">
-        <div class="credit-tag">⚡ 24-Hour Funding</div>
-        <h3>24Hour Approvals</h3>
-        <p>Fast business funding with same-day or next-day approvals. Built for owners who need capital moving — not three weeks of paperwork.</p>
-        <div class="credit-meta">Approvals in 24 hours · Same-day funding available</div>
-        <button class="credit-cta" onclick="openLink('https://24hourapprovals.com/?member=11477')">Apply for Funding →</button>
-      </div>
-
-      <!-- Payro Finance -->
-      <div class="credit-card">
-        <div class="credit-tag">📅 Payroll Capital</div>
-        <h3>Payro Finance — Payroll Funding</h3>
-        <p>Short-term capital specifically for covering payroll. Bridge a gap, smooth out cash flow, never miss a pay run again. Funds released the same day you need them.</p>
-        <div class="credit-meta">Payroll-specific · Same-day release · Soft credit pull</div>
-        <button class="credit-cta" onclick="openLink('https://portal.payrofinance.com/sign-up?partner=ivery')">Sign Up with Payro →</button>
-      </div>
-
-      <!-- Prime Corporate Services -->
-      <div class="credit-card">
-        <div class="credit-tag">📋 Entity Formation</div>
-        <h3>Prime Corporate Services</h3>
-        <p>Proper LLC or corporation formation that protects your assets and separates your personal financial identity from the business. Required step before serious business credit.</p>
-        <div class="credit-meta">LLC &amp; Corp formation · Compliance · Asset protection</div>
-        <button class="credit-cta" onclick="openLink('https://www.primecorporateservices.com/?_ef_transaction_id=&oid=2&affid=1535')">Form My Entity →</button>
-      </div>
-
-      <!-- CreditStrong -->
-      <div class="credit-card">
-        <div class="credit-tag">📈 Tradeline Builder</div>
-        <h3>CreditStrong — Build Business Tradelines</h3>
-        <p>The credit-builder loan that reports to all three business credit bureaus. Establishes the tradeline history banks want to see before they approve real capital.</p>
-        <div class="credit-meta">Reports to D&amp;B · Experian · Equifax Business</div>
-        <button class="credit-cta" onclick="openLink('https://creditstrong.referralrock.com/l/3DAVEIVERY53/')">Start Building Credit →</button>
-      </div>
-
-      <!-- CredBlu -->
-      <div class="credit-card">
-        <div class="credit-tag">⚡ Fast-Lane Builder</div>
-        <h3>CredBlu — Same-Day Credit Boost</h3>
-        <p>Faster credit-builder that pairs with CreditStrong — adds tradeline activity immediately rather than over months. Use both together for compounding effect.</p>
-        <div class="credit-meta">Same-day activation · Pairs with CreditStrong</div>
-        <button class="credit-cta" onclick="openLink('https://www.credblu.com/ref/ownlycredit')">Activate CredBlu →</button>
-      </div>
-
-    </div>
-
-    <p class="credit-note">All credit partners above are vetted referrals — Ownly Once LLC may earn a commission. Using these links activates your referral cookie so any partner discount or free training is preserved. <a onclick="openModal('affiliate')">Affiliate disclosure</a>.</p>
-  </div>
-</section>
-
-<!-- ═══════ FREE TRIALS CALLOUT ═══════ -->
-<section class="trials" id="trials">
-  <div class="section-inner">
-    <div class="section-eyebrow">⚡ Start Risk-Free</div>
-    <h2 class="section-title">Free trials, free assessments, <em>and contingency-only engagements.</em></h2>
-    <p class="section-sub">Most of our partners let you start risk-free. Free trials, free diagnostics, free mockups, and contingency-only recovery — clicking these links activates your referral cookie automatically, so any benefit they offer is preserved.</p>
-
-    <div class="trials-grid">
-      <div class="trial-card">
-        <div class="trial-tag">🤖 7-Day Free Trial</div>
-        <div class="trial-title">CustomGPT AI Agent</div>
-        <p class="trial-blurb">Train your own private AI on your business docs. No credit card. Cancel anytime in week one.</p>
-        <a class="trial-link" onclick="openLink('https://customgpt.ai/?fpr=dave72')">Start trial →</a>
-      </div>
-
-      <div class="trial-card">
-        <div class="trial-tag">🍴 Free Restaurant Scan</div>
-        <div class="trial-title">Owner.com 60-second diagnostic</div>
-        <p class="trial-blurb">For independent restaurant owners. No login, no card. Surfaces your hidden monthly leak in under a minute.</p>
-        <a class="trial-link" onclick="openLink('https://notify.owner.com/e3t/Ctc/W1+23284/cMZLf04/Jks2-6qcW69sMD-6lZ3m6VbK0Ng5q5h9KW5pHDZR46jL7nW2-71VV2WVpNsW3PHN3c99pMrBW45LKHs7p0sYlW6RF8kM5rDXq7W13wL0d7H93dxW2rPBxp4-rdm6W8wZ0Kb82yqpVW4FPYRc7hfSXVV2ZMq48FrvHvW5hdHlr4QMM0cW4hNQZ51NPfp3N3HHT5K-nG-zW4-2hMB6WbLWVW2FlbLc1zQM7cVhpZKH4FG0TqW6YDFJ_12pBDLW5k0HRX8H723vW9f5lsk3S9KwPf95H62R04')">Run the scan →</a>
-      </div>
-
-      <div class="trial-card">
-        <div class="trial-tag">🌐 Free Website Mockup</div>
-        <div class="trial-title">Ownly Web Studio</div>
-        <p class="trial-blurb">Free design mockup before any commitment. See exactly what your new site will look like first.</p>
-        <a class="trial-link" onclick="openLink('https://ownly-web-studio.vercel.app')">Get my mockup →</a>
-      </div>
-
-      <div class="trial-card">
-        <div class="trial-tag">⚡ Contingency Only</div>
-        <div class="trial-title">FICA Tip Credit Recovery</div>
-        <p class="trial-blurb">Restaurants &amp; hotels: avg $20K+/yr recovery. Pay nothing unless we recover money. Free assessment.</p>
-        <a class="trial-link" onclick="openLink('https://tipcreditpartners.com/89eb')">Free assessment →</a>
-      </div>
-
-      <div class="trial-card">
-        <div class="trial-tag">💰 Free Webinar</div>
-        <div class="trial-title">Fund &amp; Grow Capital Masterclass</div>
-        <p class="trial-blurb">Free training on accessing $50K–$300K in 0% APR business credit with no collateral or personal credit impact.</p>
-        <a class="trial-link" onclick="openLink('https://www.fundandgrow.com/davidiverywebinar/')">Watch the masterclass →</a>
-      </div>
-
-      <div class="trial-card">
-        <div class="trial-tag">🧾 Free Tax Training</div>
-        <div class="trial-title">Tax Strategies Now</div>
-        <p class="trial-blurb">A former IRS auditor's playbook for legally cutting your tax bill. Free training, no card required to start.</p>
-        <a class="trial-link" onclick="openLink('https://www.taxstrategiesnow.com/signup?fpr=david22')">Start free training →</a>
-      </div>
-
-      <div class="trial-card">
-        <div class="trial-tag">🏦 Free Pre-Qualification</div>
-        <div class="trial-title">ARF Financial Working Capital</div>
-        <p class="trial-blurb">$5K–$1.5M revolving line of credit. Soft-pull pre-qualification — no impact on personal credit.</p>
-        <a class="trial-link" onclick="openLink('https://arffinancial.my.site.com/portal/ARFPreQualify?prequalgd=41c65bbe-31b7-44c1-9fde-0bbddd7459d9&RPId=0034y00002BXNYXAA5')">Pre-qualify →</a>
-      </div>
-
-      <div class="trial-card">
-        <div class="trial-tag">📈 Free Snapshot</div>
-        <div class="trial-title">CredBlu — Fast-Lane Credit Builder</div>
-        <p class="trial-blurb">Build business credit without personal guarantees. Free snapshot of your current standing before you commit to anything.</p>
-        <a class="trial-link" onclick="openLink('https://www.credblu.com/ref/ownlycredit')">See my snapshot →</a>
-      </div>
-    <div class="trial-card">
-            <div class="trial-tag">🔧 #1 HVAC Software · Free Demo + Trial</div>
-            <div class="trial-title">Workiz — HVAC Operations</div>
-            <p class="trial-blurb">For HVAC contractors. Industry-leading scheduling, dispatching, invoicing, and payment tools. Free demo and trial — no card up front.</p>
-            <a class="trial-link" onclick="openLink('http://partner.workiz.com/Ownly-ONCE-LLC')">Start free demo →</a>
-          </div>
-          <div class="trial-card">
-            <div class="trial-tag">🍽 For Independent Restaurants</div>
-            <div class="trial-title">Ring Foods — Restaurant Stack</div>
-            <p class="trial-blurb">All-in-one platform for independent restaurants. Cuts food cost, streamlines orders, and protects margin.</p>
-            <a class="trial-link" onclick="openLink('https://www.ringfoods.com?ref=DAVEIVERYINC813')">See the platform →</a>
-          </div>
-          </div>
-
-    <p class="trials-note">Your referral cookie activates automatically when you click any link above — so any free trial, free training, or special rate the partner offers is preserved when you sign up. <a onclick="openModal('affiliate')">Affiliate disclosure</a>.</p>
-  </div>
-</section>
-
-<!-- ═══════ CASE STUDIES ═══════ -->
-<section class="case-studies" id="case-studies">
-  <div class="section-inner">
-    <div class="section-eyebrow">Receipts</div>
-    <h2 class="section-title">Real owners. <em>Real numbers.</em></h2>
-    <p class="section-sub">A few of the engagements we're working — anonymized for compliance, real money on the table.</p>
-    <div class="cs-row">
-      <div class="cs-card">
-        <div class="cs-quote">"$72K in federal credits we didn't know existed — surfaced in week one."</div>
-        <div class="cs-meta"><strong>Independent restaurant · FL</strong><br>FICA tip credit recovery · DREAMS Score</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-quote">"Stopped paying for six tools we weren't using. AI Assessment showed us which two actually fit."</div>
-        <div class="cs-meta"><strong>Service business · TX</strong><br>AI Assessment · Tech consolidation</div>
-      </div>
-      <div class="cs-card">
-        <div class="cs-quote">"Booked appointments started showing up the same month we turned the campaign on."</div>
-        <div class="cs-meta"><strong>Contractor · Sarasota</strong><br>Ownly Marketing · Done-for-you pipeline</div>
-      </div>
-    </div>
-    <p class="cs-footer">More case studies available on request. <a onclick="openLink('https://calendly.com/daveivery/')">Book a 15-minute Sit Down</a> to see what we'd find for your business.</p>
-  </div>
-</section>
-
-<!-- ═══════ FOUNDER ═══════ -->
-<section class="founder" id="about">
-  <div class="section-inner">
-    <div class="founder-inner">
-      <div class="founder-card">
-        <img class="founder-avatar" src="data:image/jpeg;base64,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" alt="Dave Ivery" />
-        <div class="founder-name">Dave Ivery</div>
-        <div class="founder-role">Founder · Author · Coach</div>
-        <div class="founder-creds">
-          <span class="founder-cred">CFEI</span>
-          <span class="founder-cred">PFSA</span>
-          <span class="founder-cred">Author (3 books)</span>
-          <span class="founder-cred">Ownly ONCE LLC</span>
-        </div>
-      </div>
-      <div class="founder-bio">
-        <h2>Built on the road <em>before it was named.</em></h2>
-        <p>I'm Dave Ivery. Ownly Once is the operating system I built after watching too many owners run businesses that worked on paper but never actually paid them. The DREAMS Score is the diagnostic I use at the top of every engagement; the books are the playbooks I wrote after the work; the partners on this site are the specialists I send my own clients to.</p>
-        <p>The promise is simple. <strong>Run the score. Read the playbook. Meet the partners.</strong> Most owners find six figures in 15 minutes or less. The rest is operational discipline — and we've packaged that too.</p>
-        <div class="founder-cta-row">
-          <button class="btn-primary" onclick="openLink('https://calendly.com/daveivery/')">📅 Talk to Dave</button>
-          <button class="btn-secondary" onclick="openLink('https://www.amazon.com/author/davidjamesivery')">📚 See the Books</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ BOOKS ═══════ -->
-<section class="books" id="books">
-  <div class="section-inner">
-    <div class="section-eyebrow">The Library</div>
-    <h2 class="section-title">Read the playbook. <em>Then run the play.</em></h2>
-    <p class="section-sub">Three books, written from inside the work. Each pairs with a tool on this site — the diagnostic shows where the money is hiding, the books explain what to do with it.</p>
-    <div class="books-grid">
-
-      <div class="book-card">
-        <div class="book-cover">📕</div>
-        <div class="book-eyebrow">Just Released · 2nd Edition</div>
-        <div class="book-title">Business Breakthroughs</div>
-        <p class="book-blurb">The strategies, mindset, and systems successful owners use to break through revenue plateaus and scale. Pairs with the DREAMS Score diagnostic.</p>
-        <button class="book-cta" onclick="openLink('https://www.amazon.com/dp/B0GZ6QP1WH')">📖 Get on Kindle →</button>
-      </div>
-
-      <div class="book-card">
-        <div class="book-cover">📘</div>
-        <div class="book-eyebrow">Paperback &amp; Kindle</div>
-        <div class="book-title">Build. Fund. Grow.</div>
-        <p class="book-blurb">The complete business credit blueprint. Build credit from zero, access funding, and grow your business using a proven system that separates personal and business financial identity.</p>
-        <button class="book-cta" onclick="openLink('https://www.amazon.com/dp/B0GYJXHJYG')">📖 Order on Amazon →</button>
-      </div>
-
-      <div class="book-card">
-        <div class="book-cover">🍱</div>
-        <div class="book-eyebrow">Marketing Playbook · 2nd Ed</div>
-        <div class="book-title">Lunch Money Marketing</div>
-        <p class="book-blurb">For owners who want to grow on a shoestring before scaling into a managed engagement. The exact moves we use when budget is tight and time is short.</p>
-        <button class="book-cta" onclick="openLink('https://www.amazon.com/dp/B0GYXYRK75')">📖 Get the Book →</button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ MEMBER PERKS ═══════ -->
-<section class="perks">
-  <div class="section-inner">
-    <div class="section-eyebrow">Member Benefits</div>
-    <h2 class="section-title">B2B benefits packages usually <em>reserved for Fortune 500 employees</em> — open to owners.</h2>
-    <p class="section-sub">Activated through your Ownly Once membership. The same corporate perks an HR department would distribute, available to you as the owner.</p>
-    <div class="perks-grid">
-
-      <div class="perk-card">
-        <div class="perk-icon">🛫</div>
-        <h3>Global Travel Portal</h3>
-        <p>Hotels, flights, car rentals, cruises, and vacation packages at members-only corporate rates. Protect your cash flow without giving up the things you've earned.</p>
-        <button class="perk-cta" onclick="openLink('https://ownly.globaltravel.com/')">🛫 Open the Portal →</button>
-      </div>
-
-      <div class="perk-card">
-        <div class="perk-icon">🎟</div>
-        <h3>TicketsatWork — Owners</h3>
-        <p>The corporate-perks platform Fortune 500 HR teams use. Discounted theme park tickets, Broadway, hotels, sports, and movie tickets through your Ownly Once membership.</p>
-        <button class="perk-cta" onclick="openLink('https://calendly.com/daveivery/')">📅 Get Access via Dave →</button>
-      </div>
-
-      <div class="perk-card">
-        <div class="perk-icon">⭐</div>
-        <h3>Corporate Plus Club</h3>
-        <p>Bundled member-benefits package: discount programs, identity protection, telehealth access, savings hubs, cash-back marketplaces — historically reserved for corporate employees.</p>
-        <button class="perk-cta" onclick="openLink('https://ownly1nce.corporateplusclub.com/')">⭐ Open Member Portal →</button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ FINAL CTA ═══════ -->
-<section class="final-cta" id="book">
-  <div class="final-cta-inner">
-    <h2>You've got <em>real money</em> sitting inside this business. Let's go find it.</h2>
-    <p>Run the free DREAMS Score now or book a 15-minute Sit Down with Dave. Both are free. Neither requires a credit card. The clock on the credits and capital you qualify for doesn't stop just because nobody's looking yet.</p>
-    <div class="final-cta-row">
-      <button class="btn-primary" onclick="dreamsScore()">💰 Find My Breakthrough →</button>
-      <button class="btn-secondary" onclick="openLink('https://calendly.com/daveivery/')">📅 Book a 15-Min Sit Down</button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ FOOTER ═══════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
+<!-- ───── NAV ───── -->
+<header class="fixed top-9 inset-x-0 z-50 px-4">
+  <nav class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-black text-xl">O</div>
       <div>
-        <div class="footer-brand">
-          <img class="nav-brand-mark" style="width:32px;height:32px;" src="data:image/png;base64,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" alt="Ownly ONCE" />
-          The Ownly Breakthrough
+        <div class="font-serif text-lg leading-none">The Ownly Breakthrough</div>
+        <div class="text-[10px] uppercase tracking-widest text-gold2 mt-0.5">Ownly Once Press</div>
+      </div>
+    </a>
+    <div class="hidden lg:flex gap-7 text-sm font-medium text-cream">
+      <a href="#diagnose" class="hover:text-gold">Diagnose</a>
+      <a href="#ai-stack" class="hover:text-gold">AI Stack</a>
+      <a href="#stack" class="hover:text-gold">Growth</a>
+      <a href="#funding" class="hover:text-gold">Funding</a>
+      <a href="#receipts" class="hover:text-gold">Receipts</a>
+      <a href="#books" class="hover:text-gold">Library</a>
+    </div>
+    <a href="https://calendly.com/daveivery/meetandgreet" data-frame="modal" class="cursor-magnet bg-gradient-to-r from-gold to-gold2 hover:from-gold2 hover:to-gold text-navy px-5 py-2.5 rounded-full font-bold text-sm">📅 Book a 6 Figure Sit Down</a>
+  </nav>
+</header>
+
+<!-- ───── HERO ───── -->
+<section class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+  <canvas id="globe-canvas"></canvas>
+  <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy2/40 to-navy"></div>
+  <div class="absolute inset-0 dot-grid opacity-30"></div>
+  <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gold/20 blur-3xl animate-drift"></div>
+  <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-gold2/15 blur-3xl animate-drift" style="animation-delay:-7s"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7">
+      <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs uppercase tracking-widest text-gold2 mb-7">
+        <span class="w-2 h-2 rounded-full bg-green animate-pulse"></span>Free 15-min · No login · No card
+      </div>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-[.95]">
+        Find <span class="shimmer-gold">$50K to $500K</span><br/>
+        of hidden money<br/>
+        inside your business.
+      </h1>
+      <p class="mt-8 text-lg md:text-xl text-cream/85 max-w-xl leading-relaxed">
+        Run a free <strong>DREAMS Score</strong>. Surface hidden funding, credits, and savings across six categories — then read the playbook and connect with the vetted partners who actually go get the money.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4 items-center">
+        <a href="https://app.mplannerpro.com/abce1ffefc/chat?pg=69539a14a3" data-frame="modal" class="cursor-magnet bg-gradient-to-r from-gold to-gold2 text-navy px-8 py-4 rounded-full font-bold text-base shadow-glow glow-pulse">💰 Find My Breakthrough →</a>
+        <a href="#stack" class="text-cream/80 hover:text-gold underline underline-offset-4 decoration-gold/40">See how it works</a>
+      </div>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl">
+        <div><div class="font-serif text-3xl text-gold2"><span data-count-to="500">0</span>K</div><div class="text-[11px] uppercase tracking-widest text-cream/55 mt-1">Hidden money found</div></div>
+        <div><div class="font-serif text-3xl text-gold2"><span data-count-to="6">0</span></div><div class="text-[11px] uppercase tracking-widest text-cream/55 mt-1">Categories diagnosed</div></div>
+        <div><div class="font-serif text-3xl text-gold2"><span data-count-to="15">0</span> min</div><div class="text-[11px] uppercase tracking-widest text-cream/55 mt-1">To your free score</div></div>
+        <div><div class="font-serif text-3xl text-gold2"><span data-count-to="12">0</span>+</div><div class="text-[11px] uppercase tracking-widest text-cream/55 mt-1">Vetted partners on call</div></div>
+      </div>
+    </div>
+
+    <!-- DREAMS Gauge -->
+    <div class="lg:col-span-5">
+      <div class="relative glass rounded-3xl p-7 shadow-glow">
+        <div class="flex items-center justify-between mb-6">
+          <div class="text-xs uppercase tracking-widest text-gold2">Live · DREAMS Score</div>
+          <span class="w-2 h-2 rounded-full bg-green animate-pulse"></span>
         </div>
-        <p class="footer-tag">An Ownly Once LLC publication · Sarasota, FL. For educational and informational purposes only. Not investment, tax, or legal advice.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Start Here</h4>
-        <ul>
-          <li><a onclick="dreamsScore()">DREAMS Score</a></li>
-          <li><a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</a></li>
-          <li><a onclick="document.getElementById('trials').scrollIntoView({behavior:'smooth'})">Free Trials</a></li>
-          <li><a onclick="document.getElementById('books').scrollIntoView({behavior:'smooth'})">Books</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>About</h4>
-        <ul>
-          <li><a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Founder</a></li>
-          <li><a onclick="openLink('https://www.amazon.com/author/davidjamesivery')">Books</a></li>
-          <li><a onclick="openLink('https://www.financialeducatorscouncil.org/david-ivery/')">CFEI Profile</a></li>
-          <li><a onclick="openLink('https://calendly.com/daveivery/')">Book a Call</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a onclick="openModal('disclaimer')">General Disclaimer</a></li>
-          <li><a onclick="openModal('privacy')">Privacy Policy</a></li>
-          <li><a onclick="openModal('terms')">Terms of Use</a></li>
-          <li><a onclick="openModal('affiliate')">Affiliate Disclosure</a></li>
-        </ul>
+        <div class="relative flex justify-center">
+          <svg class="dreams-gauge" viewBox="0 0 200 200" width="220" height="220">
+            <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8C97A"/><stop offset="1" stop-color="#C5A05A"/></linearGradient></defs>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="14"/>
+            <circle id="gauge-arc" cx="100" cy="100" r="86" fill="none" stroke="url(#g)" stroke-width="14" stroke-linecap="round" stroke-dasharray="540" stroke-dashoffset="540" transform="rotate(-90 100 100)"/>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <div class="font-serif text-5xl shimmer-gold"><span id="gauge-num">0</span>%</div>
+            <div class="text-[10px] uppercase tracking-widest text-cream/55 mt-1">money recoverable</div>
+          </div>
+        </div>
+        <div class="mt-7 space-y-3">
+          <div><div class="flex justify-between text-xs mb-1.5 text-cream/70"><span>Federal credits</span><span class="text-gold2">$72,000</span></div><div class="h-1.5 rounded-full bg-white/10"><div class="bar-fill h-full rounded-full bg-gradient-to-r from-gold to-gold2" style="--w:.85"></div></div></div>
+          <div><div class="flex justify-between text-xs mb-1.5 text-cream/70"><span>0% APR business credit</span><span class="text-gold2">$180,000</span></div><div class="h-1.5 rounded-full bg-white/10"><div class="bar-fill h-full rounded-full bg-gradient-to-r from-gold to-gold2" style="--w:.72"></div></div></div>
+          <div><div class="flex justify-between text-xs mb-1.5 text-cream/70"><span>Tax restructuring</span><span class="text-gold2">$48,000</span></div><div class="h-1.5 rounded-full bg-white/10"><div class="bar-fill h-full rounded-full bg-gradient-to-r from-gold to-gold2" style="--w:.55"></div></div></div>
+          <div><div class="flex justify-between text-xs mb-1.5 text-cream/70"><span>Vendor consolidation</span><span class="text-gold2">$14,400/yr</span></div><div class="h-1.5 rounded-full bg-white/10"><div class="bar-fill h-full rounded-full bg-gradient-to-r from-gold to-gold2" style="--w:.42"></div></div></div>
+        </div>
+        <div class="mt-6 pt-5 border-t border-white/10 flex justify-between items-center">
+          <div><div class="text-xs uppercase tracking-widest text-cream/55">Estimated total</div><div class="font-serif text-3xl text-gold2 mt-1">$314,400</div></div>
+          <a href="#diagnose" class="bg-white/8 hover:bg-gold hover:text-navy text-cream text-xs uppercase tracking-widest font-bold px-4 py-2.5 rounded-full transition">Run mine →</a>
+        </div>
       </div>
     </div>
-    <div class="footer-disc">
-      © 2026 Ownly Once LLC · <a onclick="window.location='mailto:admin@ownly1nce.com'">admin@ownly1nce.com</a> · 941-277-9876 · Partner links are affiliate links — Ownly Once LLC may earn a commission. <a onclick="openModal('affiliate')">See full disclosure</a>.<br>
-      Not affiliated with the SEC, FINRA, or any regulatory body.
+  </div>
+
+  <!-- Capability marquee -->
+  <div class="absolute bottom-0 inset-x-0 border-t border-white/10 bg-navy/80 backdrop-blur py-4 overflow-hidden">
+    <div class="marquee whitespace-nowrap text-cream/40 text-xs uppercase tracking-[0.3em]">
+      <span>DREAMS Score · 0% APR Business Credit · FICA Tip Recovery · Cost Segregation · ARF Working Capital · CredBlu Tradelines · CreditStrong · Prime Corporate Services · CustomGPT AI Agent · Smartlead Outbound · Engagement AI · Local Spotlight · Ownly Marketing Pipeline · DREAMS Score · 0% APR Business Credit · FICA Tip Recovery · Cost Segregation · ARF Working Capital · CredBlu Tradelines · CreditStrong · Prime Corporate Services · CustomGPT AI Agent · Smartlead Outbound · Engagement AI · Local Spotlight · Ownly Marketing Pipeline ·</span>
     </div>
+  </div>
+</section>
+
+<!-- ───── PROBLEM ───── -->
+<section class="py-24 px-6 bg-cream text-ink">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-16 section-fade">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold mb-4">The Problem Most Owners Don't See</div>
+      <h2 class="font-serif text-4xl md:text-6xl font-bold leading-[1.05] text-navy">Your business is <em class="text-gold">leaking real money</em> in places you've never looked.</h2>
+      <p class="mt-6 text-lg text-ink/70 max-w-2xl">Most owners can name two or three line items where they're spending too much. The bigger gaps — credits never claimed, restructuring options never modeled, capital they qualify for but never accessed — are invisible without a diagnostic.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 section-fade">
+      <div class="tilt bg-white rounded-2xl p-8 border border-gold/15 hover:border-gold/40">
+        <div class="w-12 h-12 rounded-xl bg-navy text-gold grid place-items-center mb-5 text-2xl">🔍</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-2">Money you can't see</h3>
+        <p class="text-ink/70 leading-relaxed">Federal credits, tax restructuring, cost-segregation studies — most owners have never had a specialist run the numbers. The credits exist whether you claim them or not.</p>
+      </div>
+      <div class="tilt bg-white rounded-2xl p-8 border border-gold/15 hover:border-gold/40">
+        <div class="w-12 h-12 rounded-xl bg-navy text-gold grid place-items-center mb-5 text-2xl">⏳</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-2">Capital you can't access</h3>
+        <p class="text-ink/70 leading-relaxed">Banks tell you no. They never tell you about the $50K–$300K in 0% APR business credit you actually qualify for — or the working-capital line that fits your cash flow.</p>
+      </div>
+      <div class="tilt bg-white rounded-2xl p-8 border border-gold/15 hover:border-gold/40">
+        <div class="w-12 h-12 rounded-xl bg-navy text-gold grid place-items-center mb-5 text-2xl">🪓</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-2">Expenses you've stopped seeing</h3>
+        <p class="text-ink/70 leading-relaxed">Six SaaS subscriptions you forgot, payroll inefficiencies, retirement plans paying executives 0.5% more than they should. Small lines that add up to one big number.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── AI ASSESSMENT ───── -->
+<section class="relative py-24 px-6 overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=2000&auto=format&fit=crop&q=82" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20"/>
+  <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy/85 to-navy"></div>
+  <div class="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+    <div class="section-fade">
+      <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs uppercase tracking-widest text-gold2 mb-6"><span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Ownly Once Positioning · Free · 8–12 min</div>
+      <h2 class="font-serif text-4xl md:text-6xl font-bold leading-[1.05]">Is AI <em class="text-gold2">actually right</em> for your business — or are you about to <span class="text-stroke">waste money</span> on it?</h2>
+      <p class="mt-7 text-lg text-cream/80 max-w-xl leading-relaxed">Our second job, after helping owners find hidden money, is figuring out where AI actually fits. The free <strong>AI Assessment</strong> is an 8–12 minute live conversation that walks through your operation, identifies the real opportunities, and tells you which ones to deploy first. If AI isn't the right move yet, we'll say so.</p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="https://ownly-gap-audit.vercel.app/" data-frame="modal" class="cursor-magnet bg-gradient-to-r from-gold to-gold2 text-navy px-7 py-3.5 rounded-full font-bold">⚡ Take the Free AI Assessment →</a>
+      </div>
+      <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass rounded-xl p-4"><div class="text-gold2 font-serif text-2xl">8–12 min</div><div class="text-[10px] uppercase tracking-widest text-cream/55 mt-1">Live conversation</div></div>
+        <div class="glass rounded-xl p-4"><div class="text-gold2 font-serif text-2xl">Custom</div><div class="text-[10px] uppercase tracking-widest text-cream/55 mt-1">Tailored plan</div></div>
+        <div class="glass rounded-xl p-4"><div class="text-gold2 font-serif text-2xl">Honest</div><div class="text-[10px] uppercase tracking-widest text-cream/55 mt-1">No hype</div></div>
+        <div class="glass rounded-xl p-4"><div class="text-gold2 font-serif text-2xl">Free</div><div class="text-[10px] uppercase tracking-widest text-cream/55 mt-1">No card</div></div>
+      </div>
+    </div>
+    <div class="section-fade">
+      <div class="glass rounded-3xl p-6 shadow-glow">
+        <div class="flex items-center justify-between mb-5 pb-5 border-b border-white/10">
+          <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-bold">A</div><div><div class="font-bold">Ownly AI</div><div class="text-xs text-green">● Live · conversation in progress</div></div></div>
+          <span class="text-xs text-cream/40">2:14</span>
+        </div>
+        <div class="space-y-3">
+          <div class="flex justify-end"><div class="bg-gold/15 border border-gold/30 rounded-2xl rounded-br-md px-4 py-3 max-w-[78%] text-sm">We run a 14-table restaurant. Looking at AI for reservations.</div></div>
+          <div class="flex"><div class="bg-white/10 rounded-2xl rounded-bl-md px-4 py-3 max-w-[78%] text-sm">Got it. Before reservation AI — have you claimed the FICA tip credit? Restaurants your size recover $20K+ a year, retroactive. That's table stakes.</div></div>
+          <div class="flex justify-end"><div class="bg-gold/15 border border-gold/30 rounded-2xl rounded-br-md px-4 py-3 max-w-[78%] text-sm">No, what's that?</div></div>
+          <div class="flex"><div class="bg-white/10 rounded-2xl rounded-bl-md px-4 py-3 max-w-[78%] text-sm">A federal credit on the employer-paid portion of FICA tax on tipped wages. Contingency firm runs it free. I'll add to your action plan. Now — about reservations…</div></div>
+        </div>
+        <div class="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-2 text-center text-xs">
+          <div class="bg-green/15 border border-green/30 rounded-lg p-2"><div class="text-green font-bold">$24K</div><div class="text-cream/50 mt-0.5">Year 1 credit</div></div>
+          <div class="bg-gold/15 border border-gold/30 rounded-lg p-2"><div class="text-gold2 font-bold">3 picks</div><div class="text-cream/50 mt-0.5">AI moves</div></div>
+          <div class="bg-white/8 border border-white/10 rounded-lg p-2"><div class="font-bold">8–12 min</div><div class="text-cream/50 mt-0.5">To full plan</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── AI STACK ───── -->
+<section id="ai-stack" class="relative py-24 px-6 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy2/50 to-navy"></div>
+  <img src="https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?w=2000&auto=format&fit=crop&q=82" alt="" class="absolute inset-0 w-full h-full object-cover opacity-10"/>
+  <div class="absolute inset-0 dot-grid opacity-25"></div>
+  <div class="relative max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14 section-fade">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs uppercase tracking-widest text-gold2 mb-5">
+          <span class="w-1.5 h-1.5 bg-gold rounded-full animate-pulse"></span>The Hot-Button Stack
+        </div>
+        <div class="text-xs uppercase tracking-[0.3em] text-gold2 mb-3">The AI Stack</div>
+        <h2 class="font-serif text-4xl md:text-6xl font-bold leading-[1.05]">AI that <em class="text-gold2">earns its keep</em> — picked by an owner, not a vendor.</h2>
+        <p class="mt-5 text-cream/75 text-lg max-w-xl">Six AI tools we've actually tested inside Ownly Once. Each one solves a single problem cleanly. Each starts free or with no credit card. Want a lighter 5-min conversation first? Use the <strong>Revenue Growth Engine</strong> button in the corner.</p>
+      </div>
+      <div class="hidden lg:block text-right">
+        <div class="font-serif text-6xl shimmer-gold leading-none">6</div>
+        <div class="text-xs uppercase tracking-widest text-cream/55 mt-2">Tools · all free to try</div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <a href="https://gb-ownlyagency.multiscreensite.com" data-frame="modal" class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-bold text-2xl mb-5">📍</div>
+        <div class="text-[10px] font-bold tracking-widest text-gold2 uppercase mb-2">Free 5-Min Gap Analysis · 12-Month Plan</div>
+        <h3 class="font-serif text-2xl font-bold mb-2">AI Precision Marketing for Local</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">Done-with-you AI growth plan tailored to local businesses. Get a 5-minute gap analysis and a full 12-month playbook — no card, no obligation.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold group-hover:text-gold2">Start the gap analysis →</div>
+      </a>
+      <a class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-bold text-2xl mb-5">🤖</div>
+        <div class="text-[10px] font-bold tracking-widest text-gold2 uppercase mb-2">7-Day Free Trial</div>
+        <h3 class="font-serif text-2xl font-bold mb-2">CustomGPT.ai</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">Train your own private AI on your docs, site, and knowledge base. Zero hallucinations — only sourced answers.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold group-hover:text-gold2">Start free trial →</div>
+      </a>
+      <a class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-bold text-2xl mb-5">✨</div>
+        <div class="text-[10px] font-bold tracking-widest text-gold2 uppercase mb-2">Engagement Layer</div>
+        <h3 class="font-serif text-2xl font-bold mb-2">Engagement AI</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">Interactive quizzes that qualify visitors in real time and auto-route hot leads. The missing piece between traffic and lead.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold group-hover:text-gold2">Explore →</div>
+      </a>
+      <a class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-bold text-2xl mb-5">📨</div>
+        <div class="text-[10px] font-bold tracking-widest text-gold2 uppercase mb-2">Free Trial · From $39/mo</div>
+        <h3 class="font-serif text-2xl font-bold mb-2">Smartlead</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">AI-personalized cold email at scale. Unlimited inboxes + warm-ups at every tier. The infrastructure agencies use.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold group-hover:text-gold2">Start free trial →</div>
+      </a>
+      <a class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-bold text-2xl mb-5">🍴</div>
+        <div class="text-[10px] font-bold tracking-widest text-gold2 uppercase mb-2">Free 60-Sec Scan · No login</div>
+        <h3 class="font-serif text-2xl font-bold mb-2">Owner.com — RestaurantGPT</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">AI diagnostic built for independent restaurant owners. Surfaces your hidden monthly profit leak in under a minute. Most owners are surprised — some are stunned.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold group-hover:text-gold2">Run the free scan →</div>
+      </a>
+      <a class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-bold text-2xl mb-5">🍽</div>
+        <div class="text-[10px] font-bold tracking-widest text-gold2 uppercase mb-2">AI Restaurant Stack · All-in-One</div>
+        <h3 class="font-serif text-2xl font-bold mb-2">Ring Foods</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">AI-powered platform for independent restaurants. Cuts food cost, streamlines orders, and protects margin — managed by the platform, not the operator.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold group-hover:text-gold2">See the platform →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── HOW IT WORKS — SCROLL PIPELINE ───── -->
+<section id="diagnose" class="py-24 px-6 bg-cream text-ink">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 section-fade">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold mb-3">How It Works</div>
+      <h2 class="font-serif text-4xl md:text-6xl font-bold text-navy leading-[1.05]">Three steps. <em class="text-gold">Real money</em> on the table by the third.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 relative">
+      <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-px gold-line"></div>
+      <div class="tilt bg-white rounded-2xl p-8 border border-gold/15 relative section-fade">
+        <div class="w-16 h-16 rounded-full bg-navy text-gold grid place-items-center text-3xl font-serif font-bold mb-5 relative z-10">1</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-3">Diagnose</h3>
+        <p class="text-ink/70 leading-relaxed">Run the free 15-minute DREAMS Score. Surfaces hidden funding, credits, and savings across six categories. No login, no card, no email gate.</p>
+        <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold">15 min · 6 categories</div>
+      </div>
+      <div class="tilt bg-white rounded-2xl p-8 border border-gold/15 relative section-fade">
+        <div class="w-16 h-16 rounded-full bg-navy text-gold grid place-items-center text-3xl font-serif font-bold mb-5 relative z-10">2</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-3">Read the Playbook</h3>
+        <p class="text-ink/70 leading-relaxed">Business Breakthroughs (2nd Edition) explains exactly what to do with each finding — which moves come first, who runs them, what the numbers usually look like.</p>
+        <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold">312 pages · Kindle + paperback</div>
+      </div>
+      <div class="tilt bg-white rounded-2xl p-8 border border-gold/15 relative section-fade">
+        <div class="w-16 h-16 rounded-full bg-navy text-gold grid place-items-center text-3xl font-serif font-bold mb-5 relative z-10">3</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-3">Meet the Partners</h3>
+        <p class="text-ink/70 leading-relaxed">Vetted specialists who actually go get the money — credit, capital, tax credits, marketing, cost seg. Most start with free trials or free assessments.</p>
+        <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold">12+ partners · vetted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── THE STACK ───── -->
+<section id="stack" class="relative py-24 px-6 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy2/40 to-navy"></div>
+  <div class="absolute inset-0 dot-grid opacity-25"></div>
+  <div class="relative max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-14 section-fade">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold2 mb-3">Growth & Operations Stack</div>
+      <h2 class="font-serif text-4xl md:text-6xl font-bold leading-[1.05]">Services that <em class="text-gold2">actually move</em> the number.</h2>
+      <p class="mt-5 text-cream/75 text-lg">Hand-picked tools across pipeline, direct mail, websites, restaurant ops, tax recovery, HVAC, and a former IRS auditor's free playbook. Most start free.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Service cards -->
+      <a href="https://localspotlightads.com" data-frame="modal" class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block">
+        <div class="flex justify-between items-start mb-4"><span class="text-xs font-bold uppercase tracking-widest text-gold2">📬 Direct Mail Flagship</span><span class="text-[10px] bg-gold/30 text-gold2 px-2 py-1 rounded-full">LIVE NOW</span></div>
+        <h3 class="font-serif text-2xl font-bold mb-2">Local Spotlight 9×12</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">5,000 homes · 16 spots · one per category. Category-exclusive — no competing offers on your card.</p>
+        <div class="flex items-center text-xs font-bold uppercase tracking-widest text-gold">Lock my spot →</div>
+      </a>
+      <a href="https://www.workiz.com/?fp_ref=ownly" data-frame="modal" class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block">
+        <div class="flex justify-between items-start mb-4"><span class="text-xs font-bold uppercase tracking-widest text-gold2">🔧 HVAC Operations</span><span class="text-[10px] bg-green/20 text-green px-2 py-1 rounded-full">FREE DEMO + TRIAL</span></div>
+        <h3 class="font-serif text-2xl font-bold mb-2">Workiz</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">For HVAC contractors. Industry-leading scheduling, dispatching, invoicing, and payment tools.</p>
+        <div class="flex items-center text-xs font-bold uppercase tracking-widest text-gold">Start free demo →</div>
+      </a>
+      <a href="https://ownly-web-studio.vercel.app" data-frame="modal" class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block">
+        <div class="flex justify-between items-start mb-4"><span class="text-xs font-bold uppercase tracking-widest text-gold2">🌐 Custom Website</span><span class="text-[10px] bg-green/20 text-green px-2 py-1 rounded-full">FREE MOCKUP</span></div>
+        <h3 class="font-serif text-2xl font-bold mb-2">Ownly Web Studio</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">AI agent, SEO, and conversion tracking baked in. From $1,500 lead pages to $25K+ custom builds.</p>
+        <div class="flex items-center text-xs font-bold uppercase tracking-widest text-gold">Get my free mockup →</div>
+      </a>
+      <a href="https://tipcreditpartners.com" data-frame="modal" class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block">
+        <div class="flex justify-between items-start mb-4"><span class="text-xs font-bold uppercase tracking-widest text-gold2">⚡ Federal Tip Credit</span><span class="text-[10px] bg-gold/30 text-gold2 px-2 py-1 rounded-full">CONTINGENCY</span></div>
+        <h3 class="font-serif text-2xl font-bold mb-2">FICA Tip Credit Recovery</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">Restaurants, bars & hotels with tipped staff. Average recovery <strong>$20K+/yr</strong>. Pay nothing unless we recover money.</p>
+        <div class="flex items-center text-xs font-bold uppercase tracking-widest text-gold">Calculate my credit →</div>
+      </a>
+      <a href="https://taxstrategiesnow.com" data-frame="modal" class="tilt glass rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block">
+        <div class="flex justify-between items-start mb-4"><span class="text-xs font-bold uppercase tracking-widest text-gold2">🧾 Former IRS Auditor</span><span class="text-[10px] bg-green/20 text-green px-2 py-1 rounded-full">FREE TRAINING</span></div>
+        <h3 class="font-serif text-2xl font-bold mb-2">Tax Strategies Now</h3>
+        <p class="text-cream/65 text-sm leading-relaxed mb-4">A former IRS auditor's playbook for legally cutting your tax bill. Free training, no card required to start.</p>
+        <div class="flex items-center text-xs font-bold uppercase tracking-widest text-gold">Start free training →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FUNDING STACK ───── -->
+<section id="funding" class="py-24 px-6 bg-cream text-ink">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-14 section-fade">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold mb-3">Credit · Capital · Formation</div>
+      <h2 class="font-serif text-4xl md:text-6xl font-bold text-navy leading-[1.05]">The funding stack <em class="text-gold">your bank never told you about.</em></h2>
+      <p class="mt-5 text-ink/70 text-lg">Eight specialists across credit-building, capital lines, payroll finance, instant approvals, and entity formation. Most start with a free assessment or no-impact pre-qualification.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <a class="tilt bg-white rounded-2xl p-6 border-2 border-gold hover:shadow-glow block">
+        <span class="text-[10px] font-bold tracking-widest text-gold uppercase">★ Ownly Once · Free Scan</span>
+        <h3 class="font-serif text-xl font-bold text-navy mt-2 mb-2">Business Credit Builder</h3>
+        <p class="text-ink/65 text-sm mb-4">In-house diagnostic mapping every step between you and a credit profile your bank takes seriously. No card, magic-link.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Run the free scan →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-6 border border-gold/15 hover:border-gold/60 block">
+        <span class="text-[10px] font-bold tracking-widest text-gold uppercase">💰 Free Masterclass</span>
+        <h3 class="font-serif text-xl font-bold text-navy mt-2 mb-2">Fund & Grow</h3>
+        <p class="text-ink/65 text-sm mb-4"><strong>$50K–$300K</strong> · 0% APR business credit · no collateral · no personal credit impact.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Watch masterclass →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-6 border border-gold/15 hover:border-gold/60 block">
+        <span class="text-[10px] font-bold tracking-widest text-gold uppercase">🏦 Free Pre-Qualification</span>
+        <h3 class="font-serif text-xl font-bold text-navy mt-2 mb-2">ARF Financial LOC</h3>
+        <p class="text-ink/65 text-sm mb-4">$5K–$1.5M revolving line of credit. Soft-pull pre-qualification — no impact on personal credit.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Pre-qualify →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-6 border border-gold/15 hover:border-gold/60 block">
+        <span class="text-[10px] font-bold tracking-widest text-gold uppercase">⚡ 24-Hour Funding</span>
+        <h3 class="font-serif text-xl font-bold text-navy mt-2 mb-2">24Hour Approvals</h3>
+        <p class="text-ink/65 text-sm mb-4">Fast business funding with same-day or next-day approvals. Built for owners who need capital moving.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Apply for funding →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-6 border border-gold/15 hover:border-gold/60 block">
+        <span class="text-[10px] font-bold tracking-widest text-gold uppercase">📅 Payroll Capital</span>
+        <h3 class="font-serif text-xl font-bold text-navy mt-2 mb-2">Payro Finance</h3>
+        <p class="text-ink/65 text-sm mb-4">Short-term capital specifically for payroll. Bridge a gap. Same-day release. Soft credit pull.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Sign up →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-6 border border-gold/15 hover:border-gold/60 block">
+        <span class="text-[10px] font-bold tracking-widest text-gold uppercase">📋 Entity Formation</span>
+        <h3 class="font-serif text-xl font-bold text-navy mt-2 mb-2">Prime Corporate Services</h3>
+        <p class="text-ink/65 text-sm mb-4">LLC or corp formation that separates your personal and business identity. Required step before serious business credit.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Form my entity →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-6 border border-gold/15 hover:border-gold/60 block">
+        <span class="text-[10px] font-bold tracking-widest text-gold uppercase">📈 Tradeline Builder</span>
+        <h3 class="font-serif text-xl font-bold text-navy mt-2 mb-2">CreditStrong</h3>
+        <p class="text-ink/65 text-sm mb-4">Credit-builder loan that reports to all three business bureaus. Establishes the tradeline history banks want to see.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Start building →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-6 border border-gold/15 hover:border-gold/60 block">
+        <span class="text-[10px] font-bold tracking-widest text-gold uppercase">⚡ Fast-Lane Builder</span>
+        <h3 class="font-serif text-xl font-bold text-navy mt-2 mb-2">CredBlu</h3>
+        <p class="text-ink/65 text-sm mb-4">Faster credit-builder. Same-day activation. Pairs with CreditStrong for compounding effect.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Activate CredBlu →</div>
+      </a>
+    </div>
+    <p class="mt-8 text-xs text-ink/55 text-center max-w-2xl mx-auto">All credit partners above are vetted referrals — Ownly Once LLC may earn a commission. Using these links activates your referral cookie so any partner discount or free training is preserved. Affiliate disclosure.</p>
+  </div>
+</section>
+
+<!-- ───── RECEIPTS ───── -->
+<section id="receipts" class="relative py-24 px-6 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy2 to-navy"></div>
+  <div class="absolute inset-0" id="coin-rain"></div>
+  <div class="relative max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-14 section-fade">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold2 mb-3">Receipts</div>
+      <h2 class="font-serif text-4xl md:text-6xl font-bold leading-[1.05]">Real owners. <em class="text-gold2">Real numbers.</em></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="tilt glass rounded-2xl p-7 section-fade">
+        <div class="text-5xl font-serif gradient-text mb-4">$72K</div>
+        <p class="text-cream/85 italic leading-relaxed">"In federal credits we didn't know existed — surfaced in week one."</p>
+        <div class="mt-6 pt-5 border-t border-white/10 text-xs uppercase tracking-widest">
+          <div class="text-gold2 font-bold">Independent Restaurant · FL</div>
+          <div class="text-cream/55 mt-1">FICA Tip Credit Recovery · DREAMS Score</div>
+        </div>
+      </div>
+      <div class="tilt glass rounded-2xl p-7 section-fade">
+        <div class="text-5xl font-serif gradient-text mb-4">6 SaaS</div>
+        <p class="text-cream/85 italic leading-relaxed">"Stopped paying for six tools we weren't using. AI Assessment showed us which two actually fit."</p>
+        <div class="mt-6 pt-5 border-t border-white/10 text-xs uppercase tracking-widest">
+          <div class="text-gold2 font-bold">Service Business · TX</div>
+          <div class="text-cream/55 mt-1">AI Assessment · Tech Consolidation</div>
+        </div>
+      </div>
+      <div class="tilt glass rounded-2xl p-7 section-fade">
+        <div class="text-5xl font-serif gradient-text mb-4">Booked</div>
+        <p class="text-cream/85 italic leading-relaxed">"Booked appointments started showing up the same month we turned the campaign on."</p>
+        <div class="mt-6 pt-5 border-t border-white/10 text-xs uppercase tracking-widest">
+          <div class="text-gold2 font-bold">Contractor · Sarasota</div>
+          <div class="text-cream/55 mt-1">Ownly Marketing · Done-For-You Pipeline</div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-10 text-cream/55 text-sm">More case studies available on request. Book a 6 Figure Sit Down to see what we'd find for your business.</p>
+  </div>
+</section>
+
+<!-- ───── THE LIBRARY ───── -->
+<section id="books" class="relative py-24 px-6 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy2/40 to-navy"></div>
+  <div class="absolute inset-0 dot-grid opacity-20"></div>
+  <div class="relative max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16 section-fade">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold2 mb-3">The Library</div>
+      <h2 class="font-serif text-4xl md:text-6xl font-bold leading-[1.05]">Read the playbook. <em class="text-gold2">Then run the play.</em></h2>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 perspective-1000">
+      <a class="book-cover relative aspect-[2/3] rounded-xl shadow-glow overflow-hidden section-fade bg-navy/40 group block" href="https://www.amazon.com/dp/B0GZ6QP1WH" target="_blank" rel="noopener">
+        <img src="https://m.media-amazon.com/images/I/61kbUnKZZXL._SL1500_.jpg" alt="Business Breakthroughs by David James Ivery" class="absolute inset-0 w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+          <div class="text-[10px] uppercase tracking-widest text-gold2">45-Min Revenue Audit</div>
+          <div class="text-white font-serif text-lg leading-tight mt-1">Business Breakthroughs</div>
+        </div>
+      </a>
+      <a class="book-cover relative aspect-[2/3] rounded-xl shadow-glow overflow-hidden section-fade bg-navy/40 group block" href="https://www.amazon.com/dp/B0GYXYRK75" target="_blank" rel="noopener">
+        <img src="https://m.media-amazon.com/images/I/61h9n+qDQrL._SL1500_.jpg" alt="Lunch Money Marketing by David James Ivery" class="absolute inset-0 w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+          <div class="text-[10px] uppercase tracking-widest text-gold2">Out-Market Anyone</div>
+          <div class="text-white font-serif text-lg leading-tight mt-1">Lunch Money Marketing</div>
+        </div>
+      </a>
+      <a class="book-cover relative aspect-[2/3] rounded-xl shadow-glow overflow-hidden section-fade bg-navy/40 group block" href="https://www.amazon.com/dp/B0GY9ZGHL2" target="_blank" rel="noopener">
+        <img src="https://m.media-amazon.com/images/I/61QLm01GbPL._SL1500_.jpg" alt="OWNLY ONCE: The 5-Year Wealth Plan by David James Ivery" class="absolute inset-0 w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+          <div class="text-[10px] uppercase tracking-widest text-gold2">Wealth Blueprint</div>
+          <div class="text-white font-serif text-lg leading-tight mt-1">OWNLY ONCE: 5-Year Wealth Plan</div>
+        </div>
+      </a>
+      <a class="book-cover relative aspect-[2/3] rounded-xl shadow-glow overflow-hidden section-fade bg-navy/40 group block" href="https://www.amazon.com/dp/B0GYJXHJYG" target="_blank" rel="noopener">
+        <img src="https://m.media-amazon.com/images/I/615vtNVKAIL._SL1500_.jpg" alt="Build. Fund. Grow. by David James Ivery" class="absolute inset-0 w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+          <div class="text-[10px] uppercase tracking-widest text-gold2">Business Credit System</div>
+          <div class="text-white font-serif text-lg leading-tight mt-1">Build. Fund. Grow.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── MEMBER BENEFITS ───── -->
+<section class="py-24 px-6 bg-cream text-ink">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-14 section-fade">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold mb-3">Member Benefits</div>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy leading-[1.05]">B2B benefits packages <em class="text-gold">usually reserved for Fortune 500 employees</em> — open to owners.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <a class="tilt bg-white rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block">
+        <div class="w-14 h-14 rounded-xl bg-navy text-gold grid place-items-center text-2xl mb-4">🛫</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-2">Global Travel Portal</h3>
+        <p class="text-ink/70 text-sm leading-relaxed mb-4">Hotels, flights, car rentals, cruises, and vacation packages at members-only corporate rates.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Open the portal →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block">
+        <div class="w-14 h-14 rounded-xl bg-navy text-gold grid place-items-center text-2xl mb-4">🎟</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-2">TicketsatWork — Owners</h3>
+        <p class="text-ink/70 text-sm leading-relaxed mb-4">The corporate-perks platform Fortune 500 HR teams use. Theme parks, Broadway, hotels, sports.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Get access via Dave →</div>
+      </a>
+      <a class="tilt bg-white rounded-2xl p-7 border border-gold/15 hover:border-gold/60 block">
+        <div class="w-14 h-14 rounded-xl bg-navy text-gold grid place-items-center text-2xl mb-4">⭐</div>
+        <h3 class="font-serif text-2xl font-bold text-navy mb-2">Corporate Plus Club</h3>
+        <p class="text-ink/70 text-sm leading-relaxed mb-4">Discount programs, identity protection, telehealth access, savings hubs, cash-back marketplaces.</p>
+        <div class="text-xs font-bold uppercase tracking-widest text-gold">Open member portal →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FINAL CTA ───── -->
+<section id="cta" class="relative py-32 px-6 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy2 to-navy"></div>
+  <div class="absolute inset-0" id="coin-rain-2"></div>
+  <div class="absolute inset-0 bg-gradient-radial from-gold/10 via-transparent"></div>
+  <div class="relative max-w-5xl mx-auto text-center section-fade">
+    <h2 class="font-serif text-5xl md:text-7xl font-bold leading-[1.0]">You've got <span class="shimmer-gold">real money</span><br/>sitting inside this business.</h2>
+    <p class="mt-7 text-xl text-cream/80 max-w-2xl mx-auto">Run the free DREAMS Score or book a 6 Figure Sit Down with Dave. Both are free. Neither requires a credit card. The clock on the credits and capital you qualify for doesn't stop just because nobody's looking yet.</p>
+    <div class="mt-12 flex flex-wrap gap-4 justify-center">
+      <a href="https://app.mplannerpro.com/abce1ffefc/chat?pg=69539a14a3" data-frame="modal" class="cursor-magnet bg-gradient-to-r from-gold to-gold2 text-navy px-10 py-5 rounded-full font-bold text-lg shadow-glow glow-pulse">💰 Find My Breakthrough →</a>
+      <a href="https://calendly.com/daveivery/meetandgreet" data-frame="modal" class="border-2 border-gold text-gold hover:bg-gold hover:text-navy px-10 py-5 rounded-full font-bold text-lg transition">📅 Book a 6 Figure Sit Down</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer class="bg-navy py-14 px-6 border-t border-white/10">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-5 gap-8">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-gold2 grid place-items-center text-navy font-black">O</div>
+        <div><div class="font-serif text-xl">The Ownly Breakthrough</div><div class="text-xs uppercase tracking-widest text-gold2 mt-0.5">An Ownly Once LLC publication · Sarasota, FL</div></div>
+      </div>
+      <p class="text-cream/55 text-sm leading-relaxed max-w-md">For educational and informational purposes only. Not investment, tax, or legal advice. Not affiliated with the SEC, FINRA, or any regulatory body.</p>
+    </div>
+    <div><div class="text-xs uppercase tracking-widest text-gold2 mb-3">Start Here</div><ul class="space-y-2 text-sm text-cream/70"><li>DREAMS Score</li><li>Services</li><li>Free Trials</li><li>Books</li></ul></div>
+    <div><div class="text-xs uppercase tracking-widest text-gold2 mb-3">About</div><ul class="space-y-2 text-sm text-cream/70"><li>Founder</li><li>Books</li><li>CFEI Profile</li><li>Book a 6 Figure Sit Down</li></ul></div>
+    <div><div class="text-xs uppercase tracking-widest text-gold2 mb-3">Legal</div><ul class="space-y-2 text-sm text-cream/70"><li>General Disclaimer</li><li>Privacy Policy</li><li>Terms of Use</li><li>Affiliate Disclosure</li></ul></div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row md:justify-between text-xs text-cream/45 gap-3">
+    <div>© 2026 Ownly Once LLC · admin@ownly1nce.com · 941-277-9876</div>
+    <div>Partner links are affiliate links — Ownly Once LLC may earn a commission.</div>
   </div>
 </footer>
 
-<!-- ═══════ FLOATING CTA ═══════ -->
-<a class="float-cta" onclick="findMyMoney()">
-  <span class="ic">$</span>
-  <span>Find My Money<small>FREE · 5 MIN</small></span>
+<!-- ───── FLOATING MONEY BUBBLE ───── -->
+<a href="https://app.mplannerpro.com/abce1ffefc/chat?pg=69539a14a3" data-frame="modal" class="fixed bottom-6 left-6 z-50 cursor-magnet bg-gradient-to-r from-gold to-gold2 text-navy px-5 py-3 rounded-full font-bold shadow-glow glow-pulse flex items-center gap-2">
+  <span class="text-lg">$</span><div class="text-left"><div class="text-sm leading-none">AI Revenue Growth Engine</div><div class="text-[10px] uppercase tracking-widest opacity-80 mt-0.5">Free · 5 min</div></div>
 </a>
 
-<!-- ═══════ MODAL ═══════ -->
-<div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <h3 id="modal-title">Affiliate Disclosure</h3>
-    <div id="modal-body"></div>
-  </div>
-</div>
-
+<!-- ───── SCRIPTS ───── -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 <script>
-const DREAMS_SCORE_URL = 'https://dreamsscore.biz';
-
-function openLink(url){
-  try{ window.open(url, '_blank', 'noopener,noreferrer'); }
-  catch(e){ window.location.href = url; }
-}
-
-function dreamsScore(){
-  openLink(DREAMS_SCORE_URL);
-}
-
-const AI_ASSESSMENT_URL = 'https://ownly-gap-audit.vercel.app/';
-function aiAssessment(){
-  openLink(AI_ASSESSMENT_URL);
-}
-
-const FIND_MY_MONEY_URL = 'https://app.mplannerpro.com/abce1ffefc/chat?pg=69539a14a3';
-function findMyMoney(){
-  openLink(FIND_MY_MONEY_URL);
-}
-
-const MODAL_CONTENT = {
-  affiliate: {
-    title: "Affiliate Disclosure",
-    body: "<p>Ownly Once LLC operates this site as an editorial publication. Many of the partner services we recommend are accessed through affiliate or referral links, which means we may earn a commission when you sign up or make a purchase through them.</p><p>Affiliate compensation does not increase the cost of any product or service you purchase through these referral links. In many cases, using our referral links may give you access to free training, free trials, or special rates that aren't available going direct.</p><p>We only feature partners we have personally vetted and would (or do) use ourselves. That said, you should always do your own due diligence before engaging any service.</p>"
-  },
-  disclaimer: {
-    title: "General Disclaimer",
-    body: "<p>All content on this site is for educational and informational purposes only. Nothing here constitutes investment, tax, legal, accounting, or financial advice. Always consult a qualified professional before acting on any information.</p><p>Funding, tax, and credit outcomes vary by business. Past results do not guarantee future results.</p>"
-  },
-  privacy: {
-    title: "Privacy Policy",
-    body: "<p>This site collects minimal information. We do not require login, email, or a credit card to use the diagnostic. Information you share when you book a call, fill a contact form, or click a partner link is used solely to respond to your request or activate your referral cookie.</p><p>Affiliate referral cookies set by partner sites are governed by those partners' privacy practices.</p>"
-  },
-  terms: {
-    title: "Terms of Use",
-    body: "<p>By using this site, you agree that the content is provided as-is for educational purposes. Ownly Once LLC makes no warranties about the accuracy or applicability of any specific recommendation to your situation.</p><p>Partner services listed on this site are operated by their respective providers under their own terms. Engaging any service is between you and that provider.</p>"
+// THREE.js globe with gold arcs
+(function(){
+  const c=document.getElementById('globe-canvas');if(!c)return;
+  const scene=new THREE.Scene();
+  const cam=new THREE.PerspectiveCamera(40,c.clientWidth/c.clientHeight,.1,1000);cam.position.z=3.4;
+  const r=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});r.setPixelRatio(window.devicePixelRatio);
+  function size(){r.setSize(c.clientWidth,c.clientHeight,false);cam.aspect=c.clientWidth/c.clientHeight;cam.updateProjectionMatrix();}
+  size();window.addEventListener('resize',size);
+  const sphere=new THREE.Mesh(new THREE.SphereGeometry(1,40,40),new THREE.MeshBasicMaterial({color:0x0B2545,wireframe:true,transparent:true,opacity:.18}));
+  scene.add(sphere);
+  const dots=new THREE.Group();
+  for(let i=0;i<480;i++){
+    const t=Math.random()*Math.PI*2,p=Math.acos(2*Math.random()-1);
+    const x=Math.sin(p)*Math.cos(t),y=Math.sin(p)*Math.sin(t),z=Math.cos(p);
+    const m=new THREE.Mesh(new THREE.SphereGeometry(.012,6,6),new THREE.MeshBasicMaterial({color:0xC5A05A,transparent:true,opacity:.7}));
+    m.position.set(x,y,z);dots.add(m);
   }
-};
+  scene.add(dots);
+  const arcs=new THREE.Group();
+  for(let i=0;i<8;i++){
+    const t1=Math.random()*Math.PI*2,p1=Math.acos(2*Math.random()-1);
+    const t2=Math.random()*Math.PI*2,p2=Math.acos(2*Math.random()-1);
+    const a=new THREE.Vector3(Math.sin(p1)*Math.cos(t1),Math.sin(p1)*Math.sin(t1),Math.cos(p1));
+    const b=new THREE.Vector3(Math.sin(p2)*Math.cos(t2),Math.sin(p2)*Math.sin(t2),Math.cos(p2));
+    const mid=a.clone().add(b).multiplyScalar(.5).normalize().multiplyScalar(1.4);
+    const curve=new THREE.QuadraticBezierCurve3(a,mid,b);
+    const pts=curve.getPoints(50);
+    const g=new THREE.BufferGeometry().setFromPoints(pts);
+    const m=new THREE.Line(g,new THREE.LineBasicMaterial({color:0xE8C97A,transparent:true,opacity:.55}));
+    arcs.add(m);
+  }
+  scene.add(arcs);
+  function loop(){requestAnimationFrame(loop);dots.rotation.y+=.0015;arcs.rotation.y+=.0015;sphere.rotation.y+=.0015;r.render(scene,cam);}
+  loop();
+})();
 
-function openModal(key){
-  const c = MODAL_CONTENT[key] || MODAL_CONTENT.affiliate;
-  document.getElementById('modal-title').textContent = c.title;
-  document.getElementById('modal-body').innerHTML = c.body;
-  document.getElementById('modal-bg').classList.add('show');
-}
-function closeModal(){
-  document.getElementById('modal-bg').classList.remove('show');
-}
+// Count-up
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.done){e.target.dataset.done=1;
+  const to=+e.target.dataset.countTo;const t=900;const s=performance.now();
+  const tick=now=>{const p=Math.min(1,(now-s)/t);e.target.textContent=Math.round(to*p);if(p<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);
+}}),{threshold:.4});document.querySelectorAll('[data-count-to]').forEach(el=>obs.observe(el));
 
-// Smooth-scroll the in-page anchors for sticky-nav offset
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', function(e){
-    const targetId = this.getAttribute('href').slice(1);
-    if(!targetId) return;
-    const t = document.getElementById(targetId);
-    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
-  });
+// Section fade-in
+const fadeObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
+document.querySelectorAll('.section-fade').forEach(el=>fadeObs.observe(el));
+
+// DREAMS Gauge animation
+(function(){
+  const arc=document.getElementById('gauge-arc');const num=document.getElementById('gauge-num');
+  const bars=document.querySelectorAll('.bar-fill');
+  const target=82;const dash=540;const off=540-(540*target/100);
+  const go=()=>{
+    arc.style.transition='stroke-dashoffset 2.2s cubic-bezier(.16,1,.3,1)';
+    arc.style.strokeDashoffset=off;
+    let n=0;const t=2200;const s=performance.now();
+    const tick=now=>{const p=Math.min(1,(now-s)/t);num.textContent=Math.round(target*p);if(p<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);
+    bars.forEach(b=>b.classList.add('fill'));
+  };
+  const o=new IntersectionObserver(es=>{if(es[0].isIntersecting){go();o.disconnect();}},{threshold:.3});
+  o.observe(arc);
+})();
+
+// Magnetic cursor
+document.querySelectorAll('.cursor-magnet').forEach(el=>{
+  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;el.style.transform=`translate(${x*.25}px,${y*.4}px)`;});
+  el.addEventListener('mouseleave',()=>{el.style.transform='translate(0,0)'});
 });
 
-// Capture audience param for future segmentation
+// Tilt 3D on cards
+document.querySelectorAll('.tilt').forEach(el=>{
+  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-6px)`;});
+  el.addEventListener('mouseleave',()=>{el.style.transform=''});
+});
+
+// Coin rain
+function spawnCoins(targetId){
+  const t=document.getElementById(targetId);if(!t)return;
+  for(let i=0;i<24;i++){
+    const c=document.createElement('div');c.className='coin font-serif font-bold';c.textContent='$';
+    c.style.left=Math.random()*100+'%';c.style.fontSize=(14+Math.random()*22)+'px';
+    c.style.animationDuration=(6+Math.random()*8)+'s';c.style.animationDelay=(Math.random()*8)+'s';
+    t.appendChild(c);
+  }
+}
+spawnCoins('coin-rain');spawnCoins('coin-rain-2');
+
+/* ═══════════════════════════════════════════════════════════
+   CONCIERGE FRAME — Option 2 hybrid modal
+   Tries iframe; falls back to new tab if site blocks framing.
+   Keeps visitors inside Ownly UX.
+   ═══════════════════════════════════════════════════════════ */
 (function(){
-  try{
-    const p = new URLSearchParams(window.location.search);
-    const audience = p.get('audience');
-    if(audience){ document.documentElement.setAttribute('data-audience', audience); }
-  }catch(e){}
+  // Known framing-friendly hosts. Everything else falls back to new tab.
+  const FRAMEABLE = [
+    'app.mplannerpro.com',
+    'ownly-gap-audit.vercel.app',
+    'ownly-business-credit-builder.vercel.app',
+    'campbellwa.vercel.app',
+    'ownly-web-studio.vercel.app',
+    'venice50kchallenge.com',
+    'venicebusinessacademy.com',
+    'localspotlightads.com'
+  ];
+
+  // Inject modal shell + styles once
+  const style = document.createElement('style');
+  style.textContent = `
+    #ownly-concierge{position:fixed;inset:0;z-index:9999;display:none;background:rgba(11,26,48,.92);backdrop-filter:blur(8px);animation:ocFade .25s ease-out}
+    #ownly-concierge.open{display:flex;flex-direction:column}
+    @keyframes ocFade{from{opacity:0}to{opacity:1}}
+    .oc-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(180deg,#0b1a30 0%,#102443 100%);border-bottom:1px solid rgba(201,168,76,.25);color:#FAF7EE;font-family:'Inter',sans-serif}
+    .oc-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:.02em}
+    .oc-brand .oc-dot{width:8px;height:8px;border-radius:50%;background:#C9A84C;box-shadow:0 0 12px rgba(201,168,76,.7)}
+    .oc-title{font-size:12px;opacity:.65;font-weight:500;max-width:50vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .oc-actions{display:flex;gap:8px}
+    .oc-btn{background:transparent;border:1px solid rgba(201,168,76,.35);color:#C9A84C;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+    .oc-btn:hover{background:rgba(201,168,76,.1)}
+    .oc-btn.oc-close{border-color:rgba(255,255,255,.2);color:#FAF7EE}
+    .oc-frame-wrap{flex:1;position:relative;background:#fff}
+    .oc-frame-wrap iframe{width:100%;height:100%;border:0;background:#fff}
+    .oc-toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);max-width:480px;width:90%;background:linear-gradient(135deg,#0b1a30,#102443);border:1px solid rgba(201,168,76,.4);border-radius:18px;padding:36px 32px;color:#FAF7EE;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.6);font-family:'Inter',sans-serif;z-index:10000;display:none;animation:ocFade .3s ease-out}
+    .oc-toast.show{display:block}
+    .oc-toast h3{font-family:'Playfair Display',serif;color:#E6C766;font-size:28px;margin:0 0 12px;font-weight:700}
+    .oc-toast p{color:rgba(250,247,238,.78);font-size:15px;line-height:1.55;margin:0 0 22px}
+    .oc-toast .oc-primary{display:inline-block;background:linear-gradient(135deg,#C9A84C,#E6C766);color:#0b1a30;padding:12px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:14px;margin-right:8px}
+    .oc-toast .oc-secondary{display:inline-block;background:transparent;border:1px solid rgba(255,255,255,.25);color:#FAF7EE;padding:12px 26px;border-radius:999px;font-weight:700;cursor:pointer;font-size:14px;font-family:inherit}
+  `;
+  document.head.appendChild(style);
+
+  const shell = document.createElement('div');
+  shell.id = 'ownly-concierge';
+  shell.innerHTML = `
+    <div class="oc-bar">
+      <div class="oc-brand"><span class="oc-dot"></span>The Ownly Breakthrough <span class="oc-title" id="oc-title"></span></div>
+      <div class="oc-actions">
+        <a class="oc-btn" id="oc-open-tab" target="_blank" rel="noopener">Open in new tab ↗</a>
+        <button class="oc-btn oc-close" id="oc-close">← Back to Ownly</button>
+      </div>
+    </div>
+    <div class="oc-frame-wrap"><iframe id="oc-frame" referrerpolicy="no-referrer-when-downgrade" allow="payment; microphone; camera; clipboard-read; clipboard-write" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation"></iframe></div>
+  `;
+  document.body.appendChild(shell);
+
+  const toast = document.createElement('div');
+  toast.className = 'oc-toast';
+  toast.id = 'oc-toast';
+  toast.innerHTML = `
+    <h3>Opening in a new tab</h3>
+    <p id="oc-toast-msg">This partner doesn't allow embedded preview. We'll open it in a new tab so their security stays intact — come right back when you're done.</p>
+    <a class="oc-primary" id="oc-toast-go" target="_blank" rel="noopener">Continue →</a>
+    <button class="oc-secondary" id="oc-toast-cancel">Stay here</button>
+  `;
+  document.body.appendChild(toast);
+
+  const frame = document.getElementById('oc-frame');
+  const titleEl = document.getElementById('oc-title');
+  const openTabEl = document.getElementById('oc-open-tab');
+  document.getElementById('oc-close').onclick = closeFrame;
+  document.getElementById('oc-toast-cancel').onclick = closeToast;
+
+  function isFrameable(url){
+    try{
+      const u = new URL(url, window.location.href);
+      return FRAMEABLE.includes(u.hostname);
+    }catch(e){ return false; }
+  }
+  function openFrame(url, label){
+    titleEl.textContent = label ? '· ' + label : '';
+    openTabEl.href = url;
+    frame.src = url;
+    shell.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFrame(){
+    shell.classList.remove('open');
+    frame.src = 'about:blank';
+    document.body.style.overflow = '';
+  }
+  function openToast(url, label){
+    document.getElementById('oc-toast-msg').textContent = label
+      ? `${label} opens outside Ownly — we'll launch it in a new tab so your spot here stays warm. Come right back when you're done.`
+      : `This partner doesn't allow embedded preview. We'll open it in a new tab so their security stays intact — come right back when you're done.`;
+    const go = document.getElementById('oc-toast-go');
+    go.href = url;
+    go.onclick = () => setTimeout(closeToast, 600);
+    toast.classList.add('show');
+  }
+  function closeToast(){ toast.classList.remove('show'); }
+
+  // Intercept all data-frame="modal" clicks
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[data-frame="modal"]');
+    if(!a) return;
+    const href = a.getAttribute('href');
+    if(!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    e.preventDefault();
+    const label = a.querySelector('h3') ? a.querySelector('h3').textContent.trim() : a.textContent.trim().slice(0, 40);
+    if(isFrameable(href)){
+      openFrame(href, label);
+    } else {
+      openToast(href, label);
+    }
+  });
+
+  // ESC closes
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape'){ closeFrame(); closeToast(); }
+  });
 })();
 </script>
-
 </body>
 </html>
