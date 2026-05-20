@@ -21,7 +21,7 @@ body > *{position:relative;z-index:1}
 .glass{background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.12)}
 .gold-line{background:linear-gradient(90deg,transparent,#C5A05A,transparent)}
 .tilt{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.tilt:hover{transform:perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-6px)}
+@media (hover: hover) and (pointer: fine){.tilt:hover{transform:perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-6px)}}
 .parallax-bg{background-attachment:fixed;background-size:cover;background-position:center}
 .gradient-text{background:linear-gradient(135deg,#E8C97A 0%,#C5A05A 50%,#FFFFFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .gradient-text-light{background:linear-gradient(135deg,#FFFFFF,#C0C7CF);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -29,14 +29,13 @@ body > *{position:relative;z-index:1}
 .scroll-mask{mask-image:linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent)}
 .glow-pulse{animation:glow 3s ease-in-out infinite}
 @keyframes glow{0%,100%{box-shadow:0 0 30px -10px rgba(197,160,90,.4)}50%{box-shadow:0 0 60px -10px rgba(197,160,90,.85)}}
-.cursor-magnet{transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+@media (hover: hover) and (pointer: fine){.cursor-magnet{transition:transform .25s cubic-bezier(.34,1.56,.64,1)}}
 #globe-canvas{position:absolute;inset:0;z-index:0;opacity:.7}
 .section-fade{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
 .section-fade.in{opacity:1;transform:translateY(0)}
 .book-cover{transform-style:preserve-3d;transition:transform .8s cubic-bezier(.16,1,.3,1)}
-.book-cover:hover{transform:rotateY(-25deg) translateY(-12px) scale(1.04)}
 .book-cover::before{content:'';position:absolute;left:0;top:0;width:100%;height:100%;background:linear-gradient(110deg,transparent 45%,rgba(255,255,255,.18) 50%,transparent 55%);opacity:0;transition:.6s}
-.book-cover:hover::before{opacity:1}
+@media (hover: hover) and (pointer: fine){.book-cover:hover{transform:rotateY(-25deg) translateY(-12px) scale(1.04)}.book-cover:hover::before{opacity:1}}
 .marquee{display:flex;gap:3rem;animation:marquee 40s linear infinite}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
@@ -46,6 +45,24 @@ body > *{position:relative;z-index:1}
 .bar-fill.fill{transform:scaleX(var(--w,1))}
 .text-stroke{-webkit-text-stroke:1px rgba(197,160,90,.6);color:transparent}
 .dreams-gauge{filter:drop-shadow(0 0 18px rgba(197,160,90,.45))}
+/* ───── Mobile ambient idle animation (touch devices) ───── */
+@keyframes float-card{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes spiral-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+#globe-fallback{display:none;position:absolute;inset:0;z-index:0;opacity:.55;pointer-events:none;align-items:center;justify-content:center}
+#globe-fallback svg{width:80%;max-width:520px;height:auto;animation:spiral-spin 30s linear infinite;transform-origin:center}
+@media (pointer: coarse){
+  .tilt,.book-cover{animation:float-card 5s ease-in-out infinite;will-change:transform}
+  .tilt:nth-child(2){animation-delay:1s;animation-duration:6s}
+  .tilt:nth-child(3){animation-delay:2s;animation-duration:7s}
+  .parallax-bg{background-attachment:scroll}
+  #globe-canvas{display:none}
+  #globe-fallback{display:flex}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-property:opacity !important;transition-duration:.3s !important}
+  .section-fade{transform:none}
+  .section-fade.in{transform:none;opacity:1}
+}
 </style>
 </head>
 <body class="bg-navy text-white">
@@ -80,6 +97,19 @@ body > *{position:relative;z-index:1}
 <!-- ───── HERO ───── -->
 <section class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
   <canvas id="globe-canvas"></canvas>
+  <div id="globe-fallback" aria-hidden="true">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="gf-g" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#D4B87A" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#B8965A" stop-opacity="0.2"/>
+        </radialGradient>
+      </defs>
+      <g fill="none" stroke="url(#gf-g)" stroke-width="1.1" stroke-linecap="round">
+        <path d="M100,100 m0,-2 a2,2 0 1,1 0.1,0 a6,6 0 1,1 0.2,0 a12,12 0 1,1 0.3,0 a20,20 0 1,1 0.4,0 a30,30 0 1,1 0.5,0 a42,42 0 1,1 0.6,0 a56,56 0 1,1 0.7,0 a72,72 0 1,1 0.8,0 a90,90 0 1,1 0.9,0" stroke-opacity="0.8"/>
+      </g>
+    </svg>
+  </div>
   <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy2/40 to-navy"></div>
   <div class="absolute inset-0 dot-grid opacity-30"></div>
   <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gold/20 blur-3xl animate-drift"></div>
@@ -589,9 +619,10 @@ body > *{position:relative;z-index:1}
 <!-- ───── SCRIPTS ───── -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 <script>
-// THREE.js globe with gold arcs
+// THREE.js globe with gold arcs (skip on touch devices — CSS fallback shows instead)
 (function(){
   const c=document.getElementById('globe-canvas');if(!c)return;
+  if(window.matchMedia('(pointer: coarse)').matches){c.style.display='none';return;}
   const scene=new THREE.Scene();
   const cam=new THREE.PerspectiveCamera(40,c.clientWidth/c.clientHeight,.1,1000);cam.position.z=3.4;
   const r=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});r.setPixelRatio(window.devicePixelRatio);
@@ -647,26 +678,33 @@ document.querySelectorAll('.section-fade').forEach(el=>fadeObs.observe(el));
     const tick=now=>{const p=Math.min(1,(now-s)/t);num.textContent=Math.round(target*p);if(p<1)requestAnimationFrame(tick);};requestAnimationFrame(tick);
     bars.forEach(b=>b.classList.add('fill'));
   };
-  const o=new IntersectionObserver(es=>{if(es[0].isIntersecting){go();o.disconnect();}},{threshold:.3});
+  const o=new IntersectionObserver(es=>{if(es[0].isIntersecting){go();o.disconnect();}},{threshold:.05});
   o.observe(arc);
 })();
 
-// Magnetic cursor
-document.querySelectorAll('.cursor-magnet').forEach(el=>{
-  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;el.style.transform=`translate(${x*.25}px,${y*.4}px)`;});
-  el.addEventListener('mouseleave',()=>{el.style.transform='translate(0,0)'});
-});
+// Magnetic cursor (mouse devices only)
+(function(){
+  if(!window.matchMedia('(hover: hover)').matches) return;
+  document.querySelectorAll('.cursor-magnet').forEach(el=>{
+    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;el.style.transform=`translate(${x*.25}px,${y*.4}px)`;});
+    el.addEventListener('mouseleave',()=>{el.style.transform='translate(0,0)'});
+  });
+})();
 
-// Tilt 3D on cards
-document.querySelectorAll('.tilt').forEach(el=>{
-  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-6px)`;});
-  el.addEventListener('mouseleave',()=>{el.style.transform=''});
-});
+// Tilt 3D on cards (mouse devices only — touch uses ambient float-card CSS instead)
+(function(){
+  if(!window.matchMedia('(hover: hover)').matches) return;
+  document.querySelectorAll('.tilt').forEach(el=>{
+    el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-6px)`;});
+    el.addEventListener('mouseleave',()=>{el.style.transform=''});
+  });
+})();
 
-// Coin rain
+// Coin rain — count gated for touch devices to protect mobile perf
+const COIN_COUNT = window.matchMedia('(pointer: coarse)').matches ? 12 : 24;
 function spawnCoins(targetId){
   const t=document.getElementById(targetId);if(!t)return;
-  for(let i=0;i<24;i++){
+  for(let i=0;i<COIN_COUNT;i++){
     const c=document.createElement('div');c.className='coin font-serif font-bold';c.textContent='$';
     c.style.left=Math.random()*100+'%';c.style.fontSize=(14+Math.random()*22)+'px';
     c.style.animationDuration=(6+Math.random()*8)+'s';c.style.animationDelay=(Math.random()*8)+'s';
