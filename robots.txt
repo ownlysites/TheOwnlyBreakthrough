@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://the-ownly-breakthrough.vercel.app/sitemap.xml
